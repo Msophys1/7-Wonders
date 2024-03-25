@@ -1,7 +1,7 @@
 # 7-Wonders
 
 ## Introduction
-Ce projet, développé dans le cadre du cours LO21, est une implémentation en C du célèbre jeu de société *7 Wonders Duel*. Ce jeu stratégique invite deux joueurs à bâtir des civilisations à travers trois âges, en utilisant des cartes qui représentent différentes structures. Les joueurs peuvent gagner de trois manières : par suprématie militaire, suprématie scientifique, ou victoire civile.
+Ce projet, développé dans le cadre du cours LO21, est une implémentation en C++ du célèbre jeu de société *7 Wonders Duel*. Ce jeu stratégique invite deux joueurs à bâtir des civilisations à travers trois âges, en utilisant des cartes qui représentent différentes structures. Les joueurs peuvent gagner de trois manières : par suprématie militaire, suprématie scientifique, ou victoire civile.
 
 ## Règles du Jeu
 
