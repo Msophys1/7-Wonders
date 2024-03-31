@@ -36,11 +36,35 @@ int Plateau::validateInput(int min, int max) {
 }
 
 void Plateau::setUpPlateau() {
+    // Initialisation des variables de jeu
+    initialiserVariablesDeJeu();
+    // Préparer les jetons de progrès
+    preparerJetonsDeProgres();
+
+    for (int age = 0; age < 3; ++age) {
+        initialiserCartesPourAge(age);
+    }
+
+    // Initialisation des jetons militaires sur le plateau
+    initialiserJetonsMilitaires();
+    // Distribution initiale des pièces de monnaie aux joueurs
+    distribuerPiecesInitiales();
+
+
+}
+
+void Plateau::initialiserVariablesDeJeu() {
     // Réinitialise la position du pion de conflit à 0, indiquant le début de la partie sans avantage militaire pour aucun joueur.
     positionPionConflit = 0;
     // Réinitialise la position de la piste militaire à 0. (Cette variable semble redondante ou non utilisée si elle a le même but que positionPionConflit)
     militaryTrackPosition = 0;
+    // Efface le compteur des symboles scientifiques pour assurer qu'aucun symbole ne soit compté avant le début de la partie.
+    scientificSymbolsCount.clear();
+    // Efface le compteur des jetons progrès pour assurer qu'aucun jetons ne soit compté avant le début de la partie.
+    availableJetonsProgres.clear();
+}
 
+void Plateau::preparerJetonsDeProgres(){
     // Initialise la liste des jetons de progrès disponibles en y incluant un assortiment prédéfini de jetons.
     availableJetonsProgres = {
             JetonsProgres::Agriculture,
@@ -61,34 +85,35 @@ void Plateau::setUpPlateau() {
     std::shuffle(availableJetonsProgres.begin(), availableJetonsProgres.end(), std::default_random_engine(seed));
     // Réduit la liste des jetons de progrès à 5, choisissant ainsi aléatoirement les jetons pour la partie.
     availableJetonsProgres.resize(5);
+}
 
-    // Efface le compteur des symboles scientifiques pour assurer qu'aucun symbole n'est compté avant le début de la partie.
-    scientificSymbolsCount.clear();
+void Plateau::initialiserJetonsMilitaires() {
+    // TODO: Ajouter une logique pour initialiser et placer les jetons militaires sur le plateau.
+}
+
+void Plateau::distribuerPiecesInitiales() {
+    // TODO : La distribution initiale des pièces de monnaie aux joueurs.
+    // joueur1.ajouterPieces(7);
+    // joueur2.ajouterPieces(7);
+    // Note: Assurez-vous d'avoir accès aux instances des joueurs
+}
+
+void Plateau::initialiserCartesPourAge(int age) {
 
     // TODO : La préparation détaillée des cartes pour chaque âge, en suivant les structures spécifiques avec
     //  des cartes face visible ou cachée.
     // TODO : Prend aussi en compte qu'il y a trois ages. les détails du nombres de carte par age et de
     //  l'initialisation de ces cartes est dans le document des règles du jeux
+
     // Initialise les dispositions des cartes pour chaque âge.
-    ageCardLayouts.clear(); // Efface toutes les configurations précédentes des cartes.
-    ageCardLayouts.resize(3); // Prépare le vecteur pour trois âges.
-    int numberOfCardsPerAge[] = {23, 23, 20}; // Définit le nombre de cartes par âge selon les règles.
-    for (int i = 0; i < 3; ++i) {
+    // ageCardLayouts.clear(); // Efface toutes les configurations précédentes des cartes.
+    // ageCardLayouts.resize(3); // Prépare le vecteur pour trois âges.
+    // int numberOfCardsPerAge[] = {23, 23, 20}; // Définit le nombre de cartes par âge selon les règles.
+    // for (int i = 0; i < 3; ++i) {
         // Redimensionne chaque vecteur d'âge pour correspondre au nombre de cartes spécifié.
-        ageCardLayouts[i].resize(numberOfCardsPerAge[i]);
+    //     ageCardLayouts[i].resize(numberOfCardsPerAge[i]);
         // TODO: Initialiser chaque vecteur de cartes avec les cartes spécifiques pour chaque âge
-    }
-
-
-    // TODO: Ajouter une logique pour initialiser et placer les jetons militaires sur le plateau.
-    // Initialisation des jetons militaires sur le plateau
-
-    // TODO : La distribution initiale des pièces de monnaie aux joueurs.
-    // Distribution initiale des pièces de monnaie aux joueurs
-    // Chaque joueur commence avec 7 pièces
-    // joueur1.ajouterPieces(7);
-    // joueur2.ajouterPieces(7);
-
+    //}
 }
 
 
@@ -111,7 +136,7 @@ void Plateau::displayStatePlateau() const {
     // La position du pion de conflit indique le progrès des joueurs vers une victoire ou une défaite militaire.
     std::cout << "Position du pion de conflit: " << positionPionConflit << std::endl;
 
-    // Débute l'affichage des jetons de progrès disponibles.
+    // Commence l'affichage des jetons de progrès disponibles.
     std::cout << "Jetons de progres disponibles: ";
     // Parcourt et affiche chaque jeton de progrès disponible sur le plateau.
     for (auto& token : availableJetonsProgres) {
