@@ -3,7 +3,16 @@
 //
 
 #include "Joueur.h"
+#include "Plateau.h"
 
-int Joueur::getUniqueScientificSymbolsCount() {
-    return 0;
+bool Joueur::checkScientificVictory() const {
+    return scientificSymbols.size() == 6;
+}
+
+void Joueur::playMilitaryCard(Plateau &plateau, int boucliers) {
+    plateau.moveConflictPawn(boucliers);
+    if(plateau.checkMilitaryVictory()){
+        // Victoire
+    }
+
 }

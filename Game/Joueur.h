@@ -5,11 +5,18 @@
 #ifndef INC_7_WONDERS_JOUEUR_H
 #define INC_7_WONDERS_JOUEUR_H
 
+#include "Plateau.h"
+#include <unordered_set>
+
 
 class Joueur {
+private:
+    std::unordered_set<SymboleScientifiques> scientificSymbols;
 
 public:
-    static int getUniqueScientificSymbolsCount();
+
+    bool checkScientificVictory() const;
+    static void playMilitaryCard(Plateau& plateau, int boucliers);
 };
 
 

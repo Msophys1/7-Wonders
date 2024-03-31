@@ -12,13 +12,28 @@
 #include "Joueur.h"
 
 enum class JetonsProgres{
+    Agriculture,
+    Architecture,
+    Economie,
+    Loi,
+    Maconnerie,
+    Mathematiques,
+    Philosophie,
+    Strategie,
+    Theologie,
+    Urbanisme
+
 
 };
 
 enum class SymboleScientifiques{
     Roue,
+    Compas,
+    Mortier_Pilon,
     Tablette,
-    Compas
+    Lyre,
+    Mesure,
+    Telescope
 };
 
 class Plateau {
@@ -27,21 +42,24 @@ public :
 
     void setUpPlateau();
 
+    void moveConflictPawn( int boucliers);
+
+    [[nodiscard]] bool checkMilitaryVictory() const;
+
     [[maybe_unused]] void displayStatePlateau() const;
 
-    [[maybe_unused]] void advanceMilitaryTrack(Joueur& joueur, int steps);
+    [[maybe_unused]] void avancementMilitaire(Joueur& joueur, int steps);
 
     [[maybe_unused]] void acheterJetonProgres(Joueur& joueur, JetonsProgres token);
 
     [[maybe_unused]] void collecterSymboleScientifique(Joueur& joueur, SymboleScientifiques symbole);
 
-    [[maybe_unused]] bool checkVictoireMilitaire() const;
-
-    [[maybe_unused]] static bool checkVictoireScientifique(const Joueur& joueur);
 
 private :
     // Assuming a simple representation of the military track as an integer
-    int militaryTrackPosition;
+    int militaryTrackPosition{}; // de -9 à 9
+
+    int positionPionConflit;
 
     // Track the progress tokens available in the game
     std::vector<JetonsProgres> availableJetonsProgres{};
