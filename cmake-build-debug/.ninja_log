@@ -2,6 +2,6 @@
 2	655	7336120813639048	CMakeFiles/7_Wonders.dir/main.cpp.obj	f0d3258d0d395851
 29	657	7336120813628963	CMakeFiles/7_Wonders.dir/Game/Cards.cpp.obj	49a4285fbcb574fe
 13	660	7336120813668910	CMakeFiles/7_Wonders.dir/Game/GameManager.cpp.obj	89a7398aa8b7c000
+2118	2730	7336163925619471	lib7_Wonders.a	c3875813eb9662c4
 1	1127	7336157113110174	CMakeFiles/7_Wonders.dir/Game/Joueur.cpp.obj	2dc33f7578785586
 4	2116	7336163919434127	CMakeFiles/7_Wonders.dir/Game/Plateau.cpp.obj	edf18104a67ea728
-2118	2730	7336163925619471	lib7_Wonders.a	c3875813eb9662c4
