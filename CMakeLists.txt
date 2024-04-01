@@ -10,5 +10,26 @@ add_library(7_Wonders STATIC main.cpp
         Game/Joueur.h
         Game/Plateau.cpp
         Game/Plateau.h
-        Game/Cards.cpp
-        Game/Cards.h)
+        Game/Carte.cpp
+        Game/Carte.h
+)
+
+include(FetchContent)
+
+FetchContent_Declare(
+        json
+        GIT_REPOSITORY https://github.com/nlohmann/json.git
+        GIT_TAG v3.11.3
+)
+
+FetchContent_MakeAvailable(json)
+
+include(FetchContent)
+
+FetchContent_Declare(
+        gtest
+        GIT_REPOSITORY https://github.com/google/googletest.git
+        GIT_TAG v1.14.0
+)
+
+FetchContent_MakeAvailable(json)

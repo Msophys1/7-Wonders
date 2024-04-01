@@ -54,11 +54,14 @@ void Plateau::setUpPlateau() {
 }
 
 void Plateau::initialiserVariablesDeJeu() {
-    // Réinitialise la position du pion de conflit à 0, indiquant le début de la partie sans avantage militaire pour aucun joueur.
+    // Réinitialise la position du pion de conflit à 0, indiquant le début de la partie sans avantage militaire
+    // pour aucun joueur.
     positionPionConflit = 0;
-    // Réinitialise la position de la piste militaire à 0. (Cette variable semble redondante ou non utilisée si elle a le même but que positionPionConflit)
+    // Réinitialise la position de la piste militaire à 0. (Cette variable semble redondante ou non utilisée
+    // si elle a le même but que positionPionConflit)
     militaryTrackPosition = 0;
-    // Efface le compteur des symboles scientifiques pour assurer qu'aucun symbole ne soit compté avant le début de la partie.
+    // Efface le compteur des symboles scientifiques pour assurer qu'aucun symbole ne soit compté avant le
+    // début de la partie.
     scientificSymbolsCount.clear();
     // Efface le compteur des jetons progrès pour assurer qu'aucun jetons ne soit compté avant le début de la partie.
     availableJetonsProgres.clear();
@@ -82,7 +85,8 @@ void Plateau::preparerJetonsDeProgres(){
     // Utilise l'horloge système pour générer une graine aléatoire.
     unsigned seed = std::chrono::system_clock::now().time_since_epoch().count();
     // Mélange aléatoirement les jetons de progrès disponibles en utilisant la graine.
-    std::shuffle(availableJetonsProgres.begin(), availableJetonsProgres.end(), std::default_random_engine(seed));
+    std::shuffle(availableJetonsProgres.begin(), availableJetonsProgres.end(),
+                 std::default_random_engine(seed));
     // Réduit la liste des jetons de progrès à 5, choisissant ainsi aléatoirement les jetons pour la partie.
     availableJetonsProgres.resize(5);
 }
@@ -104,6 +108,8 @@ void Plateau::initialiserCartesPourAge(int age) {
     //  des cartes face visible ou cachée.
     // TODO : Prend aussi en compte qu'il y a trois ages. les détails du nombres de carte par age et de
     //  l'initialisation de ces cartes est dans le document des règles du jeux
+
+    Carte::chargerDeckDepuisFichier("Assets/Cartes.json");
 
     // Initialise les dispositions des cartes pour chaque âge.
     // ageCardLayouts.clear(); // Efface toutes les configurations précédentes des cartes.

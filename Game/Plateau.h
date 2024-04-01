@@ -3,7 +3,7 @@
 
 #include <vector>
 #include <map>
-#include "Cards.h"
+#include "Carte.h"
 #include "Joueur.h"
 #include "Type.h"
 
@@ -30,7 +30,7 @@ private:
     void initialiserCartesPourAge(int age);
     int militaryTrackPosition{}; // de -9 à 9
     int positionPionConflit{};
-    std::vector<std::vector<Cards>> ageCardLayouts;
+    std::vector<std::vector<Carte>> ageCardLayouts;
     std::map<SymboleScientifiques, int> scientificSymbolsCount;
     std::vector<JetonsProgres> availableJetonsProgres;
 

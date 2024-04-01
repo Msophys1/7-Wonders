@@ -1,0 +1,170 @@
+{
+  "Age1": [
+    {
+      "name": "Chantier",
+      "couleur": "marron",
+      "cost": [""],
+      "produit": {
+        "ressources": ["bois"]
+      },
+      "boucliers": 0,
+      "symboles_scientifiques": [],
+      "points_de_victoire": 0,
+      "argent": 0,
+      "avantage" : []
+    },
+    {
+      "name": "Exploitation",
+      "couleur": "marron",
+      "cost": ["pièce"],
+      "produit": {
+        "ressources": ["bois"]
+      },
+      "boucliers": 0,
+      "symboles_scientifiques": [],
+      "points_de_victoire": 0,
+      "argent": 0,
+      "avantage" : []
+    },
+    {
+      "name": "Atelier",
+      "couleur": "vert",
+      "cost": ["parchemin"],
+      "produit": {
+        "symboles_scientifiques": ["Compas"],
+        "points_de_victoire": 1
+      },
+      "boucliers": 0,
+      "argent": 0,
+      "avantage" : []
+    },
+    {
+      "name": "Apothicaire",
+      "couleur": "vert",
+      "cost": ["verre"],
+      "produit": {
+        "symboles_scientifiques": ["Roue"],
+        "points_de_victoire": 1
+      },
+      "boucliers": 0,
+      "argent": 0,
+      "avantage" : []
+    },
+    {
+      "name": "Dépôt de Pierre",
+      "couleur": "jaune",
+      "cost": ["pièce"],
+      "produit": {
+        "avantage" : ["1 pour chaque carte marron sur le plateau"]
+      },
+      "points_de_victoire": 3,
+      "boucliers": 0,
+      "symboles_scientifiques": []
+    }
+  ],
+
+  "Age2": [
+    {
+      "name": "Scierie",
+      "couleur": "marron",
+      "cost": ["pièce", "pièce"],
+      "produit": {
+        "ressources": ["bois", "bois"]
+      },
+      "boucliers": 0,
+      "symboles_scientifiques": [],
+      "points_de_victoire": 0,
+      "argent": 0,
+      "avantage" : []
+    },
+    {
+      "name": "Briqueterie",
+      "couleur": "marron",
+      "cost": ["pièce", "pièce"],
+      "produit": {
+        "ressources": ["argile", "argile"]
+      },
+      "boucliers": 0,
+      "symboles_scientifiques": [],
+      "points_de_victoire": 0,
+      "argent": 0,
+      "avantage" : []
+    },
+    {
+      "name": "Carrière",
+      "couleur": "marron",
+      "cost": ["pièce", "pièce"],
+      "produit": {
+        "ressources": ["pierre", "pierre"]
+      },
+      "boucliers": 0,
+      "symboles_scientifiques": [],
+      "points_de_victoire": 0,
+      "argent": 0,
+      "avantage" : []
+    },
+    {
+      "name": "Forum",
+      "couleur": "jaune",
+      "cost": ["pièce", "pièce", "pièce", "argile"],
+      "produit": {
+        "ressources": ["verre", "/parchemin"]
+      },
+      "boucliers": 0,
+      "symboles_scientifiques": [],
+      "points_de_victoire": 0,
+      "argent": 0,
+      "avantage" : []
+    }
+    ],
+  "Age3": [
+    {
+      "name": "Palace",
+      "couleur": "bleu",
+      "cost": ["brique", "pierre", "bois", "verre", "verre"],
+      "produit": {
+        "points_de_victoire": 7
+      },
+      "boucliers": 0,
+      "symboles_scientifiques": [],
+      "argent": 0,
+      "avantage" : []
+    },
+    {
+      "name": "Hôtel de ville",
+      "couleur": "bleu",
+      "cost": ["pierre", "pierre", "pierre", "bois", "bois"],
+      "produit": {
+        "points_de_victoire": 7
+      },
+      "boucliers": 0,
+      "symboles_scientifiques": [],
+      "argent": 0,
+      "avantage" : []
+    },
+    {
+      "name": "Academie",
+      "couleur": "vert",
+      "cost": ["pierre", "bois", "verre", "verre"],
+      "produit": {
+        "symboles_scientifiques": ["Tablette"],
+        "points_de_victoire": 3
+      },
+      "boucliers": 0,
+      "argent": 0,
+      "avantage" : []
+    },
+    {
+      "name": "Arsenal",
+      "couleur": "rouge",
+      "cost": ["brique", "brique", "brique", "bois", "bois"],
+      "produit": {
+        "boucliers": 3
+      },
+      "symboles_scientifiques": [],
+      "argent": 0,
+      "avantage" : [],
+      "points_de_victoire": 0
+    }
+    ]
+}

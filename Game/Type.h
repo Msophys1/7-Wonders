@@ -15,5 +15,7 @@ enum class JetonsProgres{
 enum class SymboleScientifiques{
     Roue, Compas, Mortier_Pilon, Tablette, Lyre, Mesure, Telescope
 };
-
+enum class produitManufacture{
+    Verre, Papyrus
+};
 #endif //INC_7_WONDERS_TYPE_H
