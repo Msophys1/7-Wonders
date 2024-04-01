@@ -14,7 +14,7 @@ Plateau::Plateau(){
     setUpPlateau();
 }
 
-int Plateau::validateInput(int min, int max) {
+int Plateau::validerInput(int min, int max) {
     int choix;
     // Entame une boucle qui se poursuit tant que l'entrée est invalide.
     // Une entrée est considérée comme invalide si elle ne peut pas être lue comme un entier
@@ -54,11 +54,14 @@ void Plateau::setUpPlateau() {
 }
 
 void Plateau::initialiserVariablesDeJeu() {
-    // Réinitialise la position du pion de conflit à 0, indiquant le début de la partie sans avantage militaire pour aucun joueur.
+    // Réinitialise la position du pion de conflit à 0, indiquant le début de la partie sans avantage militaire
+    // pour aucun joueur.
     positionPionConflit = 0;
-    // Réinitialise la position de la piste militaire à 0. (Cette variable semble redondante ou non utilisée si elle a le même but que positionPionConflit)
+    // Réinitialise la position de la piste militaire à 0. (Cette variable semble redondante ou non utilisée
+    // si elle a le même but que positionPionConflit)
     militaryTrackPosition = 0;
-    // Efface le compteur des symboles scientifiques pour assurer qu'aucun symbole ne soit compté avant le début de la partie.
+    // Efface le compteur des symboles scientifiques pour assurer qu'aucun symbole ne soit compté avant le
+    // début de la partie.
     scientificSymbolsCount.clear();
     // Efface le compteur des jetons progrès pour assurer qu'aucun jetons ne soit compté avant le début de la partie.
     availableJetonsProgres.clear();
@@ -82,7 +85,8 @@ void Plateau::preparerJetonsDeProgres(){
     // Utilise l'horloge système pour générer une graine aléatoire.
     unsigned seed = std::chrono::system_clock::now().time_since_epoch().count();
     // Mélange aléatoirement les jetons de progrès disponibles en utilisant la graine.
-    std::shuffle(availableJetonsProgres.begin(), availableJetonsProgres.end(), std::default_random_engine(seed));
+    std::shuffle(availableJetonsProgres.begin(), availableJetonsProgres.end(),
+                 std::default_random_engine(seed));
     // Réduit la liste des jetons de progrès à 5, choisissant ainsi aléatoirement les jetons pour la partie.
     availableJetonsProgres.resize(5);
 }
@@ -105,6 +109,8 @@ void Plateau::initialiserCartesPourAge(int age) {
     // TODO : Prend aussi en compte qu'il y a trois ages. les détails du nombres de carte par age et de
     //  l'initialisation de ces cartes est dans le document des règles du jeux
 
+    Carte::chargerDeckDepuisFichier("Assets/Cartes.json");
+
     // Initialise les dispositions des cartes pour chaque âge.
     // ageCardLayouts.clear(); // Efface toutes les configurations précédentes des cartes.
     // ageCardLayouts.resize(3); // Prépare le vecteur pour trois âges.
@@ -116,8 +122,7 @@ void Plateau::initialiserCartesPourAge(int age) {
     //}
 }
 
-
-bool Plateau::checkMilitaryVictory() const {
+bool Plateau::checkVictoireMilitaire() const {
     // La fonction renvoie true (vrai) si la position du pion de conflit est égale à 9 ou -9.
     // Dans le contexte du jeu, cela signifie que l'un des joueurs a poussé le pion de conflit
     // tout au bout de la piste militaire dans sa direction, indiquant une victoire militaire.
@@ -130,8 +135,7 @@ bool Plateau::checkMilitaryVictory() const {
     return positionPionConflit == 9 || positionPionConflit == -9;
 }
 
-
-void Plateau::displayStatePlateau() const {
+void Plateau::montrerEtatPlateau() const {
     // Affiche la position actuelle du pion de conflit sur la piste.
     // La position du pion de conflit indique le progrès des joueurs vers une victoire ou une défaite militaire.
     std::cout << "Position du pion de conflit: " << positionPionConflit << std::endl;
@@ -172,8 +176,8 @@ void Plateau::avancementMilitaire(Joueur& joueur, int steps) {
 
     // Après avoir ajusté la position du pion, vérifie si cette nouvelle position
     // conduit à une victoire militaire pour l'un des joueurs.
-    if (checkMilitaryVictory()) {
-        // Si 'checkMilitaryVictory' retourne vrai, cela signifie que le pion de conflit
+    if (checkVictoireMilitaire()) {
+        // Si 'checkVictoireMilitaire' retourne vrai, cela signifie que le pion de conflit
         // a atteint l'une des extrémités de la piste, indiquant une victoire militaire.
         // Annonce la victoire militaire pour le joueur qui a causé le dernier mouvement.
         std::cout << "Victoire militaire pour " << joueur.getNom() << "!\n";
@@ -197,7 +201,7 @@ void Plateau::offrirChoixJetonProgres(Joueur& joueur) {
     }
 
     // Demande au joueur de choisir un jeton en validant l'entrée pour s'assurer qu'elle est dans la plage correcte.
-    int choix = validateInput(1, availableJetonsProgres.size());
+    int choix = validerInput(1, availableJetonsProgres.size());
     // Sélectionne le jeton de progrès choisi en utilisant l'index.
     JetonsProgres jetonChoisi = availableJetonsProgres[choix - 1];
 
@@ -341,9 +345,9 @@ void Plateau::offrirChoixSymboleScientifique(Joueur& joueur) {
         choix++; // Incrémente le numéro de choix pour l'affichage du prochain symbole.
     }
 
-    // Demande au joueur de faire son choix. Utilise validateInput pour s'assurer que l'entrée est un choix valide
+    // Demande au joueur de faire son choix. Utilise validerInput pour s'assurer que l'entrée est un choix valide
     // entre 1 et la taille de la liste des symboles.
-    int choixJoueur = validateInput(1, symboles.size()) - 1; // Soustrait 1 car les indices du tableau
+    int choixJoueur = validerInput(1, symboles.size()) - 1; // Soustrait 1 car les indices du tableau
                                                                         // commencent à 0.
 
     // Sélectionne le symbole scientifique basé sur le choix du joueur.

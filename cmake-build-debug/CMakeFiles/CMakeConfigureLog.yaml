@@ -415,3 +415,37 @@ events:
       
       
 ...
+
+---
+events:
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "D:/CLion/CLion 2023.3.4/bin/cmake/win/x64/share/cmake-3.27/Modules/Internal/CheckSourceCompiles.cmake:101 (try_compile)"
+      - "D:/CLion/CLion 2023.3.4/bin/cmake/win/x64/share/cmake-3.27/Modules/Internal/CheckCompilerFlag.cmake:18 (cmake_check_source_compiles)"
+      - "D:/CLion/CLion 2023.3.4/bin/cmake/win/x64/share/cmake-3.27/Modules/CheckCXXCompilerFlag.cmake:34 (cmake_check_compiler_flag)"
+      - "cmake-build-debug/_deps/catch2-src/CMake/CatchMiscFunctions.cmake:12 (check_cxx_compiler_flag)"
+      - "cmake-build-debug/_deps/catch2-src/CMake/CatchMiscFunctions.cmake:119 (add_cxx_flag_if_supported_to_targets)"
+      - "cmake-build-debug/_deps/catch2-src/src/CMakeLists.txt:352 (add_build_reproducibility_settings)"
+    checks:
+      - "Performing Test HAVE_FLAG__ffile_prefix_map_D__CLion_7_Wonders_cmake_build_debug__deps_catch2_src__"
+    directories:
+      source: "D:/CLion/7-Wonders/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-v9jbcu"
+      binary: "D:/CLion/7-Wonders/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-v9jbcu"
+    cmakeVariables:
+      CMAKE_CXX_FLAGS: ""
+      CMAKE_CXX_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_MODULE_PATH: "D:/CLion/7-Wonders/cmake-build-debug/_deps/catch2-src/extras;D:/CLion/7-Wonders/cmake-build-debug/_deps/catch2-src/CMake"
+    buildResult:
+      variable: "HAVE_FLAG__ffile_prefix_map_D__CLion_7_Wonders_cmake_build_debug__deps_catch2_src__"
+      cached: true
+      stdout: |
+        Change Dir: 'D:/CLion/7-Wonders/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-v9jbcu'
+        
+        Run Build Command(s): "D:/CLion/CLion 2023.3.4/bin/ninja/win/x64/ninja.exe" -v cmTC_419da
+        [1/2] "D:\\CLion\\CLion 2023.3.4\\bin\\mingw\\bin\\g++.exe" -DHAVE_FLAG__ffile_prefix_map_D__CLion_7_Wonders_cmake_build_debug__deps_catch2_src__  -std=gnu++17 -fdiagnostics-color=always   -ffile-prefix-map=D:/CLion/7-Wonders/cmake-build-debug/_deps/catch2-src/= -o CMakeFiles/cmTC_419da.dir/src.cxx.obj -c D:/CLion/7-Wonders/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-v9jbcu/src.cxx
+        [2/2] cmd.exe /C "cd . && "D:\\CLion\\CLion 2023.3.4\\bin\\mingw\\bin\\g++.exe"   CMakeFiles/cmTC_419da.dir/src.cxx.obj -o cmTC_419da.exe -Wl,--out-implib,libcmTC_419da.dll.a -Wl,--major-image-version,0,--minor-image-version,0  -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32 && cd ."
+        
+      exitCode: 0
+...
