@@ -7,7 +7,7 @@ enum Symboles_Progres { philosophie, architecture, economie, agriculture, loi, m
 class Joueur {
 private:
     int id;
-    Ressources ressources[30];
+    Ressources ressources[100];
     Symboles_Progres symboles_progres[7];
     int nombre_ressources;
     int nombre_symboles_progres;
