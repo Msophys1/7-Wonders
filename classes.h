@@ -25,18 +25,22 @@ namespace Game {
             //const string nom ; géré par la classe Carte
 
             // comme il y'aura des cartes en doubles : utiliser le nom des cartes pour le chaînage ?
-            const Batiment& chainage_to ;
-            const Batiment& chainage_by ;
+            const string chainage_to ; // précédemmeent const Batiment&
+            const string chainage_by ;
             const TypeBatiment type ;
             const int age ; // plus pertinent de mettre age dans Batiment comme les Merveilles n'ont pas d'Age
             // ajouter Points de Victoire aux Cartes ? 
 
         public: 
 
-            const Batiment& getChainageBy() const ; 
-            const Batiment& getChainageTo() const ;
+            const string getChainageBy() const { return chainage_by;};
+            const string getChainageTo() const { return chainage_to;};
             const TypeBatiment getTypeBatiment() const { return type;};
             const int getAge() const { return age;};
+
+            ~Batiment() = default ;
+            Batiment(const Batiment& b) = default ; // on autorise la duplication
+            Batiment& operator=(const Batiment& b) = default ;     
     };
 
     class Merveille {
@@ -59,11 +63,12 @@ namespace Game {
             const int getPointsVictoire() const {return points_victoire;};
         
             ~Merveille() = default ; 
+            // la Merveille n'est pas responsable du cycle de vie de la carte sur laquelle elle se feed (à priori)
             // il faudra peut être gérer le tableau pour les coûts en fonction de comment on s'en occupe
 
-            Merveille(const Merveille& m) = default ; 
-            Merveille& operator=(const Merveille& m) = default ;
-            // autoriser la recopie / duplication des Merveilles ?
+            Merveille(const Merveille& m) = delete ; // chaque merveille étant unique, leur recopie est interdite
+            // décision peut être amenée à changer pendant le développement de l'architecture
+            Merveille& operator=(const Merveille& m) = delete ;
             
     };
 
