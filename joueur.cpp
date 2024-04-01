@@ -13,7 +13,7 @@ Joueur::Joueur(int idJoueur, Ressources joueurRessources[], Symboles_Progres jou
 
 // Ajouter ressources
 void Joueur::ajouterRessource(Ressources nouvelleRessource) {
-    if (nombre_ressources < 30) {
+    if (nombre_ressources < 100) {
         ressources[nombre_ressources++] = nouvelleRessource;
     } else {
         cerr << "Le joueur a déjà atteint la limite de ressources." << endl;
