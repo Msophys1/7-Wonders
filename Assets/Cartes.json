@@ -1,0 +1,87 @@
+{
+  "Age1": [
+    {
+      "name": "Chantier",
+      "couleur": "marron",
+      "cost": [""],
+      "produit": {
+        "ressources": ["bois"]
+      },
+      "boucliers": 0,
+      "symboles_scientifiques": [],
+      "points_de_victoire": 0,
+      "argent": 0,
+      "avantage" : []
+    },
+    {
+      "name": "Exploitation",
+      "couleur": "marron",
+      "cost": ["pièce"],
+      "produit": {
+        "ressources": ["bois"]
+      },
+      "boucliers": 0,
+      "symboles_scientifiques": [],
+      "points_de_victoire": 0,
+      "argent": 0,
+      "avantage" : []
+    }
+  ],
+
+  "Age2": [
+    {
+      "name": "Scierie",
+      "couleur": "marron",
+      "cost": ["pièce", "pièce"],
+      "produit": {
+        "ressources": ["bois", "bois"]
+      },
+      "boucliers": 0,
+      "symboles_scientifiques": [],
+      "points_de_victoire": 0,
+      "argent": 0,
+      "avantage" : []
+    },
+    {
+      "name": "Briqueterie",
+      "couleur": "marron",
+      "cost": ["pièce", "pièce"],
+      "produit": {
+        "ressources": ["argile", "argile"]
+      },
+      "boucliers": 0,
+      "symboles_scientifiques": [],
+      "points_de_victoire": 0,
+      "argent": 0,
+      "avantage" : []
+    }
+    ],
+  "Age3": [
+    {
+      "name": "Palace",
+      "couleur": "bleu",
+      "cost": ["brique", "pierre", "bois", "verre", "verre"],
+      "produit": {
+        "ressources": []
+      },
+      "boucliers": 0,
+      "symboles_scientifiques": [],
+      "points_de_victoire": 7,
+      "argent": 0,
+      "avantage" : []
+    },
+    {
+      "name": "Hôtel de ville",
+      "couleur": "bleu",
+      "cost": ["pierre", "pierre", "pierre", "bois", "bois"],
+      "produit": {
+        "ressources": []
+      },
+      "boucliers": 0,
+      "symboles_scientifiques": [],
+      "points_de_victoire": 7,
+      "argent": 0,
+      "avantage" : []
+    }
+    ]
+}

@@ -1,0 +1,5 @@
+D:/CLion/7-Wonders/cmake-build-debug/CMakeFiles/7_Wonders.dir
+D:/CLion/7-Wonders/cmake-build-debug/CMakeFiles/edit_cache.dir
+D:/CLion/7-Wonders/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+D:/CLion/7-Wonders/cmake-build-debug/_deps/json-build/CMakeFiles/edit_cache.dir
+D:/CLion/7-Wonders/cmake-build-debug/_deps/json-build/CMakeFiles/rebuild_cache.dir
