@@ -5,7 +5,7 @@
       "couleur": "marron",
       "cost": [""],
       "produit": {
-        "ressources": ["bois"]
+        "ressources": ["bois", "bois"]
       },
       "boucliers": 0,
       "symboles_scientifiques": [],
@@ -16,7 +16,7 @@
     {
       "name": "Exploitation",
       "couleur": "marron",
-      "cost": ["pièce"],
+      "cost": ["piece"],
       "produit": {
         "ressources": ["bois"]
       },
@@ -32,7 +32,7 @@
     {
       "name": "Scierie",
       "couleur": "marron",
-      "cost": ["pièce", "pièce"],
+      "cost": ["piece", "piece"],
       "produit": {
         "ressources": ["bois", "bois"]
       },
@@ -45,7 +45,7 @@
     {
       "name": "Briqueterie",
       "couleur": "marron",
-      "cost": ["pièce", "pièce"],
+      "cost": ["piece", "piece"],
       "produit": {
         "ressources": ["argile", "argile"]
       },
@@ -71,7 +71,7 @@
       "avantage" : []
     },
     {
-      "name": "Hôtel de ville",
+      "name": "Hotel de ville",
       "couleur": "bleu",
       "cost": ["pierre", "pierre", "pierre", "bois", "bois"],
       "produit": {

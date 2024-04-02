@@ -106,12 +106,37 @@ void Carte::testerChargementDecks() {
         std::cout << "Age " << i + 1 << " contient " << Carte::decksParAge[i].size() << " cartes." << std::endl;
     }
 
-    // Exemple de vérification pour la première carte de l'âge 1, si disponible
-    if (!Carte::decksParAge[0].empty()) {
-        const Carte& carte = Carte::decksParAge[0][0];
-        std::cout << "Nom de la premiere carte de l'age 1: " << "\n" << carte.getNom() <<std::endl;
-        std::cout << "Couleur de la premiere carte de l'age 1: " << "\n" << carte.getCouleur() <<std::endl;
+// Itérer à travers chaque deck d'âge
+    for (int i = 0; i < 3; i++) {
+        std::cout << "Age " << i + 1 << " contient " << Carte::decksParAge[i].size() << " cartes." << std::endl;
 
+        // Itérer à travers chaque carte dans le deck
+        for (const auto& carte : Carte::decksParAge[i]) {
+            std::cout << "Nom: " << carte.getNom() <<"\n"<< "Couleur: " << carte.getCouleur() <<"\n"
+                      << "Points de Victoire: " << carte.getPointsDeVictoire() <<"\n"
+                      << "Argent: " << carte.getArgent() <<"\n" << std::endl;
+
+            // Afficher le coût
+            std::cout << "Cout: ";
+            for (const auto& cost : carte.getCost()) {
+                std::cout << cost << " " <<"\n";
+            }
+            std::cout << std::endl;
+
+            // Afficher les avantages
+            std::cout << "Avantages: ";
+            for (const auto& avantage : carte.getAvantages()) {
+                std::cout << avantage << " " <<"\n";
+            }
+            std::cout << std::endl;
+
+            // Afficher les produits
+            std::cout << "Produits: ";
+            for (const auto& produit : carte.getProduits()) {
+                std::cout << produit << " " << "\n";
+            }
+            std::cout << std::endl;
+        }
     }
 }
 
