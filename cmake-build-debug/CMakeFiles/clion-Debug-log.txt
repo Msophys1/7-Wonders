@@ -1,0 +1,8 @@
+<<<<<<< HEAD
+=======
+"D:\CLion\CLion 2023.3.4\bin\cmake\win\x64\bin\cmake.exe" -DCMAKE_BUILD_TYPE=Debug "-DCMAKE_MAKE_PROGRAM=D:/CLion/CLion 2023.3.4/bin/ninja/win/x64/ninja.exe" -G Ninja -S D:\CLion\7-Wonders -B D:\CLion\7-Wonders\cmake-build-debug
+-- Using the multi-header code from D:/CLion/7-Wonders/cmake-build-debug/_deps/json-src/include/
+-- Configuring done (3.0s)
+-- Generating done (0.0s)
+-- Build files have been written to: D:/CLion/7-Wonders/cmake-build-debug
+>>>>>>> SCRUM-4
