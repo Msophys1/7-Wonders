@@ -1,11 +1,12 @@
 #include "Carte.h"
 
+int Carte::nextId = 1;
 
 Carte::Carte(std::string nom, std::string couleur, std::vector<std::string> cost,
              int pointsDeVictoire, std::vector<std::string> symbolesScientifiques,
              int boucliers, int argent, std::vector<std::string> avantages,
              std::vector<std::string> produits)
-        : nom(std::move(nom)), couleur(std::move(couleur)), cost(std::move(cost)),
+        : id(nextId++),nom(std::move(nom)), couleur(std::move(couleur)), cost(std::move(cost)),
           pointsDeVictoire(pointsDeVictoire), symbolesScientifiques(std::move(symbolesScientifiques)),
           boucliers(boucliers), argent(argent), avantages(std::move(avantages)),
           produits(std::move(produits)) {}
@@ -31,6 +32,7 @@ void Carte::chargerDeckDepuisFichier(const std::string& cheminFichier) {
             int boucliers = carteData["boucliers"];
             int argent = carteData["argent"];
             auto avantages = parseAvantages(carteData["avantage"]);
+
 
             decksParAge[ageIndex].emplace_back(nom, couleur, cost, pointsDeVictoire, symbolesScientifiques, boucliers, argent, avantages, produits);
         }
@@ -112,9 +114,10 @@ void Carte::testerChargementDecks() {
 
         // Itérer à travers chaque carte dans le deck
         for (const auto& carte : Carte::decksParAge[i]) {
-            std::cout << "Nom: " << carte.getNom() <<"\n"<< "Couleur: " << carte.getCouleur() <<"\n"
+            std::cout << "ID: " << carte.getID() << "\n" <<"Nom: " << carte.getNom() <<"\n"<< "Couleur: " << carte.getCouleur() <<"\n"
                       << "Points de Victoire: " << carte.getPointsDeVictoire() <<"\n"
-                      << "Argent: " << carte.getArgent() <<"\n" << std::endl;
+                      << "Argent: " << carte.getArgent() <<"\n"
+                      << "Bouclier: " << carte.getBoucliers() <<"\n" << std::endl;
 
             // Afficher le coût
             std::cout << "Cout: ";

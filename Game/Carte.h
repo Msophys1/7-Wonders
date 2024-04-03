@@ -25,16 +25,8 @@ public:
     int getArgent() const { return argent; }
     std::vector<std::string> getAvantages() const { return avantages; }
     std::vector<std::string> getProduits() const { return produits; }
+    int getID() const{return id;}
 
-// Setters
-    void setNom(const std::string& value) { nom = value; }
-    void setCouleur(const std::string& value) { couleur = value; }
-    void setCost(const std::vector<std::string>& value) { cost = value; }
-    void setPointsDeVictoire(int value) { pointsDeVictoire = value; }
-    void setSymbolesScientifiques(const std::vector<std::string>& value) { symbolesScientifiques = value; }
-    void setBoucliers(int value) { boucliers = value; }
-    void setArgent(int value) { argent = value; }
-    void setAvantages(const std::vector<std::string>& value) { avantages = value; }
 
     // Méthode statique pour charger les cartes depuis un fichier JSON
     static void chargerDeckDepuisFichier(const std::string& cheminFichier);
@@ -42,6 +34,8 @@ public:
 
 
 private:
+    int id;
+    static int nextId;
     std::string nom;
     std::string couleur;
     std::vector<std::string> cost;
