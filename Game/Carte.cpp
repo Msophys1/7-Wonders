@@ -2,14 +2,17 @@
 
 int Carte::nextId = 1;
 
-Carte::Carte(std::string nom, std::string couleur, std::vector<std::string> cost,
-             int pointsDeVictoire, std::vector<std::string> symbolesScientifiques,
+Carte::Carte(std::string nom, std::string couleur, std::vector<std::string> cost, std::string type,
+             int pointsDeVictoire, std::vector<std::string> symbolesScientifiques, std::string chainage,
              int boucliers, int argent, std::vector<std::string> avantages,
              std::vector<std::string> produits)
-        : id(nextId++),nom(std::move(nom)), couleur(std::move(couleur)), cost(std::move(cost)),
+        : id(nextId++), nom(std::move(nom)), couleur(std::move(couleur)), cost(std::move(cost)), type(std::move(type)),
           pointsDeVictoire(pointsDeVictoire), symbolesScientifiques(std::move(symbolesScientifiques)),
-          boucliers(boucliers), argent(argent), avantages(std::move(avantages)),
+          chainage(std::move(chainage)), boucliers(boucliers), argent(argent), avantages(std::move(avantages)),
           produits(std::move(produits)) {}
+
+//Merveille::Merveille
+//rajout chainage et type de bâtiment dans l'objet et rajouter dans Type.h les types
 
 void Carte::chargerDeckDepuisFichier(const std::string& cheminFichier) {
     std::ifstream fichier(cheminFichier);
@@ -26,15 +29,18 @@ void Carte::chargerDeckDepuisFichier(const std::string& cheminFichier) {
             std::string nom = carteData["name"];
             std::string couleur = carteData["couleur"];
             auto cost = parseCost(carteData["cost"]);
+            std::string type = carteData["type"];
             auto produits = parseProduit(carteData["produit"]);
             int pointsDeVictoire = carteData["points_de_victoire"];
             auto symbolesScientifiques = parseSymbolesScientifiques(carteData["symboles_scientifiques"]);
+            std::string chainage = carteData["chainage"];
             int boucliers = carteData["boucliers"];
             int argent = carteData["argent"];
             auto avantages = parseAvantages(carteData["avantage"]);
 
 
-            decksParAge[ageIndex].emplace_back(nom, couleur, cost, pointsDeVictoire, symbolesScientifiques, boucliers, argent, avantages, produits);
+            decksParAge[ageIndex].emplace_back(nom, couleur, cost, type, pointsDeVictoire, symbolesScientifiques,
+                                               chainage, boucliers, argent, avantages, produits);
         }
     }
 }
@@ -110,19 +116,19 @@ void Carte::testerChargementDecks() {
 
 // Itérer à travers chaque deck d'âge
     for (int i = 0; i < 3; i++) {
-        std::cout << "Age " << i + 1 << " contient " << Carte::decksParAge[i].size() << " cartes." << std::endl;
 
         // Itérer à travers chaque carte dans le deck
         for (const auto& carte : Carte::decksParAge[i]) {
-            std::cout << "ID: " << carte.getID() << "\n" <<"Nom: " << carte.getNom() <<"\n"<< "Couleur: " << carte.getCouleur() <<"\n"
+            std::cout << "\n" <<"ID: " << carte.getID() << "\n" <<"Nom: " << carte.getNom() <<"\n"<< "Couleur: " << carte.getCouleur() <<"\n"
+                      << "Type: " << carte.getType()<< "\n" << "Chainage: " <<carte.getChainage() << "\n"
                       << "Points de Victoire: " << carte.getPointsDeVictoire() <<"\n"
                       << "Argent: " << carte.getArgent() <<"\n"
-                      << "Bouclier: " << carte.getBoucliers() <<"\n" << std::endl;
+                      << "Bouclier: " << carte.getBoucliers() << std::endl;
 
             // Afficher le coût
             std::cout << "Cout: ";
             for (const auto& cost : carte.getCost()) {
-                std::cout << cost << " " <<"\n";
+                std::cout << cost << " ";
             }
             std::cout << std::endl;
 
@@ -136,7 +142,7 @@ void Carte::testerChargementDecks() {
             // Afficher les produits
             std::cout << "Produits: ";
             for (const auto& produit : carte.getProduits()) {
-                std::cout << produit << " " << "\n";
+                std::cout << produit << " " ;
             }
             std::cout << std::endl;
         }

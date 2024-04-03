@@ -18,4 +18,6 @@ enum class SymboleScientifiques{
 enum class produitManufacture{
     Verre, Papyrus
 };
+
+// créer un type chainage ? enum ou enum class / dans type ou dans carte ou les deux ?
 #endif //INC_7_WONDERS_TYPE_H

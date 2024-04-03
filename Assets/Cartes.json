@@ -4,11 +4,13 @@
       "name": "Chantier",
       "couleur": "marron",
       "cost": [""],
+      "type": "",
       "produit": {
         "ressources": ["bois", "bois"]
       },
       "boucliers": 0,
       "symboles_scientifiques": [],
+      "chainage": "",
       "points_de_victoire": 0,
       "argent": 0,
       "avantage" : []
@@ -17,11 +19,13 @@
       "name": "Exploitation",
       "couleur": "marron",
       "cost": ["piece"],
+      "type": "",
       "produit": {
         "ressources": ["bois"]
       },
       "boucliers": 0,
       "symboles_scientifiques": [],
+      "chainage": "",
       "points_de_victoire": 0,
       "argent": 0,
       "avantage" : []
@@ -33,11 +37,13 @@
       "name": "Scierie",
       "couleur": "marron",
       "cost": ["piece", "piece"],
+      "type": "",
       "produit": {
         "ressources": ["bois", "bois"]
       },
       "boucliers": 0,
       "symboles_scientifiques": [],
+      "chainage": "",
       "points_de_victoire": 0,
       "argent": 0,
       "avantage" : []
@@ -46,11 +52,13 @@
       "name": "Briqueterie",
       "couleur": "marron",
       "cost": ["piece", "piece"],
+      "type": "",
       "produit": {
         "ressources": ["argile", "argile"]
       },
       "boucliers": 0,
       "symboles_scientifiques": [],
+      "chainage": "",
       "points_de_victoire": 0,
       "argent": 0,
       "avantage" : []
@@ -61,11 +69,13 @@
       "name": "Palace",
       "couleur": "bleu",
       "cost": ["brique", "pierre", "bois", "verre", "verre"],
+      "type": "",
       "produit": {
         "ressources": []
       },
       "boucliers": 0,
       "symboles_scientifiques": [],
+      "chainage": "",
       "points_de_victoire": 7,
       "argent": 0,
       "avantage" : []
@@ -74,14 +84,23 @@
       "name": "Hotel de ville",
       "couleur": "bleu",
       "cost": ["pierre", "pierre", "pierre", "bois", "bois"],
+      "type": "",
       "produit": {
         "ressources": []
       },
       "boucliers": 0,
       "symboles_scientifiques": [],
+      "chainage": "",
       "points_de_victoire": 7,
       "argent": 0,
       "avantage" : []
     }
-    ]
+    ],
+  "Guilde": [
+    {
+    },
+    {
+
+    }
+  ]
 }
