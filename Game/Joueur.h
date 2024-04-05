@@ -30,13 +30,9 @@ public:
     std::string getNom() const { return nom; }
     // Retourne le nom du joueur. Utile pour l'affichage et les références au joueur.
 
-    int getId() const {
-        return id;
-    }
+    int getId() const { return id; }
 
-    const Ressources *getRessources() const {
-        return ressources;
-    }
+    const Ressources *getRessources() const { return ressources; }
 
     void ajouterPieces(int nombre) { pieces += nombre; }
     // Ajoute un nombre spécifié de pièces à la réserve du joueur. Peut être utilisé pour les récompenses ou le paiement.
