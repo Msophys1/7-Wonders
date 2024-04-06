@@ -20,15 +20,13 @@ private:
     int coutReduitCartesBleues = 0; // Pour gérer la réduction de coût des cartes bleues.
     int pointsVictoireJetons = 0; // Points de victoire additionnels pour les jetons de progrès possédés.
     bool effetRejouer = false; // Indique si le joueur peut rejouer (effet de Theologie).
-    bool effetChainage = false; // Indique si un effet de chainage est activé (effet d'Urbanisme).
+    bool effetChainage = false; // Indique si un effet de chainage est activé (effet d'Urbanisme). 
 
 public:
     Joueur(int idJoueur, std::string nom, Ressources *joueurRessources, JetonsProgres *joueurSymbolesProgres, int numRessources,
            int numSymbolesProgres);
 
-    std::map<SymboleScientifiques, int> scientificSymbols;
-
-    std::string getNom() const { return nom; }
+    string getNom() const { return nom; }
     // Retourne le nom du joueur. Utile pour l'affichage et les références au joueur.
 
     int getId() const {
