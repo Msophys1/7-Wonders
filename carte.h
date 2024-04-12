@@ -26,7 +26,8 @@ enum SymboleScientifique {
     PierreSym,
     Ampoule,
     Loupe,
-    Compas
+    Compas,
+    Aucun
 };
 
 enum Construction {
@@ -34,7 +35,8 @@ enum Construction {
     marron,
     jaune,
     rouge,
-    merveille
+    merveille,
+    AucuneCon
 };
 
 typedef struct Effet{
