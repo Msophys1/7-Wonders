@@ -13,8 +13,8 @@ Prix const Carte::getPrix(){
     return prix;
 }
 
-string const Carte::getAge() {
-    return ageToString(age);
+Age const Carte::getAge() {
+    return age;
 }
 
 Effet const Carte::getEffet(){

@@ -23,7 +23,7 @@ enum SymboleScientifique {
     Roue,
     Balance,
     Tablet,
-    Pierre,
+    PierreSym,
     Ampoule,
     Loupe,
     Compas
