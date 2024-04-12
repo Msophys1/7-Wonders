@@ -21,6 +21,3 @@ Effet const Carte::getEffet(){
     return effet;
 }
 
-string const Carte::getCondition(){
-        return condition;
-}
