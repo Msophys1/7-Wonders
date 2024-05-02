@@ -1,7 +1,3 @@
-//
-// Created by Mattéo on 31/03/2024.
-//
-
 #ifndef INC_7_WONDERS_TYPE_H
 #define INC_7_WONDERS_TYPE_H
 
