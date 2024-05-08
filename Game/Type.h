@@ -1,6 +1,9 @@
 #ifndef INC_7_WONDERS_TYPE_H
 #define INC_7_WONDERS_TYPE_H
 
+enum Batiments {Commerce, Scientifique, Premiere, Manufacture, Militaire, Guilde, Merveille}
+// On retire Guilde et Merveille ou pas ??
+
 enum Ressources { bois, argile, pierre };
 
 enum class JetonsProgres{
