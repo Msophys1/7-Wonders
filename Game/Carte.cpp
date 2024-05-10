@@ -11,7 +11,7 @@ Carte::Carte(std::string nom, std::string couleur, std::vector<std::string> cost
           chainage(std::move(chainage)), boucliers(boucliers), argent(argent), avantages(std::move(avantages)),
           produits(std::move(produits)) {}
 
-//Merveille::Merveille
+//Carte::Merveille
 //rajout chainage et type de bâtiment dans l'objet et rajouter dans Type.h les types
 
 void Carte::chargerDeckDepuisFichier(const std::string& cheminFichier) {
@@ -119,8 +119,11 @@ void Carte::testerChargementDecks() {
 
         // Itérer à travers chaque carte dans le deck
         for (const auto& carte : Carte::decksParAge[i]) {
-            std::cout << "\n" <<"ID: " << carte.getID() << "\n" <<"Nom: " << carte.getNom() <<"\n"<< "Couleur: " << carte.getCouleur() <<"\n"
-                      << "Type: " << carte.getType()<< "\n" << "Chainage: " <<carte.getChainage() << "\n"
+            std::cout << "\n" <<"ID: " << carte.getID() << "\n"
+                      << "Nom: " << carte.getNom() << "\n"
+                      << "Couleur: " << carte.getCouleur() << "\n"
+                      << "Type: " << carte.getType()<< "\n"
+                      << "Chainage: " <<carte.getChainage() << "\n"
                       << "Points de Victoire: " << carte.getPointsDeVictoire() <<"\n"
                       << "Argent: " << carte.getArgent() <<"\n"
                       << "Bouclier: " << carte.getBoucliers() << std::endl;

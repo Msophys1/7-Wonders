@@ -15,15 +15,10 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="65dd0428-0e68-4940-a24a-588bf13d6b22" name="Changes" comment="Resolved merge conflicts by keeping modified versions from SCRUM-4">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    <list default="true" id="65dd0428-0e68-4940-a24a-588bf13d6b22" name="Changes" comment="added type and chainage &amp; code clean up">
+      <change beforePath="$PROJECT_DIR$/.idea/.name" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Cartes.json" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Cartes.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Game/Carte.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Game/Carte.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Game/Carte.h" beforeDir="false" afterPath="$PROJECT_DIR$/Game/Carte.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Game/Joueur.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Game/Joueur.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Game/Joueur.h" beforeDir="false" afterPath="$PROJECT_DIR$/Game/Joueur.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Game/Type.h" beforeDir="false" afterPath="$PROJECT_DIR$/Game/Type.h" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -52,7 +47,7 @@
     <option name="PUSH_AUTO_UPDATE" value="true" />
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="SCRUM-4" />
+        <entry key="$PROJECT_DIR$" value="Test" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -135,6 +130,8 @@
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="CMake Debug.7_Wonders" />
+        <item itemvalue="C/C++ File.CarteTest.cpp" />
         <item itemvalue="C/C++ File.CarteTest.cpp" />
       </list>
     </recent_temporary>
@@ -308,6 +305,7 @@
     <MESSAGE value="Merge remote-tracking branch 'origin/SCRUM-4' into SCRUM-4" />
     <MESSAGE value="add ID carte" />
     <MESSAGE value="Resolved merge conflicts by keeping modified versions from SCRUM-4" />
-    <option name="LAST_COMMIT_MESSAGE" value="Resolved merge conflicts by keeping modified versions from SCRUM-4" />
+    <MESSAGE value="added type and chainage &amp; code clean up" />
+    <option name="LAST_COMMIT_MESSAGE" value="added type and chainage &amp; code clean up" />
   </component>
 </project>
