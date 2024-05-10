@@ -1,0 +1,313 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="CMakePresetLoader">{
+  &quot;useNewFormat&quot;: true
+}</component>
+  <component name="CMakeRunConfigurationManager">
+    <generated />
+  </component>
+  <component name="CMakeSettings">
+    <configurations>
+      <configuration PROFILE_NAME="Debug" ENABLED="true" CONFIG_NAME="Debug" />
+    </configurations>
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="65dd0428-0e68-4940-a24a-588bf13d6b22" name="Changes" comment="Resolved merge conflicts by keeping modified versions from SCRUM-4">
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Cartes.json" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Cartes.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Game/Carte.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Game/Carte.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Game/Carte.h" beforeDir="false" afterPath="$PROJECT_DIR$/Game/Carte.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Game/Joueur.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Game/Joueur.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Game/Joueur.h" beforeDir="false" afterPath="$PROJECT_DIR$/Game/Joueur.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Game/Type.h" beforeDir="false" afterPath="$PROJECT_DIR$/Game/Type.h" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ClangdSettings">
+    <option name="formatViaClangd" value="false" />
+  </component>
+  <component name="ExecutionTargetManager" SELECTED_TARGET="CMakeBuildProfile:Debug" />
+  <component name="Git.Settings">
+    <favorite-branches>
+      <branch-storage>
+        <map>
+          <entry type="REMOTE">
+            <value>
+              <list>
+                <branch-info repo="$PROJECT_DIR$" source="origin/Mattéo" />
+                <branch-info repo="$PROJECT_DIR$" source="origin/SCRUM-4" />
+              </list>
+            </value>
+          </entry>
+        </map>
+      </branch-storage>
+    </favorite-branches>
+    <option name="PUSH_AUTO_UPDATE" value="true" />
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="SCRUM-4" />
+      </map>
+    </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GithubPullRequestsUISettings">
+    <option name="selectedUrlAndAccountId">
+      <UrlAndAccount>
+        <option name="accountId" value="135efb9b-f296-4ca7-a9fb-a1a36f269b30" />
+        <option name="url" value="https://github.com/Msophys1/7-Wonders.git" />
+      </UrlAndAccount>
+    </option>
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;customColor&quot;: &quot;&quot;,
+  &quot;associatedIndex&quot;: 6
+}</component>
+  <component name="ProjectId" id="2eocKfkfLyhVibQfWIfRoWcFYAE" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;ASKED_SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;C/C++ File.CarteTest.cpp.executor&quot;: &quot;Run&quot;,
+    &quot;CMake Application.test_carte.executor&quot;: &quot;Run&quot;,
+    &quot;CMake Debug.7_Wonders.executor&quot;: &quot;Debug&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.cidr.known.project.marker&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.readMode.enableVisualFormatting&quot;: &quot;true&quot;,
+    &quot;cf.first.check.clang-format&quot;: &quot;false&quot;,
+    &quot;cidr.known.project.marker&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;Mattéo&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/CLion/7-Wonders&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;run.code.analysis.last.selected.profile&quot;: &quot;pProject Default&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;project.propVCSSupport.DirectoryMappings&quot;,
+    &quot;structure.view.defaults.are.configured&quot;: &quot;true&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  },
+  &quot;keyToStringList&quot;: {
+    &quot;ChangesTree.GroupingKeys&quot;: [
+    ]
+  }
+}</component>
+  <component name="RunDashboard">
+    <option name="configurationTypes">
+      <set>
+        <option value="CppFileRunConfiguration" />
+      </set>
+    </option>
+  </component>
+  <component name="RunManager" selected="C/C++ File.CarteTest.cpp">
+    <configuration name="7_Wonders" type="CMakeListConfigurationType" factoryName="CMakeListConfigurationFactory" temporary="true">
+      <method v="2" />
+    </configuration>
+    <configuration name="CarteTest.cpp" type="CppFileRunConfiguration" factoryName="CppFileRunConfiguration" temporary="true" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="7_Wonders" TARGET_NAME="CarteTest.cpp" CONFIG_NAME="CarteTest.cpp">
+      <option name="sourceFile" value="Tests\CarteTest.cpp" />
+      <method v="2">
+        <option name="com.jetbrains.cidr.cpp.runfile.CppFileBuildBeforeRunTaskProvider$BasicBuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <list>
+      <item itemvalue="C/C++ File.CarteTest.cpp" />
+      <item itemvalue="CMake Debug.7_Wonders" />
+      <item itemvalue="CTest Application.Pattern" />
+    </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="C/C++ File.CarteTest.cpp" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="65dd0428-0e68-4940-a24a-588bf13d6b22" name="Changes" comment="" />
+      <created>1711409541066</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1711409541066</updated>
+      <workItem from="1711409542353" duration="4652000" />
+      <workItem from="1711467866268" duration="5519000" />
+      <workItem from="1711895383726" duration="28552000" />
+      <workItem from="1711969822448" duration="14388000" />
+      <workItem from="1711996264073" duration="16126000" />
+      <workItem from="1712124113415" duration="5364000" />
+      <workItem from="1712574310353" duration="3634000" />
+      <workItem from="1712659728201" duration="2916000" />
+      <workItem from="1715161943412" duration="7262000" />
+    </task>
+    <task id="LOCAL-00001" summary="first try for the board">
+      <option name="closed" value="true" />
+      <created>1711412923264</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1711412923264</updated>
+    </task>
+    <task id="LOCAL-00002" summary="first try for the board">
+      <option name="closed" value="true" />
+      <created>1711895969221</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1711895969221</updated>
+    </task>
+    <task id="LOCAL-00003" summary="First Implementation in Plateau and requirements in Joueur">
+      <option name="closed" value="true" />
+      <created>1711913721587</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1711913721588</updated>
+    </task>
+    <task id="LOCAL-00004" summary="First Implementation in Plateau and requirements in Joueur">
+      <option name="closed" value="true" />
+      <created>1711913974367</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1711913974367</updated>
+    </task>
+    <task id="LOCAL-00005" summary=".gitignore Update">
+      <option name="closed" value="true" />
+      <created>1711924179171</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1711924179171</updated>
+    </task>
+    <task id="LOCAL-00006" summary="Plateau::setUpPlateau CleanUp">
+      <option name="closed" value="true" />
+      <created>1711962838151</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1711962838151</updated>
+    </task>
+    <task id="LOCAL-00007" summary="Concept Carte">
+      <option name="closed" value="true" />
+      <created>1711992493819</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1711992493820</updated>
+    </task>
+    <task id="LOCAL-00008" summary="Parser du json complet &amp; définition de tâche">
+      <option name="closed" value="true" />
+      <created>1712086414406</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1712086414407</updated>
+    </task>
+    <task id="LOCAL-00009" summary="Parser du json complet &amp; définition de tâche">
+      <option name="closed" value="true" />
+      <created>1712086485726</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1712086485726</updated>
+    </task>
+    <task id="LOCAL-00010" summary="print of all carte argument">
+      <option name="closed" value="true" />
+      <created>1712142817799</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1712142817799</updated>
+    </task>
+    <task id="LOCAL-00011" summary="add ID carte">
+      <option name="closed" value="true" />
+      <created>1712143482481</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1712143482481</updated>
+    </task>
+    <task id="LOCAL-00012" summary="Resolved merge conflicts by keeping modified versions from SCRUM-4">
+      <option name="closed" value="true" />
+      <created>1712146321516</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1712146321516</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="RECENT_FILTERS">
+      <map>
+        <entry key="Branch">
+          <value>
+            <list>
+              <RecentGroup>
+                <option name="FILTER_VALUES">
+                  <option value="main" />
+                </option>
+              </RecentGroup>
+            </list>
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="CUSTOM_BOOLEAN_PROPERTIES">
+                <map>
+                  <entry key="Show.Git.Branches" value="true" />
+                </map>
+              </option>
+              <option name="LONG_EDGES_VISIBLE" value="true" />
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="CHECK_CODE_CLEANUP_BEFORE_PROJECT_COMMIT" value="true" />
+    <option name="CHECK_NEW_TODO" value="false" />
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+    <MESSAGE value="Update README.md" />
+    <MESSAGE value="first try for the board" />
+    <MESSAGE value="First Implementation in Plateau and requirements in Joueur" />
+    <MESSAGE value=".gitignore Update" />
+    <MESSAGE value="Plateau::setUpPlateau CleanUp" />
+    <MESSAGE value="Merge remote-tracking branch 'origin/SCRUM-4' into SCRUM-4&#10;&#10;# Conflicts:&#10;#&#9;.gitignore" />
+    <MESSAGE value="Concept Carte" />
+    <MESSAGE value="Parser du json complet &amp; définition de tâche" />
+    <MESSAGE value="print of all carte argument" />
+    <MESSAGE value="Merge remote-tracking branch 'origin/SCRUM-4' into SCRUM-4" />
+    <MESSAGE value="add ID carte" />
+    <MESSAGE value="Resolved merge conflicts by keeping modified versions from SCRUM-4" />
+    <option name="LAST_COMMIT_MESSAGE" value="Resolved merge conflicts by keeping modified versions from SCRUM-4" />
+  </component>
+</project>
