@@ -9,7 +9,7 @@
         "ressources": ["bois", "bois"]
       },
       "boucliers": 0,
-      "symboles_scientifiques": [],
+      "symboles_scientifiques": "",
       "chainage": "",
       "points_de_victoire": 0,
       "argent": 0,
@@ -24,7 +24,7 @@
         "ressources": ["bois"]
       },
       "boucliers": 0,
-      "symboles_scientifiques": [],
+      "symboles_scientifiques": "",
       "chainage": "",
       "points_de_victoire": 0,
       "argent": 0,
@@ -42,7 +42,7 @@
         "ressources": ["bois", "bois"]
       },
       "boucliers": 0,
-      "symboles_scientifiques": [],
+      "symboles_scientifiques": "",
       "chainage": "",
       "points_de_victoire": 0,
       "argent": 0,
@@ -57,7 +57,7 @@
         "ressources": ["argile", "argile"]
       },
       "boucliers": 0,
-      "symboles_scientifiques": [],
+      "symboles_scientifiques": "",
       "chainage": "",
       "points_de_victoire": 0,
       "argent": 0,
@@ -74,7 +74,7 @@
         "ressources": []
       },
       "boucliers": 0,
-      "symboles_scientifiques": [],
+      "symboles_scientifiques":"",
       "chainage": "",
       "points_de_victoire": 7,
       "argent": 0,
@@ -89,7 +89,7 @@
         "ressources": []
       },
       "boucliers": 0,
-      "symboles_scientifiques": [],
+      "symboles_scientifiques": "",
       "chainage": "",
       "points_de_victoire": 7,
       "argent": 0,

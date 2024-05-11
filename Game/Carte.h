@@ -11,9 +11,10 @@
 class Carte {
 public:
     Carte(std::string nom, std::string couleur, std::vector<std::string> cost,std::string type,
-          int pointsDeVictoire, std::vector<std::string> symbolesScientifiques, std::string chainage,
+          int pointsDeVictoire, std::string symbolesScientifiques, std::string chainage,
           int boucliers, int argent, std::vector<std::string> avantages,
           std::vector<std::string> produits);
+
 
     //Guilde(std::string nom, std::string type...);
 
@@ -24,7 +25,7 @@ public:
     std::string getCouleur() const { return couleur; }
     std::vector<std::string> getCost() const { return cost; }
     int getPointsDeVictoire() const { return pointsDeVictoire; }
-    std::vector<std::string> getSymbolesScientifiques() const { return symbolesScientifiques; }
+    std::string getSymbolesScientifiques() const { return symbolesScientifiques; }
     std::string getType() const { return type; }
     std::string getChainage() const { return chainage; }
     int getBoucliers() const { return boucliers; }
@@ -48,7 +49,7 @@ private:
     std::string type;
     std::vector<std::string> produits;
     int pointsDeVictoire;
-    std::vector<std::string> symbolesScientifiques;
+    std::string symbolesScientifiques;
     std::string chainage;
     int boucliers;
     int argent;
@@ -59,7 +60,7 @@ private:
     // Méthodes statiques pour le parsing
     static std::vector<std::string> parseCost(const nlohmann::json& json);
     static std::vector<std::string> parseAvantages(const nlohmann::json& json);
-    static std::vector<std::string> parseSymbolesScientifiques(const nlohmann::json& symbolesJson);
+    static std::string parseSymbolesScientifiques(const nlohmann::json& symbolesJson);
     static std::vector<std::string> parseProduit(const nlohmann::json &produitJson);
 
     static std::vector<Carte> decksParAge[3];

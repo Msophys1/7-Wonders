@@ -3,7 +3,7 @@
 int Carte::nextId = 1;
 
 Carte::Carte(std::string nom, std::string couleur, std::vector<std::string> cost, std::string type,
-             int pointsDeVictoire, std::vector<std::string> symbolesScientifiques, std::string chainage,
+             int pointsDeVictoire, std::string symbolesScientifiques, std::string chainage,
              int boucliers, int argent, std::vector<std::string> avantages,
              std::vector<std::string> produits)
         : id(nextId++), nom(std::move(nom)), couleur(std::move(couleur)), cost(std::move(cost)), type(std::move(type)),
@@ -11,8 +11,6 @@ Carte::Carte(std::string nom, std::string couleur, std::vector<std::string> cost
           chainage(std::move(chainage)), boucliers(boucliers), argent(argent), avantages(std::move(avantages)),
           produits(std::move(produits)) {}
 
-//Carte::Merveille
-//rajout chainage et type de bâtiment dans l'objet et rajouter dans Type.h les types
 
 void Carte::chargerDeckDepuisFichier(const std::string& cheminFichier) {
     std::ifstream fichier(cheminFichier);
@@ -32,7 +30,7 @@ void Carte::chargerDeckDepuisFichier(const std::string& cheminFichier) {
             std::string type = carteData["type"];
             auto produits = parseProduit(carteData["produit"]);
             int pointsDeVictoire = carteData["points_de_victoire"];
-            auto symbolesScientifiques = parseSymbolesScientifiques(carteData["symboles_scientifiques"]);
+            std::string symbolesScientifiques = carteData["symboles_scientifiques"];
             std::string chainage = carteData["chainage"];
             int boucliers = carteData["boucliers"];
             int argent = carteData["argent"];
@@ -82,27 +80,6 @@ std::vector<std::string> Carte::parseAvantages(const nlohmann::json& avantagesJs
     return avantages;
 }
 
-std::vector<std::string> Carte::parseSymbolesScientifiques(const nlohmann::json& symbolesJson) {
-    std::vector<std::string> symboles;
-    if (symbolesJson.is_array()) {
-        for (const auto& item : symbolesJson) {
-            std::string symbole = item.get<std::string>();
-            if (!symbole.empty()) {
-                symboles.emplace_back(symbole);
-            } else {
-                symboles.emplace_back("0");
-            }
-        }
-    } else if (symbolesJson.is_string()) {
-        std::string symbole = symbolesJson.get<std::string>();
-        if (!symbole.empty()) {
-            symboles.emplace_back(symbole);
-        } else {
-            symboles.emplace_back("0");
-        }
-    }
-    return symboles;
-}
 
 // Définition de la méthode testerChargementDecks dans Carte.cpp
 void Carte::testerChargementDecks() {
@@ -115,15 +92,16 @@ void Carte::testerChargementDecks() {
     }
 
 // Itérer à travers chaque deck d'âge
-    for (int i = 0; i < 3; i++) {
+    for (auto & i : Carte::decksParAge) {
 
         // Itérer à travers chaque carte dans le deck
-        for (const auto& carte : Carte::decksParAge[i]) {
+        for (const auto& carte : i) {
             std::cout << "\n" <<"ID: " << carte.getID() << "\n"
                       << "Nom: " << carte.getNom() << "\n"
                       << "Couleur: " << carte.getCouleur() << "\n"
                       << "Type: " << carte.getType()<< "\n"
-                      << "Chainage: " <<carte.getChainage() << "\n"
+                      << "Chainage: " << carte.getChainage() << "\n"
+                      << "Symbole Scientifique: " << carte.getSymbolesScientifiques() << "\n"
                       << "Points de Victoire: " << carte.getPointsDeVictoire() <<"\n"
                       << "Argent: " << carte.getArgent() <<"\n"
                       << "Bouclier: " << carte.getBoucliers() << std::endl;
