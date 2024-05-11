@@ -10,15 +10,17 @@
 
 class Carte {
 public:
-    Carte(std::string nom, std::string couleur, std::vector<std::string> cost,std::string type,
-          int pointsDeVictoire, std::string symbolesScientifiques, std::string chainage,
-          int boucliers, int argent, std::vector<std::string> avantages,
+    Carte(std::string nom,
+          std::string couleur,
+          std::vector<std::string> cost,
+          std::string type,
+          int pointsDeVictoire,
+          std::string symbolesScientifiques,
+          std::string chainage,
+          int boucliers,
+          int argent,
+          std::vector<std::string> avantages,
           std::vector<std::string> produits);
-
-
-    //Guilde(std::string nom, std::string type...);
-
-    //Merveille(jefbsfhbiqzebfiqebfrfibei...)
 
 // Getters
     std::string getNom() const { return nom; }
@@ -41,7 +43,6 @@ public:
 
 
 private:
-    int id;
     static int nextId;
     std::string nom;
     std::string couleur;
@@ -56,14 +57,41 @@ private:
     std::vector<std::string> avantages;
 
 
-
-    // Méthodes statiques pour le parsing
-    static std::vector<std::string> parseCost(const nlohmann::json& json);
     static std::vector<std::string> parseAvantages(const nlohmann::json& json);
-    static std::string parseSymbolesScientifiques(const nlohmann::json& symbolesJson);
     static std::vector<std::string> parseProduit(const nlohmann::json &produitJson);
 
     static std::vector<Carte> decksParAge[3];
+protected:
+    // Méthodes statiques pour le parsing
+    static std::vector<std::string> parseCost(const nlohmann::json& json);
+
+    static std::vector<std::string> parseAffectation(const nlohmann::json &json);
+
+
+    int id;
+};
+
+class Guilde : public Carte {
+public:
+    // Constructeur pour Guilde
+    Guilde(std::string nom1, std::string couleur, std::vector<std::string> cost1, std::string type,
+           int pointsDeVictoire1, std::string symbolesScientifiques, std::string chainage, int boucliers,
+           int argent1, std::vector<std::string> avantages, std::vector<std::string> produits,
+           const std::string &nom, const std::vector<std::string> &cost, int pointsDeVictoire,
+           const std::vector<std::string> &affectation, int argent);
+
+    static void chargerDeckGuildeDepuisFichier(const std::string &cheminFichier);
+
+    // Getter pour l'affectation spécifique à Guilde
+    const std::vector<std::string>& getAffectation() const { return affectation; }
+    int getIDGuilde() const{return id;}
+
+    static std::vector<Guilde> decksGuilde[1];
+private:
+    std::vector<std::string> affectation;
+    static int nextGuildeID;
+    int argent;
+    int id;
 };
 
 #endif // CARTE_H

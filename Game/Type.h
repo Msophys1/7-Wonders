@@ -24,5 +24,10 @@ enum class Types{
 };
 enum class Couleurs{ marron, gris, bleu, vert, jaune, rouge
 };
-// créer un type chainage ? enum ou enum class / dans type ou dans carte ou les deux ?
+
+enum class Chainage{
+    Livre, Engrenage, Masque, Lune, Eau, Sabot, Epee, Tour, Cible, Chevalier, Lyre, Theiere,
+    Soleil, Colonne, Tambour, Vase, Batiment
+};
+
 #endif //INC_7_WONDERS_TYPE_H
