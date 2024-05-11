@@ -20,7 +20,6 @@ void Carte::chargerDeckDepuisFichier(const std::string& cheminFichier) {
 
     nlohmann::json deckJson;
     fichier >> deckJson;
-
     for (const auto& ageKey : {"Age1", "Age2", "Age3"}) {
         int ageIndex = (ageKey[3] - '1'); // Convertit '1', '2', '3' en 0, 1, 2
         for (const auto& carteData : deckJson[ageKey]) {
