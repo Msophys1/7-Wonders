@@ -1,0 +1,167 @@
+{
+  "Age1": [
+    {
+      "name": "Atelier",
+      "couleur": "vert",
+      "cost": ["Papyrus"],
+      "type": "Scientifique",
+      "produit": {
+        "ressources": [""]
+      },
+      "boucliers": 0,
+      "symboles_scientifiques": "Compas",
+      "chainage": "",
+      "points_de_victoire": 1,
+      "argent": 0,
+      "avantage" : []
+    },
+    {
+      "name": "Apothicaire",
+      "couleur": "vert",
+      "cost": ["Verre"],
+      "type": "Scientifique",
+      "produit": {
+        "ressources": [""]
+      },
+      "boucliers": 0,
+      "symboles_scientifiques": "Roue",
+      "chainage": "",
+      "points_de_victoire": 1,
+      "argent": 0,
+      "avantage" : []
+    },
+    {
+      "name": "Scriptorium",
+      "couleur": "vert",
+      "cost": ["piece", "piece"],
+      "type": "Scientifique",
+      "produit": {
+        "ressources": [""]
+      },
+      "boucliers": 0,
+      "symboles_scientifiques": "Mesure",
+      "chainage": "Livre",
+      "points_de_victoire": 0,
+      "argent": 0,
+      "avantage" : []
+    },
+    {
+      "name": "Officine",
+      "couleur": "vert",
+      "cost": ["piece", "piece"],
+      "type": "Scientifique",
+      "produit": {
+        "ressources": [""]
+      },
+      "boucliers": 0,
+      "symboles_scientifiques": "Mortier_Pilon",
+      "chainage": "Engrenage",
+      "points_de_victoire": 0,
+      "argent": 0,
+      "avantage" : []
+    }
+  ],
+
+  "Age2": [
+    {
+      "name": "Bibliothèque",
+      "couleur": "vert",
+      "cost": ["Livre","piere", "bois", "verre"],
+      "type": "Scientifique",
+      "produit": {
+        "ressources": [""]
+      },
+      "boucliers": 0,
+      "symboles_scientifiques": "Mortier_Pilon",
+      "chainage": "",
+      "points_de_victoire": 2,
+      "argent": 0,
+      "avantage" : []
+    },
+    {
+      "name": "Dispensaire",
+      "couleur": "vert",
+      "cost": ["Engrenage", "birque", "brique", "pierre"],
+      "type": "Scientifique",
+      "produit": {
+        "ressources": [""]
+      },
+      "boucliers": 0,
+      "symboles_scientifiques": "Mortier_Pilon",
+      "chainage": "",
+      "points_de_victoire": 2,
+      "argent": 0,
+      "avantage" : []
+    },
+    {
+      "name": "Ecole",
+      "couleur": "vert",
+      "cost": ["bois", "Papyrus", "Papyrus"],
+      "type": "Scientifique",
+      "produit": {
+        "ressources": [""]
+      },
+      "boucliers": 0,
+      "symboles_scientifiques": "Roue",
+      "chainage": "Lyre",
+      "points_de_victoire": 1,
+      "argent": 0,
+      "avantage" : []
+    },
+    {
+      "name": "Laboratoire",
+      "couleur": "vert",
+      "cost": ["bois", "Verre", "Verre"],
+      "type": "Scientifique",
+      "produit": {
+        "ressources": [""]
+      },
+      "boucliers": 0,
+      "symboles_scientifiques": "Compas",
+      "chainage": "Theiere",
+      "points_de_victoire": 1,
+      "argent": 0,
+      "avantage" : []
+    }
+  ],
+  "Age3": [
+    {
+      "name": "Université",
+      "couleur": "vert",
+      "cost": ["brique", "Verre", "Papyrus"],
+      "type": "Scientifique",
+      "produit": {
+        "ressources": [""]
+      },
+      "boucliers": 0,
+      "symboles_scientifiques": "Telescope",
+      "chainage": "",
+      "points_de_victoire": 2,
+      "argent": 0,
+      "avantage" : []
+    },
+    {
+      "name": "Observatoire",
+      "couleur": "vert",
+      "cost": ["pierre", "Papyrus", "Papyrus"],
+      "type": "Scientifique",
+      "produit": {
+        "ressources": [""]
+      },
+      "boucliers": 0,
+      "symboles_scientifiques": "Telescope",
+      "chainage": "",
+      "points_de_victoire": 2,
+      "argent": 0,
+      "avantage" : []
+    }
+
+  ],
+  "Guilde": [
+    {
+    },
+    {
+
+    }
+  ]
+}
