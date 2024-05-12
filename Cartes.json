@@ -1,0 +1,361 @@
+{
+  "Age1": [
+    {
+      "name": "Chantier",
+      "couleur": "marron",
+      "cost": [],
+      "type": "Premiere",
+      "produit": {
+        "ressources": ["bois"]
+      },
+      "boucliers": 0,
+      "symboles_scientifiques": "",
+      "chainage": "",
+      "points_de_victoire": 0,
+      "argent": 0,
+      "avantage" : []
+    },
+    {
+      "name": "Exploitation",
+      "couleur": "marron",
+      "cost": ["piece"],
+      "type": "Premiere",
+      "produit": {
+        "ressources": ["bois"]
+      },
+      "boucliers": 0,
+      "symboles_scientifiques": "",
+      "chainage": "",
+      "points_de_victoire": 0,
+      "argent": 0,
+      "avantage" : []
+    },
+    {
+      "name": "Bassin argileux",
+      "couleur": "marron",
+      "cost": [],
+      "type": "Premiere",
+      "produit": {
+        "ressources": ["argile"]
+      },
+      "boucliers": 0,
+      "symboles_scientifiques": "",
+      "chainage": "",
+      "points_de_victoire": 0,
+      "argent": 0,
+      "avantage" : []
+    },
+    {
+      "name": "Cavite",
+      "couleur": "marron",
+      "cost": ["piece"],
+      "type": "Premiere",
+      "produit": {
+        "ressources": ["argile"]
+      },
+      "boucliers": 0,
+      "symboles_scientifiques": "",
+      "chainage": "",
+      "points_de_victoire": 0,
+      "argent": 0,
+      "avantage" : []
+    },
+    {
+      "name": "Gisement",
+      "couleur": "marron",
+      "cost": [],
+      "type": "Premiere",
+      "produit": {
+        "ressources": ["pierre"]
+      },
+      "boucliers": 0,
+      "symboles_scientifiques": "",
+      "chainage": "",
+      "points_de_victoire": 0,
+      "argent": 0,
+      "avantage" : []
+    },
+    {
+      "name": "Mine",
+      "couleur": "marron",
+      "cost": ["piece"],
+      "type": "Premiere",
+      "produit": {
+        "ressources": ["pierre"]
+      },
+      "boucliers": 0,
+      "symboles_scientifiques": "",
+      "chainage": "",
+      "points_de_victoire": 0,
+      "argent": 0,
+      "avantage" : []
+    },
+    {
+      "name": "Tour de garde",
+      "couleur": "rouge",
+      "cost": [],
+      "type": "Militaire",
+      "produit": {
+        "ressources": []
+      },
+      "boucliers": 1,
+      "symboles_scientifiques": "",
+      "chainage": "",
+      "points_de_victoire": 0,
+      "argent": 0,
+      "avantage" : []
+    },
+    {
+      "name": "Ecuries",
+      "couleur": "rouge",
+      "cost": ["bois"],
+      "type": "Militaire",
+      "produit": {
+        "ressources": []
+      },
+      "boucliers": 1,
+      "symboles_scientifiques": "",
+      "chainage": "Sabot",
+      "points_de_victoire": 0,
+      "argent": 0,
+      "avantage" : []
+    },
+    {
+      "name": "Caserne",
+      "couleur": "rouge",
+      "cost": ["argile"],
+      "type": "Militaire",
+      "produit": {
+        "ressources": []
+      },
+      "boucliers": 1,
+      "symboles_scientifiques": "",
+      "chainage": "Epee",
+      "points_de_victoire": 0,
+      "argent": 0,
+      "avantage" : []
+    },
+    {
+      "name": "Palissade",
+      "couleur": "rouge",
+      "cost": ["piece","piece"],
+      "type": "Militaire",
+      "produit": {
+        "ressources": []
+      },
+      "boucliers": 1,
+      "symboles_scientifiques": "",
+      "chainage": "Tour",
+      "points_de_victoire": 0,
+      "argent": 0,
+      "avantage" : []
+    }
+  ],
+
+  "Age2": [
+    {
+      "name": "Scierie",
+      "couleur": "marron",
+      "cost": ["piece", "piece"],
+      "type": "Premiere",
+      "produit": {
+        "ressources": ["bois", "bois"]
+      },
+      "boucliers": 0,
+      "symboles_scientifiques": "",
+      "chainage": "",
+      "points_de_victoire": 0,
+      "argent": 0,
+      "avantage" : []
+    },
+    {
+      "name": "Briqueterie",
+      "couleur": "marron",
+      "cost": ["piece", "piece"],
+      "type": "Premiere",
+      "produit": {
+        "ressources": ["argile", "argile"]
+      },
+      "boucliers": 0,
+      "symboles_scientifiques": "",
+      "chainage": "",
+      "points_de_victoire": 0,
+      "argent": 0,
+      "avantage" : []
+    },
+    {
+      "name": "Carriere",
+      "couleur": "marron",
+      "cost": ["piece", "piece"],
+      "type": "Premiere",
+      "produit": {
+        "ressources": ["pierre", "pierre"]
+      },
+      "boucliers": 0,
+      "symboles_scientifiques": "",
+      "chainage": "",
+      "points_de_victoire": 0,
+      "argent": 0,
+      "avantage" : []
+    },
+    {
+      "name": "Muraille",
+      "couleur": "rouge",
+      "cost": ["pierre", "pierre"],
+      "type": "Militaire",
+      "produit": {
+        "ressources": []
+      },
+      "boucliers": 2,
+      "symboles_scientifiques": "",
+      "chainage": "",
+      "points_de_victoire": 0,
+      "argent": 0,
+      "avantage" : []
+    },
+    {
+      "name": "Haras",
+      "couleur": "rouge",
+      "cost": ["argile", "bois"],
+      "type": "Militaire",
+      "produit": {
+        "ressources": []
+      },
+      "boucliers": 1,
+      "symboles_scientifiques": "",
+      "chainage": "",
+      "points_de_victoire": 0,
+      "argent": 0,
+      "avantage" : []
+    },
+    {
+      "name": "Baraquements",
+      "couleur": "rouge",
+      "cost": ["piece", "piece", "piece"],
+      "type": "Militaire",
+      "produit": {
+        "ressources": []
+      },
+      "boucliers": 1,
+      "symboles_scientifiques": "",
+      "chainage": "",
+      "points_de_victoire": 0,
+      "argent": 0,
+      "avantage" : []
+    },
+    {
+      "name": "Champ de tir",
+      "couleur": "rouge",
+      "cost": ["pierre", "bois", "Papyrus"],
+      "type": "Militaire",
+      "produit": {
+        "ressources": []
+      },
+      "boucliers": 2,
+      "symboles_scientifiques": "",
+      "chainage": "Cible",
+      "points_de_victoire": 0,
+      "argent": 0,
+      "avantage" : []
+    },
+    {
+      "name": "Place d'armes",
+      "couleur": "rouge",
+      "cost": ["argile", "argile", "Verre"],
+      "type": "Militaire",
+      "produit": {
+        "ressources": []
+      },
+      "boucliers": 2,
+      "symboles_scientifiques": "",
+      "chainage": "Chevalier",
+      "points_de_victoire": 0,
+      "argent": 0,
+      "avantage" : []
+    }
+    ],
+  "Age3": [
+    {
+      "name": "Palace",
+      "couleur": "bleu",
+      "cost": ["argile", "pierre", "bois", "Verre", "Verre"],
+      "type": "",
+      "produit": {
+        "ressources": []
+      },
+      "boucliers": 0,
+      "symboles_scientifiques": "",
+      "chainage": "",
+      "points_de_victoire": 7,
+      "argent": 0,
+      "avantage" : []
+    },
+    {
+      "name": "Hotel de ville",
+      "couleur": "bleu",
+      "cost": ["pierre", "pierre", "pierre", "bois", "bois"],
+      "type": "",
+      "produit": {
+        "ressources": []
+      },
+      "boucliers": 0,
+      "symboles_scientifiques": "",
+      "chainage": "",
+      "points_de_victoire": 7,
+      "argent": 0,
+      "avantage" : []
+    },
+    {
+      "name": "Fortifications",
+      "couleur": "rouge",
+      "cost": ["pierre", "pierre", "argile", "Papyrus"],
+      "type": "Militaire",
+      "produit": {
+        "ressources": []
+      },
+      "boucliers": 2,
+      "symboles_scientifiques": "",
+      "chainage": "",
+      "points_de_victoire": 0,
+      "argent": 0,
+      "avantage" : []
+    },
+    {
+      "name": "Atelier de siege",
+      "couleur": "rouge",
+      "cost": ["bois", "bois", "bois", "Verre"],
+      "type": "Militaire",
+      "produit": {
+        "ressources": []
+      },
+      "boucliers": 2,
+      "symboles_scientifiques": "",
+      "chainage": "",
+      "points_de_victoire": 0,
+      "argent": 0,
+      "avantage" : []
+    },
+    {
+      "name": "Cirque",
+      "couleur": "rouge",
+      "cost": ["argile", "argile", "pierre", "pierre"],
+      "type": "Militaire",
+      "produit": {
+        "ressources": []
+      },
+      "boucliers": 2,
+      "symboles_scientifiques": "",
+      "chainage": "",
+      "points_de_victoire": 0,
+      "argent": 0,
+      "avantage" : []
+    }
+    ],
+  "Guilde": [
+    {
+    },
+    {
+
+    }
+  ]
+}
