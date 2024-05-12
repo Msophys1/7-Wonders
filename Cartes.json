@@ -131,7 +131,7 @@
 
         {
             "name": "Le Circus Maximus",
-            "cost": [],
+            "cost": ["pierre", "bois", "verre", "verre"],
             "produit": {
               "ressources": []
             },
@@ -145,7 +145,7 @@
 
         {
             "name": "Le Colosse",
-            "cost": [],
+            "cost": ["argile", "argile", "argile", "verre"],
             "produit": {
               "ressources": []
             },
@@ -159,7 +159,7 @@
 
         {
             "name": "Le Grand Phare",
-            "cost": [],
+            "cost": ["bois", "pierre", "papyrus", "papyrus"],
             "produit": {
               "ressources": [] // Pierre, Argile ou Bois
             },
@@ -173,7 +173,7 @@
 
         {
             "name": "Les Jardins Suspendus",
-            "cost": [],
+            "cost": ["bois","bois", "verre", "papyrus"],
             "produit": {
               "ressources": []
             },
@@ -187,7 +187,7 @@
 
         {
             "name": "La Grande Bibliothèque ",
-            "cost": [],
+            "cost": ["bois", "bois", "bois", "papyrus", "verre"],
             "produit": {
               "ressources": []
             },
@@ -201,7 +201,7 @@
 
         {
             "name": "Le Mausolée",
-            "cost": [],
+            "cost": ["argile", "argile", "verre", "verre", "papyrus"],
             "produit": {
               "ressources": []
             },
@@ -215,7 +215,7 @@
 
         {
             "name": "Le Piree",
-            "cost": [],
+            "cost": ["bois", "bois", "pierre", "argile"],
             "produit": {
               "ressources": [] // Verre ou Papyrus
             },
@@ -229,7 +229,7 @@
 
         {
             "name": "Les Pyramides",
-            "cost": [],
+            "cost": ["pierre", "pierre", "pierre", "papyrus"],
             "produit": {
               "ressources": []
             },
@@ -243,7 +243,7 @@
 
         {
             "name": "Le Sphynx",
-            "cost": [],
+            "cost": ["pierre", "argile", "verre", "verre"],
             "produit": {
               "ressources": []
             },
@@ -257,7 +257,7 @@
 
         {
             "name": "La Statue de Zeus",
-            "cost": [],
+            "cost": ["pierre", "bois", "argile", "papyrus", "papyrus"],
             "produit": {
               "ressources": []
             },
@@ -271,7 +271,7 @@
 
         {
             "name": "Le Temple d'Artemis",
-            "cost": [],
+            "cost": ["bois", "pierre", "verre", "papyrus"],
             "produit": {
               "ressources": []
             },
@@ -285,7 +285,7 @@
 
         {
             "name": "La Via Appia",
-            "cost": [],
+            "cost": ["pierre", "pierre", "argile", "argile", "papyrus"],
             "produit": {
               "ressources": []
             },
