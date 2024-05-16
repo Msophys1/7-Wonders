@@ -50,7 +50,6 @@ void Plateau::setUpPlateau() {
     // Distribution initiale des pièces de monnaie aux joueurs
     distribuerPiecesInitiales();
 
-
 }
 
 void Plateau::initialiserVariablesDeJeu() {
@@ -99,27 +98,33 @@ void Plateau::distribuerPiecesInitiales() {
     // TODO : La distribution initiale des pièces de monnaie aux joueurs.
     // joueur1.ajouterPieces(7);
     // joueur2.ajouterPieces(7);
-    // Note: Assurez-vous d'avoir accès aux instances des joueurs
+    // Note: Assurer d'avoir accès aux instances des joueurs
 }
 
 void Plateau::initialiserCartesPourAge(int age) {
+    if (age < 1 || age > 3) {
+        throw std::invalid_argument("Age invalide. Veuillez choisir entre 1 et 3.");
+    }
 
-    // TODO : La préparation détaillée des cartes pour chaque âge, en suivant les structures spécifiques avec
-    //  des cartes face visible ou cachée.
-    // TODO : Prend aussi en compte qu'il y a trois ages. les détails du nombres de carte par age et de
-    //  l'initialisation de ces cartes est dans le document des règles du jeux
+    // Nombre de cartes à sélectionner pour chaque âge
+    int nombreDeCartes = (age == 3) ? 20 : 23;
 
-    Carte::chargerDeckDepuisFichier("Assets/Cartes.json");
+    // Vérifie si le vecteur a suffisamment de cartes pour être sélectionné
+    if (Carte::decksParAge[age - 1].size() < nombreDeCartes) {
+        throw std::runtime_error("Pas assez de cartes dans le deck pour l'âge " + std::to_string(age));
+    }
 
-    // Initialise les dispositions des cartes pour chaque âge.
-    // ageCardLayouts.clear(); // Efface toutes les configurations précédentes des cartes.
-    // ageCardLayouts.resize(3); // Prépare le vecteur pour trois âges.
-    // int numberOfCardsPerAge[] = {23, 23, 20}; // Définit le nombre de cartes par âge selon les règles.
-    // for (int i = 0; i < 3; ++i) {
-        // Redimensionne chaque vecteur d'âge pour correspondre au nombre de cartes spécifié.
-    //     ageCardLayouts[i].resize(numberOfCardsPerAge[i]);
-        // TODO: Initialiser chaque vecteur de cartes avec les cartes spécifiques pour chaque âge
-    //}
+    // Copie le vecteur pour permettre le mélange sans altérer l'original
+    std::vector<Carte> deckCopie = Carte::decksParAge[age - 1];
+
+    // Mélange aléatoire des cartes dans le deck copié
+    std::random_device rd;
+    std::mt19937 g(rd());
+    std::shuffle(deckCopie.begin(), deckCopie.end(), g);
+
+    // Efface le vecteur pour l'âge spécifié et sélectionne le nombre de cartes requis
+    ageCardLayouts[age - 1].clear();
+    ageCardLayouts[age - 1].insert(ageCardLayouts[age - 1].end(), deckCopie.begin(), deckCopie.begin() + nombreDeCartes);
 }
 
 bool Plateau::checkVictoireMilitaire() const {
@@ -268,10 +273,10 @@ void Plateau::appliquerEffetJetonProgres(Joueur& joueur, JetonsProgres token) {
 void Plateau::collecterSymboleScientifique(Joueur& joueur, SymboleScientifiques symbole) {
     // Incrémente le compteur du symbole scientifique spécifié pour le joueur.
     // Cette ligne ajoute 1 au nombre de fois que le joueur a collecté ce symbole spécifique.
-    joueur.scientificSymbols[symbole]++;
+    joueur.SymboleScientifiques[symbole]++;
 
     // Vérifie si le joueur a collecté une paire de ce symbole (c'est-à-dire un nombre pair de ce symbole).
-    if (joueur.scientificSymbols[symbole] % 2 == 0) {
+    if (joueur.SymboleScientifiques[symbole] % 2 == 0) {
         // Si oui, annonce que le joueur a collecté une paire et peut choisir un jeton de progrès.
         std::cout << "Paire de symboles collectée. Choix d'un jeton de progrès." << std::endl;
         // Appelle la méthode offrirChoixJetonProgres pour permettre au joueur de choisir un jeton de progrès.
@@ -333,13 +338,13 @@ void Plateau::offrirChoixSymboleScientifique(Joueur& joueur) {
         std::cout << choix << ": ";
         // Selon le symbole, affiche le nom correspondant pour rendre le choix plus clair pour le joueur.
         switch(symbole) {
-            case SymboleScientifiques::Roue: std::cout << "Roue"; break;
-            case SymboleScientifiques::Compas: std::cout << "Compas"; break;
-            case SymboleScientifiques::Mortier_Pilon: std::cout << "Mortier Pilon"; break;
-            case SymboleScientifiques::Tablette: std::cout << "Tablette"; break;
-            case SymboleScientifiques::Lyre: std::cout << "Lyre"; break;
-            case SymboleScientifiques::Mesure: std::cout << "Mesure"; break;
-            case SymboleScientifiques::Telescope: std::cout << "Telescope"; break;
+            case SymboleScientifiques::Roue:std::cout << "Roue"; break;
+            case SymboleScientifiques::Compas:std::cout << "Compas"; break;
+            case SymboleScientifiques::Mortier_Pilon:std::cout << "Mortier Pilon"; break;
+            case SymboleScientifiques::Tablette:std::cout << "Tablette"; break;
+            case SymboleScientifiques::Lyre:std::cout << "Lyre"; break;
+            case SymboleScientifiques::Mesure:std::cout << "Mesure"; break;
+            case SymboleScientifiques::Telescope:std::cout << "Telescope"; break;
         }
         std::cout << std::endl;
         choix++; // Incrémente le numéro de choix pour l'affichage du prochain symbole.

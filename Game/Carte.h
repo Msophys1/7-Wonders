@@ -40,6 +40,7 @@ public:
     // Méthode statique pour charger les cartes depuis un fichier JSON
     static void chargerDeckDepuisFichier(const std::string& cheminFichier);
     static void testerChargementDecks();
+    static std::vector<Carte> decksParAge[3];
 
 
 private:
@@ -60,7 +61,6 @@ private:
     static std::vector<std::string> parseAvantages(const nlohmann::json& json);
     static std::vector<std::string> parseProduit(const nlohmann::json &produitJson);
 
-    static std::vector<Carte> decksParAge[3];
 protected:
     // Méthodes statiques pour le parsing
     static std::vector<std::string> parseCost(const nlohmann::json& json);

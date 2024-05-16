@@ -15,11 +15,11 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="65dd0428-0e68-4940-a24a-588bf13d6b22" name="Changes" comment="Update Type.h &amp; class Carte">
+    <list default="true" id="65dd0428-0e68-4940-a24a-588bf13d6b22" name="Changes" comment="Update Class Carte. &#10;Guilde herite Carte &amp; definition parser">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Cartes.json" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Cartes.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Game/Carte.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Game/Carte.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Game/Carte.h" beforeDir="false" afterPath="$PROJECT_DIR$/Game/Carte.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Game/Plateau.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Game/Plateau.cpp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -45,6 +45,11 @@
         </map>
       </branch-storage>
     </favorite-branches>
+    <option name="PREVIOUS_COMMIT_AUTHORS">
+      <list>
+        <option value="dinamouayed &lt;140742993+dinamouayed@users.noreply.github.com&gt;" />
+      </list>
+    </option>
     <option name="PUSH_AUTO_UPDATE" value="true" />
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
@@ -76,37 +81,37 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_ADD_EXTERNAL_FILES": "true",
-    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "C/C++ File.CarteTest.cpp.executor": "Run",
-    "CMake Application.test_carte.executor": "Run",
-    "CMake Debug.7_Wonders.executor": "Debug",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.cidr.known.project.marker": "true",
-    "RunOnceActivity.readMode.enableVisualFormatting": "true",
-    "cf.first.check.clang-format": "false",
-    "cidr.known.project.marker": "true",
-    "git-widget-placeholder": "Mattéo",
-    "ignore.virus.scanning.warn.message": "true",
-    "last_opened_file_path": "D:/CLion/7-Wonders",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "run.code.analysis.last.selected.profile": "pProject Default",
-    "settings.editor.selected.configurable": "project.propVCSSupport.DirectoryMappings",
-    "structure.view.defaults.are.configured": "true",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;ASKED_SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;C/C++ File.CarteTest.cpp.executor&quot;: &quot;Run&quot;,
+    &quot;CMake Application.test_carte.executor&quot;: &quot;Run&quot;,
+    &quot;CMake Debug.7_Wonders.executor&quot;: &quot;Debug&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.cidr.known.project.marker&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.readMode.enableVisualFormatting&quot;: &quot;true&quot;,
+    &quot;cf.first.check.clang-format&quot;: &quot;false&quot;,
+    &quot;cidr.known.project.marker&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;Mattéo&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/CLion/7-Wonders&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;run.code.analysis.last.selected.profile&quot;: &quot;pProject Default&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;project.propVCSSupport.DirectoryMappings&quot;,
+    &quot;structure.view.defaults.are.configured&quot;: &quot;true&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
-  "keyToStringList": {
-    "ChangesTree.GroupingKeys": [
+  &quot;keyToStringList&quot;: {
+    &quot;ChangesTree.GroupingKeys&quot;: [
     ]
   }
-}]]></component>
+}</component>
   <component name="RunDashboard">
     <option name="configurationTypes">
       <set>
@@ -154,7 +159,8 @@
       <workItem from="1712574310353" duration="3634000" />
       <workItem from="1712659728201" duration="2916000" />
       <workItem from="1715161943412" duration="7262000" />
-      <workItem from="1715583088614" duration="5610000" />
+      <workItem from="1715583088614" duration="11179000" />
+      <workItem from="1715774451225" duration="3409000" />
     </task>
     <task id="LOCAL-00001" summary="first try for the board">
       <option name="closed" value="true" />
@@ -276,7 +282,15 @@
       <option name="project" value="LOCAL" />
       <updated>1715425515032</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="Update Class Carte. &#10;Guilde herite Carte &amp; definition parser">
+      <option name="closed" value="true" />
+      <created>1715588961505</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1715588961505</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -335,6 +349,8 @@
     <MESSAGE value="Merge remote-tracking branch 'origin/Mattéo' into Mattéo" />
     <MESSAGE value="Update" />
     <MESSAGE value="Update Type.h &amp; class Carte" />
-    <option name="LAST_COMMIT_MESSAGE" value="Update Type.h &amp; class Carte" />
+    <MESSAGE value="Update Type.h chainage" />
+    <MESSAGE value="Update Class Carte. &#10;Guilde herite Carte &amp; definition parser" />
+    <option name="LAST_COMMIT_MESSAGE" value="Update Class Carte. &#10;Guilde herite Carte &amp; definition parser" />
   </component>
 </project>
