@@ -8,8 +8,9 @@ using namespace std;
 class Joueur {
 private:
     string nom;
-    vector<Carte> cartes;
-    vector<Carte> merveilles;
+    vector<Batiment> batiments;
+    vector<Merveille> merveilles;
+    vector<Guilde> guilde;
     vector<JetonsProgres> jetonsProgres;
     Joueur *adversaire;
 
@@ -32,10 +33,9 @@ public:
     void setPieces(int nouvellesPieces) { pieces = nouvellesPieces; }
     void setPuissanceMilitaire(int nouvellePuissance) { puissanceMilitaire = nouvellePuissance; }
     void setAdversaire(Joueur* nouvelAdversaire) { adversaire = nouvelAdversaire; }
-    void setCartes(const vector<Carte>& nouvellesCartes) { cartes = nouvellesCartes; }
-    void setMerveilles(const vector<Carte>& nouvellesMerveilles) { merveilles = nouvellesMerveilles; }
+    void setBatiment(const vector<Batiment>& nouvellesCartes) { batiments = nouvellesCartes; }
+    void setMerveilles(const vector<Merveille>& nouvellesMerveilles) { merveilles = nouvellesMerveilles; }
     void setJetonsProgres(const vector<JetonsProgres>& nouveauxJetons) { jetonsProgres = nouveauxJetons; }
-
 
     // Getters
     const string& getNom() const { return nom; }
@@ -44,9 +44,23 @@ public:
     int getPieces() const { return pieces; }
     int getPuissanceMilitaire() const { return puissanceMilitaire; }
     Joueur* getAdversaire() const { return adversaire; }
-    const vector<Carte>& getCartes() const { return cartes; }
-    const vector<Carte>& getMerveilles() const { return merveilles; }
+    const vector<Batiment>& getBatiment() const { return batiments; }
+    const vector<Merveille>& getMerveilles() const { return merveilles; }
     const vector<JetonsProgres>& getJetonsProgres() const { return jetonsProgres; }
+
+    // Ajouter une merveille au joueur
+    void ajouterMerveille(const Merveille& merveille) {
+        merveilles.push_back(merveille);
+    }
+    void ajouterBatiment(const Batiment& batiment) {
+        merveilles.push_back(batiment);
+    }
+    void ajouterGuilde(const Guilde& guilde) {
+        merveilles.push_back(guilde);
+    }
+    void ajouterJetonProgres(const JetonsProgres& jeton) {
+        merveilles.push_back(jeton);
+    }
 };
 
 ostream& operator<<(ostream& f, const Joueur& joueur);
