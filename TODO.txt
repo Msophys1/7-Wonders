@@ -1,0 +1,3 @@
+Carte :
+operator<<
+fonction getName (besoin pour choix des merveilles dans GameManager)
