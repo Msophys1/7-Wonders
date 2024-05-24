@@ -32,18 +32,6 @@ private:
     bool effetRejouer = false; // Indique si le joueur peut rejouer (effet de Theologie).
     bool effetEconomie = false; // Un drapeau qui, lorsqu'il est vrai, indique que le joueur bénéficie d'un effet économique spécial (par exemple, recevoir des pièces supplémentaires).
 
-    struct EffetChainage {
-        bool vase = false;
-        bool masque = false;
-        bool soleil = false;
-        bool eau = false;
-        bool lune = false;
-        bool sabot = false;
-        bool epee = false;
-        bool engrenage = false;
-        bool livre = false;
-    }effetChainage;
-
     // Autres ressources
     int pointsDeVictoire = 0; // Compte les points de victoire accumulés par le joueur au cours du jeu.
     int pieces = 0; // Représente les pièces de monnaie que le joueur a accumulées, utilisées pour divers achats ou actions dans le jeu.
