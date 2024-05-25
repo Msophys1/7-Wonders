@@ -61,6 +61,7 @@ public:
     void ajouterJetonProgres(const JetonsProgres& jeton) {
         merveilles.push_back(jeton);
     }
+    void ajouterPieces(int nouvellesPieces) { pieces += nouvellesPieces; }
 };
 
 ostream& operator<<(ostream& f, const Joueur& joueur);
