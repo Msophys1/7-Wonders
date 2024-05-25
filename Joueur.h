@@ -1,9 +1,12 @@
+#ifndef JOUEUR_H
+#define JOUEUR_H
+
 #include <iostream>
 #include <string>
 #include <map>
 #include <vector>
-#include "Type.h"
 #include "Carte.h"
+
 using namespace std;
 
 class Joueur {
@@ -35,7 +38,6 @@ public:
     void setPieces(int nouvellesPieces) { pieces = nouvellesPieces; }
     void setPuissanceMilitaire(int nouvellePuissance) { puissanceMilitaire = nouvellePuissance; }
     void setAdversaire(Joueur* nouvelAdversaire) { adversaire = nouvelAdversaire; }
-    void setMerveilles(const vector<Merveille>& nouvellesMerveilles) { merveilles = nouvellesMerveilles; }
     void setJetonsProgres(const vector<JetonsProgres>& nouveauxJetons) { jetonsProgres = nouveauxJetons; }
 
     // Getters
@@ -67,7 +69,11 @@ public:
         symbolesScientifiques.push_back(symbole);
     }
     void ajouterPieces(int nouvellesPieces) { pieces += nouvellesPieces; }
+
+    // Avoir toutes les cartes d'un joueur
+    vector<Carte> getCartes() const;
 };
 
 ostream& operator<<(ostream& f, const Joueur& joueur);
 
+#endif // JOUEUR_H
