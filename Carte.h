@@ -3,11 +3,13 @@
 #include <iostream>
 #include <string>
 #include <list>
+#include <set>
+
 
 //enum class ressource {Papyrus, Verre, Pierre, Argile, Bois};
 //enum class symbole_scientifique {Roue, Compas, Pilon, Tablette, Lyre, Mesure, Telescope};
 
-enum class type_batiment {Militaire, Scientifique, Manufacture, Premiere, Civile, Commerce, Guilde, Merveille};
+enum class type_batiment {Militaire, Scientifique, Manufacture, Premiere, Civil, Commerce, Guilde, Merveille};
 enum class jeton_progres{Agriculture, Architecture, Economie, Loi, Maconnerie, Mathematiques,Philosophie, Strategie, Theologie, Urbanisme};
 enum class phase_jeu {START, AGE_I, AGE_II, AGE_III, END};
 
@@ -15,13 +17,17 @@ enum class ressource {Bouclier, Papyrus, Verre, Pierre, Argile, Bois, Roue, Comp
 // toutes les ressources génériques sont centralisées dans cet enum : 
 // Boucliers, Matières Premières, Produits Manufacturés, Symbols Scientifiques
 
-class GameException {
-	public:
-		GameException(const std::string& i) :info(i) {}
-		std::string getInfo() const { return info; }
-	private:
-		std::string info;
-	};
+std::set<ressource> getMatierePremiere();
+std::set<ressource> getProduitManufacture();
+std::set<ressource> getRessource();
+std::set<ressource> getSymboleScientifique();
+
+std::string tostringRessources(ressource r);
+std::string tostringType(type_batiment t);
+
+// Carte my_carte1 = Carte("Stables", type_batiment::Militaire, {ressource::Argile, ressource::Argile, ressource::Bois, ressource::Bois, ressource::Bois}, 3) ;
+// my_carte1.setCoutRessource({ressource::Argile, ressource::Argile, ressource::Bois});
+// std::cout << my_carte1 << std::endl ; 
 
 class Carte {
     public: 
@@ -57,6 +63,8 @@ class Carte {
         bool checkCoutRessources(std::list<ressource> cost_r) const;
         // vérifier que les ressources entrées appartiennent à la bonne catégorie
 };
+
+std::ostream& operator<<(std::ostream& f, Carte c);
 
 class Batiment : public Carte { 
     // Civil, Scientifique, Militaire, Ressources
