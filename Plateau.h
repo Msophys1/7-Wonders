@@ -2,37 +2,51 @@
 #define INC_7_WONDERS_PLATEAU_H
 
 #include <vector>
-#include <map>
+#include <iostream>
+#include <algorithm>
+#include <random>
+#include <chrono>
 #include "Carte.h"
 #include "Joueur.h"
-#include "Type.h"
 
 class Plateau {
 public:
     Plateau();
-    void montrerEtatPlateau() const;
-    void avancementMilitaire(Joueur& joueur, int steps);
-    void collecterSymboleScientifique(Joueur& joueur, SymboleScientifiques symbole);
-    void appliquerEffetJetonProgres(Joueur &joueur, JetonsProgres token);
-    void offrirChoixJetonProgres(Joueur &joueur);
-    void offrirChoixSymboleScientifique(Joueur &joueur);
-    bool checkVictoireScientifique(const Joueur &joueur);
-    bool checkVictoireMilitaire() const;
-    static int validerInput(int min, int max);
-    void preparerJetonsDeProgres();
+    // Getteurs
+    int getPositionPionConflit() const { return positionPionConflit; }
+    bool getSaccage1duJoueur1() const { return saccage1duJoueur1; }
+    bool getSaccage2duJoueur1() const { return saccage2duJoueur1; }
+    bool getSaccage3duJoueur1() const { return saccage3duJoueur1; }
+    bool getSaccage1duJoueur2() const { return saccage1duJoueur2; }
+    bool getSaccage2duJoueur2() const { return saccage2duJoueur2; }
+    bool getSaccage3duJoueur2() const { return saccage3duJoueur2; }
+    const vector<JetonsProgres>& getJetonsProgresPlateau() const { return jetonsProgresPlateau; }
+
+    // Setteurs
+    void setPositionPionConflit(int position) { positionPionConflit = position; }
+    void setSaccage1duJoueur1(bool saccage) { saccage1duJoueur1 = saccage; }
+    void setSaccage2duJoueur1(bool saccage) { saccage2duJoueur1 = saccage; }
+    void setSaccage3duJoueur1(bool saccage) { saccage3duJoueur1 = saccage; }
+    void setSaccage1duJoueur2(bool saccage) { saccage1duJoueur2 = saccage; }
+    void setSaccage2duJoueur2(bool saccage) { saccage2duJoueur2 = saccage; }
+    void setSaccage3duJoueur2(bool saccage) { saccage3duJoueur2 = saccage; }
+    void setJetonsProgresPlateau(const vector<JetonsProgres>& jetons) { jetonsProgresPlateau = jetons; }
+
+    // Fonction pour choisir au hasard 5 jetons et qui les mets dans jetonsProgresPlateau
+    void setJetonsPlateau();
+
+    // operator<< qui montre l'état du plateau
 
 
 private:
-    void setUpPlateau();
-    void initialiserVariablesDeJeu();
-    void initialiserJetonsMilitaires();
-    void distribuerPiecesInitiales();
-    void initialiserCartesPourAge(int age);
-    int militaryTrackPosition{}; // de -9 à 9
-    int positionPionConflit{};
-    std::vector<std::vector<Carte>> ageCardLayouts;
-    std::map<SymboleScientifiques, int> scientificSymbolsCount;
-    std::vector<JetonsProgres> availableJetonsProgres;
+    int positionPionConflit; // de -9 à 9 (9 = victoire pour le joueur 1)
+    bool saccage1duJoueur1 = false;
+    bool saccage2duJoueur1 = false;
+    bool saccage3duJoueur1 = false;
+    bool saccage1duJoueur2 = false;
+    bool saccage2duJoueur2 = false;
+    bool saccage3duJoueur2 = false;
+    vector<JetonsProgres> jetonsProgresPlateau;
 
 };
 
