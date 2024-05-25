@@ -61,6 +61,25 @@ void GameManager::choisirMerveilles() {
     choisirEtAfficherMerveilles(joueur2, joueur1);
 }
 
+int GameManager::compterDoublonsSymbolesScientifiques(const Joueur& joueur) const {
+    map<SymboleScientifiques, int> occurrences;
+    int doublons = 0;
+
+    // Itérer à travers les symboles scientifiques du joueur
+    for (const auto& symbole : joueur.getSymbolesScientifiques()) {
+        // Incrémenter le nombre d'occurrences de chaque symbole
+        occurrences[symbole]++;
+    }
+
+    // Compter les doublons (deux occurrences du même symbole)
+    for (const auto& pair : occurrences) {
+        if (pair.second > 1) {
+            doublons += pair.second / 2;
+        }
+    }
+    return doublons;
+}
+
 void GameManager::commencerPartie() {
     bool partiefini = false;
     bool victoire = false;
@@ -75,9 +94,20 @@ void GameManager::commencerPartie() {
             victoire = true;
         }
 
-        // TODO : Victoire scientifique :
-        // partiefini = true;
-        // victoire = true;
+        // Victoire scientifique :
+        if(compterDoublonsSymbolesScientifiques(joueur1) >= 7)
+        {
+            cout << "Fin du jeu. "<< joueur1.getNom() << "a remporter la partie par une victoire scientifique !" << endl;
+            partiefini = true;
+            victoire = true;
+        }
+        if(compterDoublonsSymbolesScientifiques(joueur2) >= 7)
+        {
+            cout << "Fin du jeu. "<< joueur2.getNom() << "a remporter la partie par une victoire scientifique !" << endl;
+            partiefini = true;
+            victoire = true;
+        }
+
 
         // Prochain joueur
         if(current_player == &joueur1 && joueur1.getEffetRejouer()) current_player = &joueur1;
@@ -122,6 +152,10 @@ void GameManager::victoireCivile() {
         if(joueur1.getJetonsProgres()[i] == JetonsProgres::Philosophie) {
             totalPointJoueur1 += 7;
         }
+        if(joueur1.getJetonsProgres()[i] == JetonsProgres::Mathematiques) {
+            totalPointJoueur1 += 3;
+            totalPointJoueur1 += joueur1.getJetonsProgres().size() - 1;
+        }
     }
     for(size_t i = 0; i < joueur2.getJetonsProgres().size(); ++i) {
         if(joueur2.getJetonsProgres()[i] == JetonsProgres::Agriculture) {
@@ -129,6 +163,10 @@ void GameManager::victoireCivile() {
         }
         if(joueur2.getJetonsProgres()[i] == JetonsProgres::Philosophie) {
             totalPointJoueur2 += 7;
+        }
+        if(joueur2.getJetonsProgres()[i] == JetonsProgres::Mathematiques) {
+            totalPointJoueur1 += 3;
+            totalPointJoueur1 += joueur2.getJetonsProgres().size() - 1;
         }
     }
 
@@ -147,12 +185,12 @@ void GameManager::victoireCivile() {
         unsigned int totalPointCarteBleu1 = 0;
         unsigned int totalPointCarteBleu2 = 0;
         for(size_t i = 0; i < joueur1.getBatiment().size(); ++i) {
-            if(joueur1.getBatiment()[i].getType() == type_batiment::Civile) {
+            if(joueur1.getBatiment()[i].getType() == type_batiment::Civil) {
                 totalPointCarteBleu1 += joueur1.getBatiment()[i].getPointVictoire();
             }
         }
         for(size_t i = 0; i < joueur2.getBatiment().size(); ++i) {
-            if(joueur2.getBatiment()[i].getType() == type_batiment::Civile) {
+            if(joueur2.getBatiment()[i].getType() == type_batiment::Civil) {
                 totalPointCarteBleu1 += joueur2.getBatiment()[i].getPointVictoire();
             }
         }
