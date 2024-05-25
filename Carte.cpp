@@ -84,23 +84,15 @@ bool Carte::checkCoutRessources(std::list<Ressources> cost_r) const {
     return true ;
 }
 
-Carte::Carte(std::string n, Types t, std::list<Ressources> c_r, unsigned int c_m, unsigned int arge, unsigned int vic){
-    nom = n ;
-    type = t ;
-
-    if(c_r.size() > 5){
-        throw GameException("ERREUR : trop de ressources dans le coût de la carte instanciée") ;
+Carte::Carte(std::string n, Types t, std::list<Ressources> c_r, unsigned int c_m, unsigned int arge, unsigned int vic)
+        : nom(n), type(t), cost_r(c_r), cost_m(c_m), argent(arge), pt_victoire(vic) {
+    if (c_r.size() > 5) {
+        throw GameException("ERREUR : trop de ressources dans le coût de la carte instanciée");
     }
 
-    cost_m = c_m ;
-
-    if(!checkCoutRessources(c_r)){
-        throw GameException("ERREUR : list de ressources invalide dans la carte instanciée (matières premières ou produits manufacturés SEULEMENT)") ;
+    if (!checkCoutRessources(c_r)) {
+        throw GameException("ERREUR : list de ressources invalide dans la carte instanciée (matières premières ou produits manufacturés SEULEMENT)");
     }
-    cost_r = c_r ;
-
-    argent = arge ;
-    pt_victoire = vic ;
 }
 
 
