@@ -1,7 +1,5 @@
 #include "wonders.h"
 
-#include <set>
-
 std::set<ressource> getMatierePremiere() {
     return {
         ressource::Pierre,
@@ -38,6 +36,40 @@ std::set<ressource> getSymboleScientifique() {
         ressource::Telescope
     };
 }
+
+std::string tostringRessources(ressource r){
+    switch(r) {
+        case ressource::Roue : return "Roue" ; 
+        case ressource::Compas : return "Compas" ; 
+        case ressource::Pilon : return "Pilon" ; 
+        case ressource::Tablette : return "Tablette" ; 
+        case ressource::Lyre : return "Lyre" ; 
+        case ressource::Mesure : return "Mesure" ; 
+        case ressource::Telescope : return "Telescope" ; 
+        case ressource::Bouclier : return "Bouclier" ; 
+        case ressource::Papyrus : return "Papyrus" ; 
+        case ressource::Verre : return "Verre" ; 
+        case ressource::Pierre : return "Pierre" ; 
+        case ressource::Argile : return "Argile" ; 
+        case ressource::Bois : return "Bois" ; 
+        default : throw GameException("Ressource inconnue") ;
+    };
+}
+
+std::string tostringType(type_batiment t){
+    switch(t){
+        case type_batiment::Civil : return "Civil" ; 
+        case type_batiment::Militaire : return "Civil" ; 
+        case type_batiment::Scientifique : return "Civil" ;
+        case type_batiment::Manufacture : return "Civil" ;
+        case type_batiment::Premiere : return "Civil" ;
+        case type_batiment::Commerce : return "Civil" ;
+        case type_batiment::Guilde : return "Civil" ;
+        case type_batiment::Merveille : return "Civil" ;
+        default : throw GameException("Batiment inconnue") ;
+    };
+}
+
 
 bool Carte::checkCoutRessources(std::list<ressource> cost_r) const {
     std::set<ressource> standard_ressources = getRessource(); 
@@ -78,3 +110,13 @@ void Carte::setCoutRessource(std::list<ressource> cost){
     }
 }    
 
+std::ostream& operator<<(std::ostream& f, Carte c){
+    f << c.getNom() << std::endl ; 
+    f << "COUT ARGENT: " << c.getCoutArgent() << std::endl ; 
+    f << "COUT RESSOURCES: " ;
+    std::list<ressource> res = c.getCoutRessource();
+    for(auto iter = res.begin() ; iter != res.end() ; ++iter) { f << tostringRessources(*iter) << " ; " ; }
+    f << std::endl ;
+    f << "REWARDS: " << c.getRewardArgent() << " pièces ; " << c.getPointVictoire() << " points victoire" << std::endl ;
+    return f ; 
+}
