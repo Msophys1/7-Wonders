@@ -2,3 +2,4 @@ Carte :
 operator<<
 fonction getName (besoin pour choix des merveilles dans GameManager)
 Il faut ajouter comment on compte les nombres de points du saccage milaitaire.
+Il faut que les jetonsProgres proposé à un joueur au cours de la partie soient different de ceux sur le plateau. idee : les retirer du parametre de GameManager  jetonProgres
