@@ -63,6 +63,7 @@ public:
     void choisirMerveilles();
     void commencerPartie();
     void victoireCivile();
+    int compterDoublonsSymbolesScientifiques(const Joueur& joueur) const;
 
     // Destructeur
     ~GameManager() = default;
