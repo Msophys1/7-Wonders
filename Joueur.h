@@ -11,7 +11,7 @@ private:
     string nom;
     vector<Batiment> batiments;
     vector<Merveille> merveilles;
-    vector<Guilde> guilde;
+    vector<Guilde> guildes;
     vector<JetonsProgres> jetonsProgres;
     Joueur *adversaire;
 
@@ -49,18 +49,18 @@ public:
     const vector<Merveille>& getMerveilles() const { return merveilles; }
     const vector<JetonsProgres>& getJetonsProgres() const { return jetonsProgres; }
 
-    // Ajouter une merveille au joueur
+    // Ajouts
     void ajouterMerveille(const Merveille& merveille) {
         merveilles.push_back(merveille);
     }
     void ajouterBatiment(const Batiment& batiment) {
-        merveilles.push_back(batiment);
+        batiments.push_back(batiment);
     }
     void ajouterGuilde(const Guilde& guilde) {
-        merveilles.push_back(guilde);
+        guildes.push_back(guilde);
     }
     void ajouterJetonProgres(const JetonsProgres& jeton) {
-        merveilles.push_back(jeton);
+        jetonsProgres.push_back(jeton);
     }
     void ajouterPieces(int nouvellesPieces) { pieces += nouvellesPieces; }
 };
