@@ -53,6 +53,7 @@ public:
     void initialiserJeu();
     void selectionnerJetonsProgres();
     void choisirMerveilles();
+    void commencerPartie();
 
     // Destructeur
     ~GameManager() = default;
