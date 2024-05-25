@@ -61,7 +61,6 @@ public:
 
     // Méthodes de gestion du jeu
     void initialiserJeu();
-    void selectionnerJetonsProgres();
     vector<int> generateUniqueRandomArray();
     void choisirMerveilles();
     void commencerPartie();
