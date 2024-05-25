@@ -145,14 +145,16 @@ void GameManager::commencerPartie() {
 
     while (!partiefini){
         // Victoire militaire :
-        /*
-        if (plateau.checkVictoireMilitaire()) {
-            if(current_player == &joueur1 ) cout << "Fin du jeu. "<< joueur1.getNom() << "a remporter la partie par une victoire militaire !" << endl;
-            else cout << "Fin du jeu. "<< joueur2.getNom() << "a remporter la partie par une victoire militaire !" << endl;
+        if (plateau.getSaccage1duJoueur1() and plateau.getSaccage2duJoueur1() and plateau.getSaccage3duJoueur1()) {
+            cout << "Fin du jeu. "<< joueur2.getNom() << "a remporter la partie par une victoire militaire !" << endl;
             partiefini = true;
             victoire = true;
         }
-        */
+        if (plateau.getSaccage1duJoueur2() and plateau.getSaccage2duJoueur2() and plateau.getSaccage3duJoueur2()) {
+            cout << "Fin du jeu. "<< joueur1.getNom() << "a remporter la partie par une victoire militaire !" << endl;
+            partiefini = true;
+            victoire = true;
+        }
 
         // Victoire scientifique :
         if(compterDoublonsSymbolesScientifiques(joueur1) >= 7)
