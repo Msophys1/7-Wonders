@@ -1,28 +1,22 @@
 #include "GameManager.h"
 
-void GameManager::initialiserJeu() {
-    selectionnerJetonsProgres();
-    choisirMerveilles();
-}
-
 void GameManager::selectionnerJetonsProgres() {
-    plateau.preparerJetonsDeProgres();
+    //plateau.preparerJetonsDeProgres();
 }
 
 void GameManager::choisirMerveilles() {
-    // Mélanger et choisir 4 merveilles aléatoires
+    // Mélanger et choisir 4 merveilles aléatoires pour le premier tour
     random_device rd;
     mt19937 g(rd());
-    shuffle(merveilles.begin(), merveilles.end(), g);
+    vector<int> indices(merveilles.size());
+    iota(indices.begin(), indices.end(), 0); // Remplit le vecteur avec les valeurs de 0 à N-1
+    shuffle(indices.begin(), indices.end(), g);
 
-    vector<Merveille> merveillesChoisies(merveilles.begin(), merveilles.begin() + 4);
-    vector<Merveille> merveillesRestantes(merveilles.begin() + 4, merveilles.end());
-
-    auto choisirEtAfficherMerveilles = [&](Joueur& joueur1, Joueur& joueur2) {
-        // Afficher 4 merveilles
+    auto choisirEtAfficherMerveilles = [&](Joueur& joueur1, Joueur& joueur2, const vector<int>& indices) {
+        // Afficher les 4 merveilles disponibles
         cout << "Merveilles disponibles:" << endl;
         for (size_t i = 0; i < 4; ++i) {
-            cout << i + 1 << ". " << merveillesChoisies[i].getNom() << endl;
+            cout << i + 1 << ". " << merveilles[indices[i]].getNom() << endl;
         }
 
         // Joueur 1 choisit une merveille
@@ -33,8 +27,13 @@ void GameManager::choisirMerveilles() {
             cout << "Choix invalide. Veuillez choisir une merveille (1-4): ";
             cin >> choix;
         }
-        joueur1.ajouterMerveille(merveillesChoisies[choix - 1]);
-        merveillesChoisies.erase(merveillesChoisies.begin() + (choix - 1));
+        joueur1.ajouterMerveille(merveilles[indices[choix - 1]]);
+
+        // Copier les indices restants dans une liste temporaire
+        vector<int> indicesTemp(indices);
+
+        // Retirer la merveille choisie par joueur1 de la liste temporaire
+        indicesTemp.erase(indicesTemp.begin() + (choix - 1));
 
         // Joueur 2 choisit deux merveilles
         for (int i = 0; i < 2; ++i) {
@@ -44,22 +43,31 @@ void GameManager::choisirMerveilles() {
                 cout << "Choix invalide. Veuillez choisir une merveille (1-" << 4 - i << "): ";
                 cin >> choix;
             }
-            joueur2.ajouterMerveille(merveillesChoisies[choix - 1]);
-            merveillesChoisies.erase(merveillesChoisies.begin() + (choix - 1));
+            joueur2.ajouterMerveille(merveilles[indicesTemp[choix - 1]]);
+
+            // Retirer la merveille choisie par joueur2 de la liste temporaire
+            indicesTemp.erase(indicesTemp.begin() + (choix - 1));
         }
 
         // Attribuer la dernière merveille à joueur1
-        joueur1.ajouterMerveille(merveillesChoisies[0]);
-        merveillesChoisies.clear();
+        joueur1.ajouterMerveille(merveilles[indicesTemp[0]]);
     };
 
     // Premier tour de choix de merveilles
-    choisirEtAfficherMerveilles(joueur1, joueur2);
+    choisirEtAfficherMerveilles(joueur1, joueur2, indices);
+
+    // Copier les indices restants après le premier tour
+    vector<int> indicesDeuxiemeTour(indices.begin() + 4, indices.end());
+
+    // Mélanger à nouveau les indices pour le deuxième tour
+    shuffle(indicesDeuxiemeTour.begin(), indicesDeuxiemeTour.end(), g);
 
     // Deuxième tour de choix de merveilles
-    merveillesChoisies.insert(merveillesChoisies.end(), merveillesRestantes.begin(), merveillesRestantes.begin() + 4);
-    choisirEtAfficherMerveilles(joueur2, joueur1);
+    choisirEtAfficherMerveilles(joueur2, joueur1, indicesDeuxiemeTour);
 }
+
+
+
 
 int GameManager::compterDoublonsSymbolesScientifiques(const Joueur& joueur) const {
     map<SymboleScientifiques, int> occurrences;
@@ -87,12 +95,14 @@ void GameManager::commencerPartie() {
 
     while (!partiefini){
         // Victoire militaire :
+        /*
         if (plateau.checkVictoireMilitaire()) {
             if(current_player == &joueur1 ) cout << "Fin du jeu. "<< joueur1.getNom() << "a remporter la partie par une victoire militaire !" << endl;
             else cout << "Fin du jeu. "<< joueur2.getNom() << "a remporter la partie par une victoire militaire !" << endl;
             partiefini = true;
             victoire = true;
         }
+        */
 
         // Victoire scientifique :
         if(compterDoublonsSymbolesScientifiques(joueur1) >= 7)
@@ -185,12 +195,12 @@ void GameManager::victoireCivile() {
         unsigned int totalPointCarteBleu1 = 0;
         unsigned int totalPointCarteBleu2 = 0;
         for(size_t i = 0; i < joueur1.getBatiment().size(); ++i) {
-            if(joueur1.getBatiment()[i].getType() == type_batiment::Civil) {
+            if(joueur1.getBatiment()[i].getType() == Types::Civil) {
                 totalPointCarteBleu1 += joueur1.getBatiment()[i].getPointVictoire();
             }
         }
         for(size_t i = 0; i < joueur2.getBatiment().size(); ++i) {
-            if(joueur2.getBatiment()[i].getType() == type_batiment::Civil) {
+            if(joueur2.getBatiment()[i].getType() == Types::Civil) {
                 totalPointCarteBleu1 += joueur2.getBatiment()[i].getPointVictoire();
             }
         }
