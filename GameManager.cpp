@@ -4,68 +4,117 @@ void GameManager::selectionnerJetonsProgres() {
     //plateau.preparerJetonsDeProgres();
 }
 
-void GameManager::choisirMerveilles() {
-    // Mélanger et choisir 4 merveilles aléatoires pour le premier tour
-    random_device rd;
-    mt19937 g(rd());
-    vector<int> indices(merveilles.size());
-    iota(indices.begin(), indices.end(), 0); // Remplit le vecteur avec les valeurs de 0 à N-1
-    shuffle(indices.begin(), indices.end(), g);
+vector<int> GameManager::generateUniqueRandomArray() {
+    // Créer un vecteur avec les nombres de 0 à 9
+    std::vector<int> array;
+    for (int i = 0; i < 10; ++i) {
+        array.push_back(i);
+    }
 
-    auto choisirEtAfficherMerveilles = [&](Joueur& joueur1, Joueur& joueur2, const vector<int>& indices) {
-        // Afficher les 4 merveilles disponibles
-        cout << "Merveilles disponibles:" << endl;
-        for (size_t i = 0; i < 4; ++i) {
-            cout << i + 1 << ". " << merveilles[indices[i]].getNom() << endl;
-        }
+    // Dispositif aléatoire
+    std::random_device rd;
+    // Générateur de nombres pseudo-aléatoires
+    std::mt19937 g(rd());
 
-        // Joueur 1 choisit une merveille
-        int choix;
-        cout << joueur1.getNom() << ", choisissez une merveille (1-4): ";
-        cin >> choix;
-        while (choix < 1 || choix > 4) {
-            cout << "Choix invalide. Veuillez choisir une merveille (1-4): ";
-            cin >> choix;
-        }
-        joueur1.ajouterMerveille(merveilles[indices[choix - 1]]);
+    // Mélanger les éléments du vecteur
+    std::shuffle(array.begin(), array.end(), g);
 
-        // Copier les indices restants dans une liste temporaire
-        vector<int> indicesTemp(indices);
-
-        // Retirer la merveille choisie par joueur1 de la liste temporaire
-        indicesTemp.erase(indicesTemp.begin() + (choix - 1));
-
-        // Joueur 2 choisit deux merveilles
-        for (int i = 0; i < 2; ++i) {
-            cout << joueur2.getNom() << ", choisissez une merveille (1-" << 4 - i << "): ";
-            cin >> choix;
-            while (choix < 1 || choix > 4 - i) {
-                cout << "Choix invalide. Veuillez choisir une merveille (1-" << 4 - i << "): ";
-                cin >> choix;
-            }
-            joueur2.ajouterMerveille(merveilles[indicesTemp[choix - 1]]);
-
-            // Retirer la merveille choisie par joueur2 de la liste temporaire
-            indicesTemp.erase(indicesTemp.begin() + (choix - 1));
-        }
-
-        // Attribuer la dernière merveille à joueur1
-        joueur1.ajouterMerveille(merveilles[indicesTemp[0]]);
-    };
-
-    // Premier tour de choix de merveilles
-    choisirEtAfficherMerveilles(joueur1, joueur2, indices);
-
-    // Copier les indices restants après le premier tour
-    vector<int> indicesDeuxiemeTour(indices.begin() + 4, indices.end());
-
-    // Mélanger à nouveau les indices pour le deuxième tour
-    shuffle(indicesDeuxiemeTour.begin(), indicesDeuxiemeTour.end(), g);
-
-    // Deuxième tour de choix de merveilles
-    choisirEtAfficherMerveilles(joueur2, joueur1, indicesDeuxiemeTour);
+    return array;
 }
 
+void GameManager::choisirMerveilles() {
+    vector<int> array = generateUniqueRandomArray();
+
+    // Le joueur 1 choisit une merveille
+    for(size_t i = 0; i < 4; i++) {
+        cout << i + 1 << ". " << merveilles[array[i]].getNom() << endl;
+    }
+    int choix;
+    cout << joueur1.getNom() << ", choisissez une merveille (1-4): ";
+    cin >> choix;
+    while (choix < 1 || choix > 4) {
+        cout << "Choix invalide. Veuillez choisir une merveille (1-4): ";
+        cin >> choix;
+    }
+    joueur1.ajouterMerveille(merveilles[array[choix - 1]]);
+    array.erase(array.begin() + (choix - 1));
+
+    // Le joueur 2 choisit une merveille parmi les trois restantes
+    for(size_t i = 0; i < 3; i++) {
+        cout << i + 1 << ". " << merveilles[array[i]].getNom() << endl;
+    }
+    cout << joueur2.getNom() << ", choisissez une merveille (1-3): ";
+    cin >> choix;
+    while (choix < 1 || choix > 3) {
+        cout << "Choix invalide. Veuillez choisir une merveille (1-3): ";
+        cin >> choix;
+    }
+    joueur2.ajouterMerveille(merveilles[array[choix - 1]]);
+    array.erase(array.begin() + (choix - 1));
+
+    // Le joueur 2 choisit une autre merveille parmi les deux restantes
+    for(size_t i = 0; i < 2; i++) {
+        cout << i + 1 << ". " << merveilles[array[i]].getNom() << endl;
+    }
+    cout << joueur2.getNom() << ", choisissez une merveille (1-2): ";
+    cin >> choix;
+    while (choix < 1 || choix > 2) {
+        cout << "Choix invalide. Veuillez choisir une merveille (1-2): ";
+        cin >> choix;
+    }
+    joueur2.ajouterMerveille(merveilles[array[choix - 1]]);
+    array.erase(array.begin() + (choix - 1));
+
+    // Joueur 1 prend la carte restante
+    joueur1.ajouterMerveille(merveilles[array[0]]);
+
+
+    // On recommence l'opération en inversant les roles des joueur 1 et 2
+    // Le joueur 1 choisit une merveille
+    for(size_t i = 0; i < 4; i++) {
+        cout << i + 1 << ". " << merveilles[array[i]].getNom() << endl;
+    }
+    cout << joueur2.getNom() << ", choisissez une merveille (1-4): ";
+    cin >> choix;
+    while (choix < 1 || choix > 4) {
+        cout << "Choix invalide. Veuillez choisir une merveille (1-4): ";
+        cin >> choix;
+    }
+    joueur2.ajouterMerveille(merveilles[array[choix - 1]]);
+    array.erase(array.begin() + (choix - 1));
+
+    // Le joueur 2 choisit une merveille parmi les trois restantes
+    for(size_t i = 0; i < 3; i++) {
+        cout << i + 1 << ". " << merveilles[array[i]].getNom() << endl;
+    }
+    cout << joueur1.getNom() << ", choisissez une merveille (1-3): ";
+    cin >> choix;
+    while (choix < 1 || choix > 3) {
+        cout << "Choix invalide. Veuillez choisir une merveille (1-3): ";
+        cin >> choix;
+    }
+    joueur1.ajouterMerveille(merveilles[array[choix - 1]]);
+    array.erase(array.begin() + (choix - 1));
+
+    // Le joueur 1 choisit une autre merveille parmi les deux restantes
+    for(size_t i = 0; i < 2; i++) {
+        cout << i + 1 << ". " << merveilles[array[i]].getNom() << endl;
+    }
+    cout << joueur1.getNom() << ", choisissez une merveille (1-2): ";
+    cin >> choix;
+    while (choix < 1 || choix > 2) {
+        cout << "Choix invalide. Veuillez choisir une merveille (1-2): ";
+        cin >> choix;
+    }
+    joueur1.ajouterMerveille(merveilles[array[choix - 1]]);
+    array.erase(array.begin() + (choix - 1));
+
+    // Joueur 2 prend la carte restante
+    joueur2.ajouterMerveille(merveilles[array[0]]);
+
+    // Vérification
+    cout<<joueur1;
+}
 
 
 
@@ -212,4 +261,3 @@ void GameManager::victoireCivile() {
         else cout << "Fin du jeu. "<< joueur2.getNom() << "a remporter la partie par une victoire Civile !" << endl;
     }
 }
-
