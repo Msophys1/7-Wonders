@@ -31,7 +31,7 @@ private:
 
     Joueur joueur1;
     Joueur joueur2;
-    //Plateau plateau;
+    Plateau plateau;
     vector<JetonsProgres> jetonsProgresDisponibles;
     vector<Carte> defausse;
 
