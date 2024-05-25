@@ -1,5 +1,17 @@
 #include "Plateau.h"
 
+Plateau::Plateau()
+        : positionPionConflit(0),
+          saccage1duJoueur1(false),
+          saccage2duJoueur1(false),
+          saccage3duJoueur1(false),
+          saccage1duJoueur2(false),
+          saccage2duJoueur2(false),
+          saccage3duJoueur2(false),
+          jetonsProgresPlateau() {
+
+}
+
 void Plateau::setJetonsPlateau() {
     // Vérifier si le vecteur jetonsProgresPlateau contient au moins 5 jetons
     if (jetonsProgresPlateau.size() < 5) {
