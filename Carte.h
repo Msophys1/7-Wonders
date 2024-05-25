@@ -25,9 +25,13 @@ std::set<ressource> getSymboleScientifique();
 std::string tostringRessources(ressource r);
 std::string tostringType(type_batiment t);
 
-// Carte my_carte1 = Carte("Stables", type_batiment::Militaire, {ressource::Argile, ressource::Argile, ressource::Bois, ressource::Bois, ressource::Bois}, 3) ;
-// my_carte1.setCoutRessource({ressource::Argile, ressource::Argile, ressource::Bois});
-// std::cout << my_carte1 << std::endl ; 
+class GameException {
+	public:
+		GameException(const std::string& i) :info(i) {}
+		std::string getInfo() const { return info; }
+	private:
+		std::string info;
+	};
 
 class Carte {
     public: 
@@ -44,16 +48,19 @@ class Carte {
 
         // SETTERS
         void setNom(std::string new_nom){ nom = new_nom ;}
-        void setType(type_batiment new_type) {type = new_type ;}
+        //void setType(type_batiment new_type) {type = new_type ;} //  attribut const
         void setCoutArgent(unsigned int new_cost_m) { cost_m = new_cost_m ;}
         void setRewardArgent(unsigned int new_argent) { argent = new_argent ;}
         void setPointVictoire(unsigned int new_pt_victoire) { pt_victoire = new_pt_victoire ;}
         void setCoutRessource(std::list<ressource> cost) ;
 
+        // UTILS
+        bool achetableRessource(std::list<ressource> buy) const ; 
+
 
     private:
         std::string nom ;
-        type_batiment type ;
+        const type_batiment type ;
         std::list<ressource> cost_r ; // cout en ressources
         unsigned int cost_m ; // cout en argent
 
@@ -87,8 +94,22 @@ class Commerce : public Batiment {
     private:
 };
 
+
+// Merveille my_wonder1 = Merveille("Le Mausolée", type_batiment::Merveille, {}, 0, 0, 5, true);
 class Merveille : public Carte {
     public:
+        Merveille(std::string nom, type_batiment type=type_batiment::Merveille, std::list<ressource> cost_r = {}, unsigned int cost_m = 0, unsigned int argent = 0, unsigned int pt_victoire = 0, bool b=false) : Carte(nom, type, cost_r, cost_m, argent, pt_victoire), replay(b) {
+            if(type!=type_batiment::Merveille){
+                throw GameException("Merveille instanciée avec un type autre que Merveille");
+            }
+        }; 
+
+        //GETTERS
+        bool getReplay() const { return replay ;}
+
+        //SETTERS
+        void setReplay(bool b) { replay = b ;}
+
     private:
         bool replay ; 
 };
