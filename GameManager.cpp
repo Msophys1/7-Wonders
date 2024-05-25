@@ -1,7 +1,8 @@
 #include "GameManager.h"
 
 void GameManager::selectionnerJetonsProgres() {
-    //plateau.preparerJetonsDeProgres();
+    plateau.setJetonsPlateau();
+    choisirMerveilles();
 }
 
 vector<int> GameManager::generateUniqueRandomArray() {
@@ -229,7 +230,14 @@ void GameManager::victoireCivile() {
         }
     }
 
-    // TODO : Points de victoire militaire
+    // Points de victoire militaire
+    if(plateau.getSaccage1duJoueur1()) totalPointJoueur2 += 2;
+    if(plateau.getSaccage2duJoueur1()) totalPointJoueur2 += 5;
+    if(plateau.getSaccage3duJoueur1()) totalPointJoueur2 += 7;
+
+    if(plateau.getSaccage1duJoueur2()) totalPointJoueur1 += 2;
+    if(plateau.getSaccage2duJoueur2()) totalPointJoueur1 += 5;
+    if(plateau.getSaccage3duJoueur2()) totalPointJoueur1 += 7;
 
     // TODO : Points de victoire guildes
 
