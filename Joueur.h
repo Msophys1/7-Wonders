@@ -48,6 +48,7 @@ public:
     const vector<Batiment>& getBatiment() const { return batiments; }
     const vector<Merveille>& getMerveilles() const { return merveilles; }
     const vector<JetonsProgres>& getJetonsProgres() const { return jetonsProgres; }
+    const vector<SymboleScientifiques>& getSymbolesScientifiques() const { return symbolesScientifiques; }
 
     // Ajouts
     void ajouterMerveille(const Merveille& merveille) {
