@@ -114,12 +114,28 @@ void GameManager::victoireCivile() {
         totalPointJoueur2 += joueur2.getMerveilles()[i].getPointVictoire();
     }
 
-    // TODO : Points de victoire Progres
+    // Points de victoire Progres
+    for(size_t i = 0; i < joueur1.getJetonsProgres().size(); ++i) {
+        if(joueur1.getJetonsProgres()[i] == JetonsProgres::Agriculture) {
+            totalPointJoueur1 += 4;
+        }
+        if(joueur1.getJetonsProgres()[i] == JetonsProgres::Philosophie) {
+            totalPointJoueur1 += 7;
+        }
+    }
+    for(size_t i = 0; i < joueur2.getJetonsProgres().size(); ++i) {
+        if(joueur2.getJetonsProgres()[i] == JetonsProgres::Agriculture) {
+            totalPointJoueur2 += 4;
+        }
+        if(joueur2.getJetonsProgres()[i] == JetonsProgres::Philosophie) {
+            totalPointJoueur2 += 7;
+        }
+    }
 
     // TODO : Points de victoire militaire
 
     // TODO : Points de victoire guildes
-    
+
 
     // Trésor de la cité
     totalPointJoueur1 += joueur1.getPieces() / 3;
