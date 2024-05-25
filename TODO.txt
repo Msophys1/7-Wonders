@@ -1,3 +1,4 @@
 Carte :
 operator<<
 fonction getName (besoin pour choix des merveilles dans GameManager)
+Il faut ajouter comment on compte les nombres de points du saccage milaitaire.
