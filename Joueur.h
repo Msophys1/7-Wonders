@@ -1,6 +1,7 @@
 #include <iostream>
 #include <string>
 #include <map>
+#include <vector>
 #include "Type.h"
 #include "Carte.h"
 using namespace std;
