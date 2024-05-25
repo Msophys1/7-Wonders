@@ -7,6 +7,7 @@
 #include <algorithm>
 #include <random>
 #include <ctime>
+#include <list>
 
 #include "Joueur.h"
 #include "Plateau.h"
@@ -34,6 +35,8 @@ private:
     vector<JetonsProgres> jetonsProgresDisponibles;
     vector<Carte> defausse;
 
+    list<int> indicesMerveillesChoisis;
+
 public:
     // Constructeur
     GameManager(const Joueur& j1, const Joueur& j2) : joueur1(j1), joueur2(j2) {joueur1.setAdversaire(&joueur2), joueur2.setAdversaire(&joueur1);}
@@ -59,6 +62,7 @@ public:
     // Méthodes de gestion du jeu
     void initialiserJeu();
     void selectionnerJetonsProgres();
+    vector<int> generateUniqueRandomArray();
     void choisirMerveilles();
     void commencerPartie();
     void victoireCivile();
