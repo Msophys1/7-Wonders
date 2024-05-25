@@ -28,6 +28,23 @@ class Carte {
 
         Carte(std::string nom, type_batiment type, std::list<ressource> cost_r = {}, unsigned int cost_m = 0, unsigned int argent = 0, unsigned int pt_victoire = 0);
 
+        // GETTERS
+        std::string getNom() const { return nom ; }
+        type_batiment getType() const { return type ;}
+        unsigned int getCoutArgent() const { return cost_m ; }
+        unsigned int getRewardArgent() const { return argent ; }
+        unsigned int getPointVictoire() const { return pt_victoire ;}
+        std::list<ressource> getCoutRessource() const { return cost_r ;}
+
+        // SETTERS
+        void setNom(std::string new_nom){ nom = new_nom ;}
+        void setType(type_batiment new_type) {type = new_type ;}
+        void setCoutArgent(unsigned int new_cost_m) { cost_m = new_cost_m ;}
+        void setRewardArgent(unsigned int new_argent) { argent = new_argent ;}
+        void setPointVictoire(unsigned int new_pt_victoire) { pt_victoire = new_pt_victoire ;}
+        void setCoutRessource(std::list<ressource> cost) ;
+
+
     private:
         std::string nom ;
         type_batiment type ;
