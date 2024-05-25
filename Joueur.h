@@ -13,6 +13,7 @@ private:
     vector<Merveille> merveilles;
     vector<Guilde> guildes;
     vector<JetonsProgres> jetonsProgres;
+    vector<SymboleScientifiques> symbolesScientifiques;
     Joueur *adversaire;
 
     bool effetRejouer = false; // Indique si le joueur peut rejouer (effet de Theologie).
@@ -34,7 +35,6 @@ public:
     void setPieces(int nouvellesPieces) { pieces = nouvellesPieces; }
     void setPuissanceMilitaire(int nouvellePuissance) { puissanceMilitaire = nouvellePuissance; }
     void setAdversaire(Joueur* nouvelAdversaire) { adversaire = nouvelAdversaire; }
-    void setBatiment(const vector<Batiment>& nouvellesCartes) { batiments = nouvellesCartes; }
     void setMerveilles(const vector<Merveille>& nouvellesMerveilles) { merveilles = nouvellesMerveilles; }
     void setJetonsProgres(const vector<JetonsProgres>& nouveauxJetons) { jetonsProgres = nouveauxJetons; }
 
@@ -61,6 +61,9 @@ public:
     }
     void ajouterJetonProgres(const JetonsProgres& jeton) {
         jetonsProgres.push_back(jeton);
+    }
+    void ajouterSymboleScientifique(const SymboleScientifiques& symbole) {
+        symbolesScientifiques.push_back(symbole);
     }
     void ajouterPieces(int nouvellesPieces) { pieces += nouvellesPieces; }
 };
