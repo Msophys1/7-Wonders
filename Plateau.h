@@ -39,7 +39,7 @@ public:
 
 
 private:
-    int positionPionConflit; // de -9 à 9 (9 = victoire pour le joueur 1)
+    int positionPionConflit = 0; // de -9 à 9 (9 = victoire pour le joueur 1)
     bool saccage1duJoueur1 = false;
     bool saccage2duJoueur1 = false;
     bool saccage3duJoueur1 = false;
