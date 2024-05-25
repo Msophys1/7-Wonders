@@ -28,6 +28,7 @@ int main() {
         // Distribuer les merveilles
         gameManager.choisirMerveilles();
 
+        cout << gameManager.getJoueur1();
 
     } catch (const GameException& e) {
         cerr << "Erreur: " << e.getInfo() << endl;
