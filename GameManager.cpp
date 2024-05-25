@@ -69,8 +69,8 @@ void GameManager::commencerPartie() {
     while (!partiefini){
         // Victoire militaire :
         if (plateau.checkVictoireMilitaire()) {
-            if(current_player == &joueur1 ) cout << "Fin du jeu. "<< joueur1.getNom() << "a remporter la partie !" << endl;
-            else cout << "Fin du jeu. "<< joueur2.getNom() << "a remporter la partie !" << endl;
+            if(current_player == &joueur1 ) cout << "Fin du jeu. "<< joueur1.getNom() << "a remporter la partie par une victoire militaire !" << endl;
+            else cout << "Fin du jeu. "<< joueur2.getNom() << "a remporter la partie par une victoire militaire !" << endl;
             partiefini = true;
             victoire = true;
         }
@@ -89,8 +89,63 @@ void GameManager::commencerPartie() {
     // Victoire civile
     if(!victoire)
     {
-        // TODO : Decompte des points et attribution de la victoire
+        victoireCivile();
     }
 }
 
+void GameManager::victoireCivile() {
+    //Decompte des points et attribution de la victoire
+    unsigned int totalPointJoueur1 = 0;
+    unsigned int totalPointJoueur2 = 0;
+
+    // Points de victoire par bâtiment
+    for(size_t i = 0; i < joueur1.getBatiment().size(); ++i) {
+        totalPointJoueur1 += joueur1.getBatiment()[i].getPointVictoire();
+    }
+    for(size_t i = 0; i < joueur2.getBatiment().size(); ++i) {
+        totalPointJoueur2 += joueur2.getBatiment()[i].getPointVictoire();
+    }
+
+    // Points de victoire Merveilles
+    for(size_t i = 0; i < joueur1.getMerveilles().size(); ++i) {
+        totalPointJoueur1 += joueur1.getMerveilles()[i].getPointVictoire();
+    }
+    for(size_t i = 0; i < joueur2.getMerveilles().size(); ++i) {
+        totalPointJoueur2 += joueur2.getMerveilles()[i].getPointVictoire();
+    }
+
+    // TODO : Points de victoire Progres
+
+    // TODO : Points de victoire militaire
+
+    // TODO : Points de victoire guildes
+    
+
+    // Trésor de la cité
+    totalPointJoueur1 += joueur1.getPieces() / 3;
+    totalPointJoueur2 += joueur2.getPieces() / 3;
+
+    if(totalPointJoueur1 == totalPointJoueur2)
+    {
+        cout << "Fin de la partie. Égalité des points. La partie se départagera en fonction des bâtiments civils." << endl;
+        unsigned int totalPointCarteBleu1 = 0;
+        unsigned int totalPointCarteBleu2 = 0;
+        for(size_t i = 0; i < joueur1.getBatiment().size(); ++i) {
+            if(joueur1.getBatiment()[i].getType() == type_batiment::Civile) {
+                totalPointCarteBleu1 += joueur1.getBatiment()[i].getPointVictoire();
+            }
+        }
+        for(size_t i = 0; i < joueur2.getBatiment().size(); ++i) {
+            if(joueur2.getBatiment()[i].getType() == type_batiment::Civile) {
+                totalPointCarteBleu1 += joueur2.getBatiment()[i].getPointVictoire();
+            }
+        }
+        if(totalPointCarteBleu1 > totalPointCarteBleu2) cout << "Fin du jeu. "<< joueur1.getNom() << "a remporter la partie !" << endl;
+        else cout << "Fin du jeu. "<< joueur2.getNom() << "a remporter la partie par une victoire Civile!" << endl;
+    }
+    else {
+        if(totalPointJoueur1 > totalPointJoueur2) cout << "Fin du jeu. "<< joueur1.getNom() << "a remporter la partie !" << endl;
+        else cout << "Fin du jeu. "<< joueur2.getNom() << "a remporter la partie par une victoire Civile !" << endl;
+    }
+}
 
