@@ -15,6 +15,14 @@
 
 using namespace std;
 
+class GameException {
+public:
+    GameException(const std::string& i) :info(i) {}
+    std::string getInfo() const { return info; }
+private:
+    std::string info;
+};
+
 class GameManager {
 private:
     vector<Batiment> batiment; // A creer dans initialisation (static ?)
@@ -54,6 +62,7 @@ public:
     void selectionnerJetonsProgres();
     void choisirMerveilles();
     void commencerPartie();
+    void victoireCivile();
 
     // Destructeur
     ~GameManager() = default;
