@@ -61,4 +61,36 @@ void GameManager::choisirMerveilles() {
     choisirEtAfficherMerveilles(joueur2, joueur1);
 }
 
+void GameManager::commencerPartie() {
+    bool partiefini = false;
+    bool victoire = false;
+    Joueur* current_player = &joueur1;
+
+    while (!partiefini){
+        // Victoire militaire :
+        if (plateau.checkVictoireMilitaire()) {
+            if(current_player == &joueur1 ) cout << "Fin du jeu. "<< joueur1.getNom() << "a remporter la partie !" << endl;
+            else cout << "Fin du jeu. "<< joueur2.getNom() << "a remporter la partie !" << endl;
+            partiefini = true;
+            victoire = true;
+        }
+
+        // TODO : Victoire scientifique :
+        // partiefini = true;
+        // victoire = true;
+
+        // Prochain joueur
+        if(current_player == &joueur1 && joueur1.getEffetRejouer()) current_player = &joueur1;
+        else if(current_player == &joueur2 && joueur2.getEffetRejouer()) current_player = &joueur2;
+        else if(current_player == &joueur1) current_player = &joueur2;
+        else current_player = &joueur1;
+    }
+
+    // Victoire civile
+    if(!victoire)
+    {
+        // TODO : Decompte des points et attribution de la victoire
+    }
+}
+
 
