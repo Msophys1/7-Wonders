@@ -116,7 +116,7 @@ Carte ChoixDeCartes(phase_jeu phase, std::vector<Carte>& cartes){
                         }
                     }
                     else{
-                        if(disposition[a-1][b].getSelection() == true && disposition[a-1][b+1].getSelection() == true){
+                        if(disposition[a-1][b].getSelection() == true && disposition[a-1][b+1].getSelection() == true && disposition[a][b].getSelection()== false){
                             disposition[a][b].setSelection(true);
                             return disposition[a][b];
                         }
@@ -161,16 +161,16 @@ Carte ChoixDeCartes(phase_jeu phase, std::vector<Carte>& cartes){
                         }
                     }
                     else{
-                        if(b == 0 && disposition[a-1][b].getSelection() = true){
+                        if(b == 0 && disposition[a-1][b].getSelection() = true && disposition[a][b].getSelection() == false){
                             disposition[a][b].setSelection(true) ;
                             return disposition[a][b];
                         }
-                        else if(b == a+1 && disposition[a-1][b-1].getSelection() = true){
+                        else if(b == a+1 && disposition[a-1][b-1].getSelection() = true && disposition[a][b].getSelection() == false){
                             disposition[a][b].setSelection(true) ;
                             return disposition[a][b];
                         }
                         else if(b != 0 && b != a+1){
-                            if(disposition[a-1][b-1].getSelection() = true && disposition[a-1][b].getSelection() = true){
+                            if(disposition[a-1][b-1].getSelection() = true && disposition[a-1][b].getSelection() = true && disposition[a][b].getSelection() == false){
                                 disposition[a][b].setSelection(true) ;
                                 return disposition[a][b];
                             }
@@ -216,16 +216,16 @@ Carte ChoixDeCartes(phase_jeu phase, std::vector<Carte>& cartes){
                             }
                         }
                         else{
-                            if(b == 0 && disposition[a-1][b].getSelection() = true){
+                            if(b == 0 && disposition[a-1][b].getSelection() = true && disposition[a][b].getSelection() == false){
                                 disposition[a][b].setSelection(true) ;
                                 return disposition[a][b];
                             }
-                            else if(b == a+1 && disposition[a-1][b-1].getSelection() = true){
+                            else if(b == a+1 && disposition[a-1][b-1].getSelection() = true && disposition[a][b].getSelection() == false){
                                 disposition[a][b].setSelection(true) ;
                                 return disposition[a][b];
                             }
                             else if(b != 0 && b != a+1){
-                                if(disposition[a-1][b-1].getSelection() = true && disposition[a-1][b].getSelection() = true){
+                                if(disposition[a-1][b-1].getSelection() = true && disposition[a-1][b].getSelection() = true && disposition[a][b].getSelection() == false){
                                     disposition[a][b].setSelection(true) ;
                                     return disposition[a][b];
                                 }
@@ -236,11 +236,11 @@ Carte ChoixDeCartes(phase_jeu phase, std::vector<Carte>& cartes){
                     }
 
                     else if(a == 3){
-                            if(b == 0 && disposition[2][b].getSelection() = true && disposition[2][b+1].getSelection() = true){
+                            if(b == 0 && disposition[2][b].getSelection() = true && disposition[2][b+1].getSelection() = true && disposition[a][b].getSelection() == false){
                                 disposition[a][b].setSelection(true) ;
                                 return disposition[a][b];
                             }
-                            else if(b == 1 && disposition[2][b+1].getSelection() = true && disposition[2][b+2].getSelection() = true){
+                            else if(b == 1 && disposition[2][b+1].getSelection() = true && disposition[2][b+2].getSelection() = true && disposition[a][b].getSelection() == false){
                                 disposition[a][b].setSelection(true) ;
                                 return disposition[a][b];
                             }
@@ -250,13 +250,13 @@ Carte ChoixDeCartes(phase_jeu phase, std::vector<Carte>& cartes){
                     else{
                         if(a == 4 ) {
                             int q = b/2;
-                            if(disposition[3][q].getSelection() == true){
+                            if(disposition[3][q].getSelection() == true && disposition[a][b].getSelection() == false){
                                 disposition[a][b].setSelection(true) ;
                                 return disposition[a][b];
                             }
                         }
                         else{
-                            if(disposition[a-1][b].getSelection() == true && disposition[a-1][b+1].getSelection() == true){
+                            if(disposition[a-1][b].getSelection() == true && disposition[a-1][b+1].getSelection() == true && disposition[a][b].getSelection() == false){
                                 disposition[a][b].setSelection(true);
                                 return disposition[a][b];
                             }
