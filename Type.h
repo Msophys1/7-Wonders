@@ -1,4 +1,4 @@
-enum Ressources { bois, argile, pierre };
+enum Ressources { Bouclier, Papyrus, Verre, Pierre, Argile, Bois, Roue, Compas, Pilon, Tablette, Lyre, Mesure, Telescope };
 
 enum class JetonsProgres{
     Agriculture, Architecture, Economie, Loi, Maconnerie, Mathematiques,
@@ -13,7 +13,7 @@ enum class produitManufacture{
 };
 
 enum class Types{
-    Scientifique, Commerce, Militaire, Civil, Premiere, Manufacture
+    Scientifique, Commerce, Militaire, Civil, Premiere, Manufacture, Merveille, Guilde
 };
 enum class Couleurs{ marron, gris, bleu, vert, jaune, rouge
 };
