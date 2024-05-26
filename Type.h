@@ -22,3 +22,5 @@ enum class Chainage{
     Livre, Engrenage, Masque, Lune, Eau, Sabot, Epee, Tour, Cible, Chevalier, Lyre, Theiere,
     Soleil, Colonne, Tambour, Vase, Batiment
 };
+
+enum class phase_jeu { START, AGE_I, AGE_II, AGE_III, END };
