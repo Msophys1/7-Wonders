@@ -1,6 +1,7 @@
 #include <iostream>
 #include "GameManager.h"
 
+
 int main() {
     try {
         Merveille m1 = Merveille("Merveille 1", Types::Merveille, {}, 0, 0, 5, true);
@@ -29,6 +30,33 @@ int main() {
         gameManager.choisirMerveilles();
 
         cout << gameManager.getJoueur1();
+
+        // Test de la construction  d'un batiment
+        Batiment chantier = Batiment(
+                "Chantier", // Nom du bâtiment
+                Types::Premiere, // Type du bâtiment
+                {}, // Liste des ressources nécessaires
+                0, // Coût en argent
+                0, // Récompense en argent
+                0, // Points de victoire
+                {Ressources::Bois}, // Liste des ressources produites par le bâtiment
+                "" // Bâtiment chaîné (si applicable)
+        );
+
+        Batiment exploitation = Batiment(
+                "Exploitation", // Nom du bâtiment
+                Types::Premiere, // Type du bâtiment
+                {}, // Liste des ressources nécessaires
+                0, // Coût en argent
+                0, // Récompense en argent
+                1, // Points de victoire
+                {Ressources::Bois}, // Liste des ressources produites par le bâtiment
+                "" // Bâtiment chaîné (si applicable)
+        );
+
+        Joueur joueurBat("JoueurBat");
+        joueurBat.construireBatiment(chantier);
+        cout << joueurBat;
 
     } catch (const GameException& e) {
         cerr << "Erreur: " << e.getInfo() << endl;
