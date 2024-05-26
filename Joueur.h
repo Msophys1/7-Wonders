@@ -72,6 +72,10 @@ public:
 
     // Avoir toutes les cartes d'un joueur
     vector<Carte> getCartes() const;
+
+    // Construction d'un batiment
+    vector<Ressources> getAllRessources() const;
+    void construireBatiment(const Batiment& bat);
 };
 
 ostream& operator<<(ostream& f, const Joueur& joueur);
