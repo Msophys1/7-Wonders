@@ -68,7 +68,7 @@ void GameManager::choisirMerveilles() {
 
     // Joueur 1 prend la carte restante
     joueur1.ajouterMerveille(merveilles[array[0]]);
-    array.erase(array.begin() + (choix - 1));
+    array.erase(array.begin());
 
 
     // On recommence l'opération en inversant les roles des joueur 1 et 2
