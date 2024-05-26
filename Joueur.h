@@ -1,83 +1,61 @@
-#ifndef JOUEUR_H
-#define JOUEUR_H
+#include "Joueur.h"
 
-#include <iostream>
-#include <string>
-#include <map>
-#include <vector>
-#include "Carte.h"
-
-using namespace std;
-
-class Joueur {
-private:
-    string nom;
-    vector<Batiment> batiments;
-    vector<Merveille> merveilles;
-    vector<Guilde> guildes;
-    vector<JetonsProgres> jetonsProgres;
-    vector<SymboleScientifiques> symbolesScientifiques;
-    Joueur *adversaire;
-
-    bool effetRejouer = false; // Indique si le joueur peut rejouer (effet de Theologie).
-    int pointsDeVictoire = 0;
-    int pieces = 7;
-    int puissanceMilitaire = 0;
-
-public:
-    // Constructeur
-    Joueur(string nom) : nom(nom) {}
-
-    // Destructeur
-    ~Joueur() = default;
-
-    // Setters
-    void setNom(string nouveauNom) { nom = nouveauNom; }
-    void setEffetRejouer(bool nouvelEffet) { effetRejouer = nouvelEffet; }
-    void setPointsDeVictoire(int nouveauxPoints) { pointsDeVictoire = nouveauxPoints; }
-    void setPieces(int nouvellesPieces) { pieces = nouvellesPieces; }
-    void setPuissanceMilitaire(int nouvellePuissance) { puissanceMilitaire = nouvellePuissance; }
-    void setAdversaire(Joueur* nouvelAdversaire) { adversaire = nouvelAdversaire; }
-    void setJetonsProgres(const vector<JetonsProgres>& nouveauxJetons) { jetonsProgres = nouveauxJetons; }
-
-    // Getters
-    const string& getNom() const { return nom; }
-    bool getEffetRejouer() const { return effetRejouer; }
-    int getPointsDeVictoire() const { return pointsDeVictoire; }
-    int getPieces() const { return pieces; }
-    int getPuissanceMilitaire() const { return puissanceMilitaire; }
-    Joueur* getAdversaire() const { return adversaire; }
-    const vector<Batiment>& getBatiment() const { return batiments; }
-    const vector<Merveille>& getMerveilles() const { return merveilles; }
-    const vector<JetonsProgres>& getJetonsProgres() const { return jetonsProgres; }
-    const vector<SymboleScientifiques>& getSymbolesScientifiques() const { return symbolesScientifiques; }
-
-    // Ajouts
-    void ajouterMerveille(const Merveille& merveille) {
-        merveilles.push_back(merveille);
+ostream& operator<<(ostream& f, const Joueur& joueur) {
+    f << "Batiments du joueur " << joueur.getNom() << ":" << endl;
+    for (const Batiment& batiment : joueur.getBatiment()) {
+        f << batiment << endl;
     }
-    void ajouterBatiment(const Batiment& batiment) {
-        batiments.push_back(batiment);
-    }
-    void ajouterGuilde(const Guilde& guilde) {
-        guildes.push_back(guilde);
-    }
-    void ajouterJetonProgres(const JetonsProgres& jeton) {
-        jetonsProgres.push_back(jeton);
-    }
-    void ajouterSymboleScientifique(const SymboleScientifiques& symbole) {
-        symbolesScientifiques.push_back(symbole);
-    }
-    void ajouterPieces(int nouvellesPieces) { pieces += nouvellesPieces; }
 
-    // Avoir toutes les cartes d'un joueur
-    vector<Carte> getCartes() const;
+    /*
+    f << "Guildes du joueur " << joueur.getNom() << ":" << endl;
+    for (const Guilde& guilde : joueur.getGuildes()) {
+        f << guilde << endl;
+    }
+     */
 
-    // Construction d'un batiment
-    vector<Ressources> getAllRessources() const;
-    void construireBatiment(const Batiment& bat);
-};
 
-ostream& operator<<(ostream& f, const Joueur& joueur);
+    f << "Merveilles du joueur " << joueur.getNom() << ":" << endl;
+    for (const Merveille& merveille : joueur.getMerveilles()) {
+        f << merveille << endl;
+    }
 
-#endif // JOUEUR_H
+    return f;
+}
+
+vector<Ressources> Joueur::getAllRessources() const {
+    vector<Ressources> result;
+    for (size_t i = 0; i < batiments.size(); i++) {
+        const list<Ressources>& production = batiments[i].getProduction();
+        for (list<Ressources>::const_iterator it = production.begin(); it != production.end(); ++it) {
+            result.push_back(*it);
+        }
+    }
+    return result;
+}
+
+void Joueur::construireBatiment(const Batiment& bat){
+    unsigned int coutArgent = bat.getCoutArgent();
+    if(pieces < coutArgent)
+    {
+        cout << "Vous n'avez pas assez de pièce pour construire ce batiment"<<endl;
+        return;
+    }
+
+    const list<Ressources>& coutRessourcesBatiment = bat.getCoutRessource();
+    vector<Ressources> ressourcesJoueur = getAllRessources();
+    // Parcourir les ressources requises par le bâtiment
+    for (const Ressources& ressource : coutRessourcesBatiment) {
+        // Check si le joueur possede la ressource nécessaire
+        auto it = find(ressourcesJoueur.begin(), ressourcesJoueur.end(), ressource);
+        if (it != ressourcesJoueur.end()) {
+            // La ressource est trouvée, on la supprime du vecteur des ressources du joueur (pour prendre en compte les doublons)
+            ressourcesJoueur.erase(it);
+        } else {
+            // La ressource n'est pas trouvée
+            cout << "Vous n'avez pas assez de ressources pour construire ce bâtiment" << endl;
+            return;
+        }
+    }
+    
+    ajouterBatiment(bat);
+}
