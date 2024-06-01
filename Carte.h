@@ -19,14 +19,14 @@ enum class phase_jeu {START=0, AGE_I=1, AGE_II=2, AGE_III=3, END=4};
 // toutes les Ressourcess génériques sont centralisées dans cet enum : 
 // Boucliers, Matières Premières, Produits Manufacturés, Symbols Scientifiques
 
-//std::set<Ressources> getMatierePremiere();
-//std::set<Ressources> getProduitManufacture();
-//std::set<Ressources> getRessources();
-//std::set<Ressources> getSymboleScientifique();
+std::set<Ressources> getMatierePremiere();
+std::set<Ressources> getProduitManufacture();
+std::set<Ressources> getRessources();
+std::set<Ressources> getSymboleScientifique();
 
-//std::string tostringRessourcess(Ressources r);
-//std::string tostringType(Types t);
-//std::string tostringAge(phase_jeu p);
+std::string tostringRessourcess(Ressources r);
+std::string tostringType(Types t);
+std::string tostringAge(phase_jeu p);
 
 phase_jeu& operator++(phase_jeu& phase);
 
