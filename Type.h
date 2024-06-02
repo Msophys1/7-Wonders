@@ -1,4 +1,4 @@
-enum class ressource {Bouclier=0, Papyrus=1, Verre=2, Pierre=3, Argile=4, Bois=5, Telescope=6, Roue=7, Cadran=8, Pilon=9, Compas=10, Plume=11, Balance=12};
+enum class Ressources {Bouclier=0, Papyrus=1, Verre=2, Pierre=3, Argile=4, Bois=5, Telescope=6, Roue=7, Cadran=8, Pilon=9, Compas=10, Plume=11, Balance=12};
 
 enum class JetonsProgres{
     Agriculture, Architecture, Economie, Loi, Maconnerie, Mathematiques,
