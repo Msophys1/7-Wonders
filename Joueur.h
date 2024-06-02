@@ -9,6 +9,11 @@
 
 using namespace std;
 
+class Carte;
+class Batiment;
+class Merveille;
+class Guilde;
+
 class Joueur {
 private:
     string nom;
@@ -76,6 +81,9 @@ public:
     // Construction d'un batiment
     vector<Ressources> getAllRessources() const;
     void construireBatiment(const Batiment& bat);
+
+    // Construction d'une merveille
+    void construireMerveille(const Merveille& merveille);
 };
 
 ostream& operator<<(ostream& f, const Joueur& joueur);
