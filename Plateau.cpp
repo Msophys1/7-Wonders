@@ -35,3 +35,27 @@ void Plateau::setJetonsPlateau() {
     // Mettre les 5 jetons choisis dans jetonsProgresPlateau
     jetonsProgresPlateau = jetonsPlateau;
 }
+
+string Plateau::jetonsProgresToString(JetonsProgres jeton) const {
+    switch (jeton) {
+        case JetonsProgres::Agriculture: return "Agriculture";
+        case JetonsProgres::Architecture: return "Architecture";
+        case JetonsProgres::Economie: return "Economie";
+        case JetonsProgres::Loi: return "Loi";
+        case JetonsProgres::Maconnerie: return "Maconnerie";
+        case JetonsProgres::Mathematiques: return "Mathematiques";
+        case JetonsProgres::Philosophie: return "Philosophie";
+        case JetonsProgres::Strategie: return "Strategie";
+        case JetonsProgres::Theologie: return "Theologie";
+        case JetonsProgres::Urbanisme: return "Urbanisme";
+        default: return "Unknown";
+    }
+}
+
+void Plateau::retirerJetonProgres(int index) {
+    if (index >= 0 && index < jetonsProgresPlateau.size()) {
+        jetonsProgresPlateau.erase(jetonsProgresPlateau.begin() + index);
+    } else {
+        cout << "Index invalide" << endl;
+    }
+}
