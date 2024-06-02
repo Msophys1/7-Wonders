@@ -38,22 +38,36 @@ std::set<Ressources> getSymboleScientifique() {
     };
 }
 
-std::string tostringRessources(Ressources r){
+std::string tostringRessources(ressource r){
     switch(r) {
-        case Ressources::Roue : return "Roue" ;
-        case Ressources::Compas : return "Compas" ;
-        case Ressources::Pilon : return "Pilon" ;
-        case Ressources::Tablette : return "Tablette" ;
-        case Ressources::Lyre : return "Lyre" ;
-        case Ressources::Mesure : return "Mesure" ;
-        case Ressources::Telescope : return "Telescope" ;
-        case Ressources::Bouclier : return "Bouclier" ;
-        case Ressources::Papyrus : return "Papyrus" ;
-        case Ressources::Verre : return "Verre" ;
-        case Ressources::Pierre : return "Pierre" ;
-        case Ressources::Argile : return "Argile" ;
-        case Ressources::Bois : return "Bois" ;
+        case Ressources::Roue : return "Roue" ; 
+        case Ressources::Compas : return "Compas" ; 
+        case Ressources::Pilon : return "Pilon" ; 
+        case Ressources::Cadran : return "Cadran" ; 
+        case Ressources::Plume : return "Plume" ; 
+        case Ressources::Balance : return "Balance" ; 
+        case Ressources::Telescope : return "Telescope" ; 
+        case Ressources::Bouclier : return "Bouclier" ; 
+        case Ressources::Papyrus : return "Papyrus" ; 
+        case Ressources::Verre : return "Verre" ; 
+        case Ressources::Pierre : return "Pierre" ; 
+        case Ressources::Argile : return "Argile" ; 
+        case Ressources::Bois : return "Bois" ; 
         default : throw GameException("Ressource inconnue") ;
+    };
+}
+
+std::string tostringType(type_batiment t){
+    switch(t){
+        case type_batiment::Civil : return "Civil" ; 
+        case type_batiment::Militaire : return "Militaire" ; 
+        case type_batiment::Scientifique : return "Scientifique" ;
+        case type_batiment::Manufacture : return "Manufacture" ;
+        case type_batiment::Premiere : return "Premiere" ;
+        case type_batiment::Commerce : return "Commerce" ;
+        case type_batiment::Guilde : return "Guilde" ;
+        case type_batiment::Merveille : return "Merveille" ;
+        default : throw GameException("Batiment inconnu") ;
     };
 }
 
