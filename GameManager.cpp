@@ -2,6 +2,7 @@
 
 void GameManager::initialiserJeu() {
     plateau.setJetonsPlateau();
+    // TODO : adversaire*
     choisirMerveilles();
 }
 
@@ -139,6 +140,51 @@ int GameManager::compterDoublonsSymbolesScientifiques(const Joueur& joueur) cons
     return doublons;
 }
 
+bool GameManager::pairesymbolesScientifiques(const Joueur& joueur) {
+    if (compterDoublonsSymbolesScientifiques(joueur) >= 1) {
+        // Vérifier si la paire est déjà présente dans le vecteur
+        for (const auto& symbole : joueur.getSymbolesScientifiques()) {
+            if (find(paireSymboleScientifiqueObtenues.begin(), paireSymboleScientifiqueObtenues.end(), symbole) == paireSymboleScientifiqueObtenues.end()) {
+                // La paire n'est pas présente dans le vecteur paireSymboleScientifiqueObtenues
+                cout << "Le joueur a accumulé une nouvelle paire de symbole scientifique, il peut choisir un jeton sur le plateau :" << endl;
+                ajouterPaireSymboleScientifique(symbole);
+                return true;
+            }
+        }
+    }
+    return false;
+}
+
+void GameManager::choixJetonProgresPlateau(Joueur& joueur) {
+    unsigned int choix = 0;
+
+    // Afficher tous les jetons de progrès disponibles
+    std::cout << "Choisissez un jeton de progrès parmi les suivants :" << std::endl;
+    for (size_t i = 0; i < plateau.getJetonsProgresPlateau().size(); i++) {
+        std::cout << i + 1 << ". " << plateau.jetonsProgresToString(plateau.getJetonsProgresPlateau()[i]) << std::endl;
+    }
+
+    // Demander à l'utilisateur de faire un choix
+    std::cout << "Entrez le numéro du jeton que vous voulez choisir : ";
+    std::cin >> choix;
+
+    // Vérifier la validité du choix
+    if (choix > 0 && choix <= plateau.getJetonsProgresPlateau().size()) {
+        JetonsProgres choixUtilisateur = plateau.getJetonsProgresPlateau()[choix - 1];
+        std::cout << "Vous avez choisi : " << plateau.jetonsProgresToString(choixUtilisateur) << std::endl;
+
+        // Retirer le jeton du plateau
+        plateau.retirerJetonProgres(choix - 1);
+
+        // Ajout du jeton au joueur:
+        joueur.ajouterJetonProgres(choixUtilisateur);
+
+    } else {
+        std::cout << "Choix invalide. Veuillez réessayer." << std::endl;
+    }
+}
+
+
 void GameManager::commencerPartie() {
     bool partiefini = false;
     bool victoire = false;
@@ -171,6 +217,11 @@ void GameManager::commencerPartie() {
             victoire = true;
         }
 
+        // Si un joueur a une paire de symbole scientifique :
+        // Choix d'un jeton progres depuis le plateau :
+        if (pairesymbolesScientifiques(*current_player)) {
+            choixJetonProgresPlateau(*current_player);
+        }
 
         // Prochain joueur
         if(current_player == &joueur1 && joueur1.getEffetRejouer()) current_player = &joueur1;
