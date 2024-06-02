@@ -15,6 +15,11 @@
 
 using namespace std;
 
+class Carte;
+class Batiment;
+class Merveille;
+class Guilde;
+
 class GameException {
 public:
     GameException(const std::string& i) :info(i) {}
@@ -34,6 +39,8 @@ private:
     Plateau plateau;
     vector<JetonsProgres> jetonsProgresDisponibles;
     vector<Carte> defausse;
+
+    vector<SymboleScientifiques> paireSymboleScientifiqueObtenues; // Toutes les paires de symbole scientifique pour lesquelle le joueur a déjà choisi un
 
     list<int> indicesMerveillesChoisis;
 
@@ -58,6 +65,7 @@ public:
     void ajouterGuilde(const Guilde& g) { guilde.push_back(g); }
     void ajouterJetonProgres(const JetonsProgres& jp) { jetonsProgresDisponibles.push_back(jp); }
     void ajouterCarteDefausse(const Carte& c) { defausse.push_back(c); }
+    void ajouterPaireSymboleScientifique(const SymboleScientifiques& s) { paireSymboleScientifiqueObtenues.push_back(s); }
 
     // Méthodes de gestion du jeu
     void initialiserJeu();
@@ -66,6 +74,10 @@ public:
     void commencerPartie();
     void victoireCivile();
     int compterDoublonsSymbolesScientifiques(const Joueur& joueur) const;
+
+    // Si un joueur a deux symboles scientifiques identiques, il remporte un jeton
+    bool pairesymbolesScientifiques(const Joueur& joueur);
+    void choixJetonProgresPlateau(Joueur& joueur);
 
     // Destructeur
     ~GameManager() = default;
