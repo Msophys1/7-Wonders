@@ -39,24 +39,25 @@ std::set<Ressources> getSymboleScientifique() {
     };
 }
 
-std::string tostringRessourcess(Ressources r){
+std::string tostringRessources(ressource r){
     switch(r) {
-        case Ressources::Roue : return "Roue" ; 
-        case Ressources::Compas : return "Compas" ; 
-        case Ressources::Pilon : return "Pilon" ; 
-        case Ressources::Tablette : return "Tablette" ; 
-        case Ressources::Lyre : return "Lyre" ; 
-        case Ressources::Mesure : return "Mesure" ; 
-        case Ressources::Telescope : return "Telescope" ; 
-        case Ressources::Bouclier : return "Bouclier" ; 
-        case Ressources::Papyrus : return "Papyrus" ; 
-        case Ressources::Verre : return "Verre" ; 
-        case Ressources::Pierre : return "Pierre" ; 
-        case Ressources::Argile : return "Argile" ; 
-        case Ressources::Bois : return "Bois" ; 
-        default : throw GameException("Ressources inconnue") ;
+        case ressource::Roue : return "Roue" ; 
+        case ressource::Compas : return "Compas" ; 
+        case ressource::Pilon : return "Pilon" ; 
+        case ressource::Cadran : return "Cadran" ; 
+        case ressource::Plume : return "Plume" ; 
+        case ressource::Balance : return "Balance" ; 
+        case ressource::Telescope : return "Telescope" ; 
+        case ressource::Bouclier : return "Bouclier" ; 
+        case ressource::Papyrus : return "Papyrus" ; 
+        case ressource::Verre : return "Verre" ; 
+        case ressource::Pierre : return "Pierre" ; 
+        case ressource::Argile : return "Argile" ; 
+        case ressource::Bois : return "Bois" ; 
+        default : throw GameException("Ressource inconnue") ;
     };
 }
+
 
 std::string tostringType(Types t){
     switch(t){
@@ -79,7 +80,7 @@ std::string tostringJeton(jeton_progres j){
         case jeton_progres::Loi : return "Loi" ;
         case jeton_progres::Maconnerie : return "Maçonnerie" ;
         case jeton_progres::Mathematiques : return "Mathématiques" ;
-        case jeton_progres::Philosophie : "Philosophie" ; 
+        case jeton_progres::Philosophie : return "Philosophie" ; 
         case jeton_progres::Strategie : return "Stratégie" ;
         case jeton_progres::Theologie : return "Théologie" ;
         case jeton_progres::Urbanisme : return "Urbanisme" ;
