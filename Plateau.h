@@ -9,6 +9,10 @@
 #include "Carte.h"
 #include "Joueur.h"
 
+using namespace std;
+
+// TODO : Ajouter méthodes saccage
+
 class Plateau {
 public:
     Plateau();
@@ -34,6 +38,13 @@ public:
 
     // Fonction pour choisir au hasard 5 jetons et qui les mets dans jetonsProgresPlateau
     void setJetonsPlateau();
+
+    // Affichage d'un jeton progres
+    // Fonction pour convertir un JetonsProgres en string
+    string jetonsProgresToString(JetonsProgres jeton) const;
+
+    // Retrait d'un jeton progres du plateau
+    void retirerJetonProgres(int index);
 
     // operator<< qui montre l'état du plateau
 
