@@ -31,7 +31,7 @@ std::string tostringAge(phase_jeu p);
 phase_jeu& operator++(phase_jeu& phase);
 
 //void displayRessourcess(std::list<Ressources> r);
-
+/*
 class GameException {
 	public:
 		GameException(const std::string& i) :info(i) {}
@@ -39,6 +39,7 @@ class GameException {
 	private:
 		std::string info;
 };
+*/
 
 class Carte {
     // une fois créée par le contrôlleur Box (qui les gère),
