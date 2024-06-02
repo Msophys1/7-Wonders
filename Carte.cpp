@@ -59,14 +59,14 @@ std::string tostringRessources(ressource r){
 
 std::string tostringType(type_batiment t){
     switch(t){
-        case type_batiment::Civil : return "Civil" ; 
-        case type_batiment::Militaire : return "Militaire" ; 
-        case type_batiment::Scientifique : return "Scientifique" ;
-        case type_batiment::Manufacture : return "Manufacture" ;
-        case type_batiment::Premiere : return "Premiere" ;
-        case type_batiment::Commerce : return "Commerce" ;
-        case type_batiment::Guilde : return "Guilde" ;
-        case type_batiment::Merveille : return "Merveille" ;
+        case Types::Civil : return "Civil" ; 
+        case Types::Militaire : return "Militaire" ; 
+        case Types::Scientifique : return "Scientifique" ;
+        case Types::Manufacture : return "Manufacture" ;
+        case Types::Premiere : return "Premiere" ;
+        case Types::Commerce : return "Commerce" ;
+        case Types::Guilde : return "Guilde" ;
+        case Types::Merveille : return "Merveille" ;
         default : throw GameException("Batiment inconnu") ;
     };
 }
@@ -87,7 +87,7 @@ std::string tostringType(Types t){
 
 
 
-bool Carte::checkTypeRessourcess(std::list<Ressources> cost_r, std::set<Ressources> subset) const {
+bool Carte::checkTypeRessources(std::list<Ressources> cost_r, std::set<Ressources> subset) const {
     //std::set<Ressources> standard_Ressourcess = getRessources(); 
     for(auto iter = cost_r.begin() ; iter != cost_r.end() ; ++iter ) { // list iterator 
         if( subset.find(*iter) == subset.end() ) {
