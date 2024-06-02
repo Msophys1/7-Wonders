@@ -22,97 +22,228 @@ std::set<Ressources> getSymboleScientifique();
 std::string tostringRessources(Ressources r);
 std::string tostringType(Types t);
 
-class Carte {
-public:
+// FORWARD DECLARATION
+class Perk ;
+class Joueur ;
+class Box ; 
 
-    Carte(std::string nom, Types type, std::list<Ressources> cost_r = {}, unsigned int cost_m = 0, unsigned int argent = 0, unsigned int pt_victoire = 0);
+class Carte { // ABSTRACT 
 
-    // GETTERS
-    std::string getNom() const { return nom ; }
-    Types getType() const { return type ;}
-    unsigned int getCoutArgent() const { return cost_m ; }
-    unsigned int getRewardArgent() const { return argent ; }
-    unsigned int getPointVictoire() const { return pt_victoire ;}
-    std::list<Ressources> getCoutRessource() const { return cost_r ;}
+    // une fois créée par le contrôlleur Box (qui les gère),
+    // les cartes sont immutables et toujours manipulés avec des pointeurs const
 
-    // SETTERS
-    void setNom(std::string new_nom){ nom = new_nom ;}
-    //void setType(Types new_type) {type = new_type ;} //  attribut const
-    void setCoutArgent(unsigned int new_cost_m) { cost_m = new_cost_m ;}
-    void setRewardArgent(unsigned int new_argent) { argent = new_argent ;}
-    void setPointVictoire(unsigned int new_pt_victoire) { pt_victoire = new_pt_victoire ;}
-    void setCoutRessource(std::list<Ressources> cost) ;
+    public: 
 
-    // UTILS
-    bool achetableRessource(std::list<Ressources> buy) const ;
+        Carte(std::string nom, Types type, phase_jeu age=phase_jeu::AGE_I, std::list<Ressources> cost_r = {}, unsigned int cost_m = 0, unsigned int argent = 0, unsigned int pt_victoire = 0);
 
-protected :
+        // GETTERS
+        std::string getNom() const { return nom ; }
+        Types getType() const { return type ;}
+        phase_jeu getAge() const { return c_age ; }
+        unsigned int getCoutArgent() const { return cost_m ; }
+        unsigned int getRewardArgent() const { return argent ; }
+        unsigned int getPointVictoire() const { return pt_victoire ;}
+        std::list<Ressources> getCoutRessources() const { return cost_r ;}
 
-    bool checkTypeRessources(std::list<Ressources> cost_r, std::set<Ressources> subset) const;
-    // vérifier que les Ressourcess entrées appartiennent à la bonne catégorie
+        // SETTERS
+        void setNom(std::string new_nom){ nom = new_nom ;}
+        //void setType(Types new_type) {type = new_type ;} //  attribut const
+        void setAge(phase_jeu p){ c_age = p ;}
+        void setCoutArgent(unsigned int new_cost_m) { cost_m = new_cost_m ;}
+        void setRewardArgent(unsigned int new_argent) { argent = new_argent ;}
+        void setPointVictoire(unsigned int new_pt_victoire) { pt_victoire = new_pt_victoire ;}
+        void setCoutRessources(std::list<Ressources> cost) ;
 
-private:
-    std::string nom ;
-    const Types type ;
-    std::list<Ressources> cost_r ; // cout en Ressourcess
-    unsigned int cost_m ; // cout en argent
+        // UTILS
+        std::list<Ressources> achetableRessources(std::list<Ressources> buy) const ; 
+        // retourne la liste des Ressources manquante pour acheter la Carte
 
-    unsigned int argent ;
-    unsigned int pt_victoire ;
+        virtual void affichage() const ;
+        virtual void onBuild(Joueur* j) const = 0; // Joueur qui a construit la carte
+    
+    protected : 
+
+        bool checkTypeRessources(std::list<Ressources> cost_r, std::set<Ressources> subset) const;
+        // vérifier que les Ressources entrées appartiennent à la bonne catégorie
+
+    private:
+        std::string nom ;
+        const Types type ;
+        phase_jeu c_age ; 
+        std::list<Ressources> cost_r ; // cout en Ressources
+        unsigned int cost_m ; // cout en argent
+
+        unsigned int argent ;
+        unsigned int pt_victoire ;
 };
 
+std::ostream& operator<<(std::ostream& f, const Carte& c);
 
-std::ostream& operator<<(std::ostream& f, Carte c);
+template <typename T>
+void displayCards(std::vector<const T*> c){
+    for(auto iter = c.begin() ; iter != c.end() ; ++iter){
+        std::cout << **iter << std::endl  ;
+    }
+    return;
+}
 
 class Batiment : public Carte {
     // Civil, Scientifique, Militaire, Ressources
-public:
+    public:
 
-    Batiment(
-            std::string nom, Types type,
+        Batiment(
+            std::string nom, Types type, phase_jeu age=phase_jeu::AGE_I,
             std::list<Ressources> cost_r={}, unsigned int cost=0,
             unsigned int argent=0, unsigned int pt_victoire=0,
 
-            std::list<Ressources> production={}, std::string chained_by=""
-    );
+            std::list<Ressources> prod={}, std::string chained_by=""
+            );
+        
+        // GETTERS
+        std::string getChainage() const { return chained_by;}
+        std::list<Ressources> getProduction() const { return production ;}
 
-    // GETTERS
-    std::string getChainage() const { return chained_by;}
-    std::list<Ressources> getProduction() const { return production ;}
+        // SETTERS
+        void setChainage(std::string new_chain) { chained_by = new_chain;}
+        void setProduction(std::list<Ressources> new_prod) { production = new_prod ;}
 
-    // SETTERS
-    void setChainage(std::string new_chain) { chained_by = new_chain;}
-    void setProduction(std::list<Ressources> new_prod) { production = new_prod ;}
+        void affichage() const override ;
+        void onBuild(Joueur* j) const override ; 
 
 
-private:
-    std::list<Ressources> production ;
-    std::string chained_by ;
-};
-
-class Guilde : public Carte {
-public:
-private:
-    Types affectation ;
-    bool usurier ;
+    private:
+        std::list<Ressources> production ;
+        std::string chained_by ; 
 };
 
 class Commerce : public Batiment {
-public:
-private:
+    // RESPONSABLE DE SA PERK !!!
+    public:
+
+        Commerce(std::string nom, Types type, phase_jeu age=phase_jeu::AGE_I, std::list<Ressources> cost_r={}, unsigned int cost=0, unsigned int argent=0, unsigned int pt_victoire=0, std::list<Ressources> prod={}, std::string chained_by="", const Perk* perk=nullptr);
+        ~Commerce();
+        
+        const Perk* getPerk() const { return perk; }
+
+        void onBuild(Joueur* j) const override ;
+
+    protected:
+
+        const Perk* perk ;
 };
 
-class Merveille : public Carte {
-public:
-    Merveille(std::string nom, Types type=Types::Merveille, std::list<Ressources> cost_r = {}, unsigned int cost_m = 0, unsigned int argent = 0, unsigned int pt_victoire = 0, bool b=false);
+class Merveille : public Commerce {
+    public:
+        Merveille(std::string nom, Types type=Types::Merveille, phase_jeu age=phase_jeu::AGE_I, std::list<Ressources> cost_r = {}, unsigned int cost_m = 0, unsigned int argent = 0, unsigned int pt_victoire = 0, std::list<Ressources> prod={}, std::string chained_by="", const Perk* perk=nullptr, bool b=false, Carte* f=nullptr) : 
+        Commerce(nom, type, age, cost_r, cost_m, argent, pt_victoire, prod, chained_by, perk), replay(b), feed(f) {
+            if(type!=Types::Merveille){
+                throw GameException("ERREUR: Merveille instanciée avec un type autre que Merveille");
+            }
+            if(chained_by != ""){
+                throw GameException("ERREUR: une Merveille ne peut pas être chaîneée");
+            }
+        }; 
 
-    //GETTERS
-    bool getReplay() const { return replay ;}
+        //GETTERS
+        bool getReplay() const { return replay ;}
+        const Carte* getFeed() const { return feed ;}
+        bool isFed() const { return feed != nullptr; }
 
-    //SETTERS
-    void setReplay(bool b) { replay = b ;}
+        //SETTERS
+        void setReplay(bool b) { replay = b ;}
 
-private:
-    bool replay ;
+        //void onBuild(Joueur* j) const override ; // Calls onBuild commerce
+
+    private:
+
+        const Carte* feed ;
+        bool replay ;
 };
-#endif // CARTE_H
+
+class Guilde : public Carte {
+    public:
+        Guilde(
+            std::string nom, Types type, phase_jeu age=phase_jeu::AGE_I,
+            std::list<Ressources> cost_r={}, unsigned int cost=0,
+            unsigned int argent=0, unsigned int pt_victoire=0,
+
+            std::list<Types> affectation={}, bool usurier=false
+            );
+
+        unsigned int ptVictoireFinJeu(Joueur* j) const ;
+        void rewardArgent(Joueur* j) const ;
+
+        void onBuild(Joueur* j) const override ;
+
+    private:
+        std::list<Types> affectation ; 
+        bool usurier ; 
+};
+
+class Perk { // ABSTRACT
+
+    public: // PERK: ON CALL
+    
+        virtual void onCall(Joueur* j) const = 0 ; // PURE VIRTUAL
+        // on prend en paramètre le joueur qui a construit la carte
+
+        //~Perk(){} // vtable error paranoia ???
+        //bool isPolyRes(); 
+
+    private:
+
+};
+
+class Perk_CoinPerCard : public Perk {
+
+    public: 
+        Perk_CoinPerCard(unsigned int coin, Types card):coin(coin), card(card){}
+        //~Perk_CoinPerCard(){};
+
+        void gainCoinPerCard(Joueur* j) const ;
+        void onCall(Joueur* j) const override ;
+
+    private: // perk settings
+        unsigned int coin ; // nombre de pièces que l'on gagne par carte
+        Types card ; // type de carte sur laquelle le calcul se base
+
+}; 
+
+class Perk_Destruction : public Perk { // requires player interaction
+    public:
+        Perk_Destruction(Types c);
+
+        void destruction(Joueur* j) const ; 
+        void onCall(Joueur* j) const override; 
+    private:
+        Types card ; // type de Bâtiment autorisé à la destruction
+};
+
+class Perk_FixedTrade : public Perk {
+
+    public:
+        Perk_FixedTrade(std::list<Ressources> res, unsigned int coin): res(res), coin(coin){}
+
+        void setFixedTrade(Joueur* j) const ;
+        void onCall(Joueur* j) const override ; 
+    private: // perk settings
+        std::list<Ressources> res ; // Ressources pour laquelle le prix de trade est fixé
+        unsigned int coin ; // prix fixé
+
+};
+
+class Perk_Classic : public Perk { // PERKS W/O SETTINGS
+// PICK JETONS
+// FREE CONSTRUCTION FROM DEFAUSSE
+// SACCAGE
+    public: 
+        Perk_Classic(unsigned int id, const GameManager* box);
+
+        void saccage(Joueur* j) const ;
+        void freeConstructionFromDefausse(Joueur* j) const;
+        void pickJeton(Joueur* j) const;
+        void onCall(Joueur* j) const override;
+    private:
+        unsigned int id ;
+        const GameManager* box ; 
+};
