@@ -641,3 +641,183 @@
                 {}, // Liste des ressources produites par le bâtiment
                 "Rostres" // Bâtiment chaîné (si applicable)
         );
+
+        Merveille Le_circus_maximus = Merveille(
+                "Le Circus Maximus", // Nom du bâtiment
+                Types::Merveille, // Type du bâtiment
+                phase_jeu::AGE_I, // âge de la carte
+                {}, // Liste des ressources nécessaires
+                0, // Coût en argent
+                0, // Récompense en argent
+                3, // Points de victoire
+                {Ressources::Bouclier}, // Liste des ressources produites par le bâtiment
+                "", // Bâtiment chaîné (si applicable)
+                nullptr, // perk
+                false, // indique si la carte est rejouée
+                nullptr// feed
+        );
+
+        Merveille Le_colosse = Merveille(
+                "Le Colosse", // Nom du bâtiment
+                Types::Merveille, // Type du bâtiment
+                phase_jeu::AGE_I, // âge de la carte
+                {}, // Liste des ressources nécessaires
+                0, // Coût en argent
+                0, // Récompense en argent
+                3, // Points de victoire
+                {Ressources::Bouclier, Ressources::Bouclier}, // Liste des ressources produites par le bâtiment
+                "", // Bâtiment chaîné (si applicable)
+                nullptr, // perk
+                false, // indique si la carte est rejouée
+                nullptr// feed
+        );
+
+        Merveille Le_grand_phare = Merveille(
+                "Le Grand Phare", // Nom du bâtiment
+                Types::Merveille, // Type du bâtiment
+                phase_jeu::AGE_I, // âge de la carte
+                {}, // Liste des ressources nécessaires
+                0, // Coût en argent
+                0, // Récompense en argent
+                4, // Points de victoire
+                {Ressources::Bois, Ressources::Pierre, Ressources::Argile}, // Liste des ressources produites par le bâtiment
+                "", // Bâtiment chaîné (si applicable)
+                nullptr, // perk
+                false, // indique si la carte est rejouée
+                nullptr// feed
+        );
+
+        Merveille Les_jardins_suspendus = Merveille(
+                "Les Jardins Suspendus", // Nom du bâtiment
+                Types::Merveille, // Type du bâtiment
+                phase_jeu::AGE_I, // âge de la carte
+                {}, // Liste des ressources nécessaires
+                0, // Coût en argent
+                6, // Récompense en argent
+                3, // Points de victoire
+                {}, // Liste des ressources produites par le bâtiment
+                "", // Bâtiment chaîné (si applicable)
+                nullptr, // perk
+                true, // indique si la carte est rejouée
+                nullptr// feed
+        );
+
+        Merveille La_grande_bibliotheque = Merveille(
+                "Le Grande Bibliotheque", // Nom du bâtiment
+                Types::Merveille, // Type du bâtiment
+                phase_jeu::AGE_I, // âge de la carte
+                {}, // Liste des ressources nécessaires
+                0, // Coût en argent
+                0, // Récompense en argent
+                4, // Points de victoire
+                {}, // Liste des ressources produites par le bâtiment
+                "", // Bâtiment chaîné (si applicable)
+                nullptr, // perk
+                false, // indique si la carte est rejouée
+                nullptr// feed
+        );
+
+        Merveille Le_mausolee = Merveille(
+                "Le Mausolée", // Nom du bâtiment
+                Types::Merveille, // Type du bâtiment
+                phase_jeu::AGE_I, // âge de la carte
+                {}, // Liste des ressources nécessaires
+                0, // Coût en argent
+                0, // Récompense en argent
+                2, // Points de victoire
+                {}, // Liste des ressources produites par le bâtiment
+                "", // Bâtiment chaîné (si applicable)
+                nullptr, // perk
+                false, // indique si la carte est rejouée
+                nullptr// feed
+        );
+
+        Merveille Le_piree = Merveille(
+                "Le Piree", // Nom du bâtiment
+                Types::Merveille, // Type du bâtiment
+                phase_jeu::AGE_I, // âge de la carte
+                {}, // Liste des ressources nécessaires
+                0, // Coût en argent
+                0, // Récompense en argent
+                2, // Points de victoire
+                {Ressources::Papyrus, Ressources::Verre}, // Liste des ressources produites par le bâtiment
+                "", // Bâtiment chaîné (si applicable)
+                nullptr, // perk
+                true, // indique si la carte est rejouée
+                nullptr// feed
+        );
+
+        Merveille Les_pyramides = Merveille(
+                "Les Pyramides", // Nom du bâtiment
+                Types::Merveille, // Type du bâtiment
+                phase_jeu::AGE_I, // âge de la carte
+                {}, // Liste des ressources nécessaires
+                0, // Coût en argent
+                0, // Récompense en argent
+                9, // Points de victoire
+                {}, // Liste des ressources produites par le bâtiment
+                "", // Bâtiment chaîné (si applicable)
+                nullptr, // perk
+                false, // indique si la carte est rejouée
+                nullptr// feed
+        );
+
+        Merveille Le_sphinx = Merveille(
+                "Le Sphinx", // Nom du bâtiment
+                Types::Merveille, // Type du bâtiment
+                phase_jeu::AGE_I, // âge de la carte
+                {}, // Liste des ressources nécessaires
+                0, // Coût en argent
+                0, // Récompense en argent
+                6, // Points de victoire
+                {}, // Liste des ressources produites par le bâtiment
+                "", // Bâtiment chaîné (si applicable)
+                nullptr, // perk
+                true, // indique si la carte est rejouée
+                nullptr// feed
+        );
+
+        Merveille La_statue_de_zeus = Merveille(
+                "La Statue de Zeus", // Nom du bâtiment
+                Types::Merveille, // Type du bâtiment
+                phase_jeu::AGE_I, // âge de la carte
+                {}, // Liste des ressources nécessaires
+                0, // Coût en argent
+                0, // Récompense en argent
+                3, // Points de victoire
+                {Ressources::Bouclier}, // Liste des ressources produites par le bâtiment
+                "", // Bâtiment chaîné (si applicable)
+                nullptr, // perk
+                false, // indique si la carte est rejouée
+                nullptr// feed
+        );
+
+        Merveille Le_temple_d_artemis = Merveille(
+                "Le Temple d'Artemis", // Nom du bâtiment
+                Types::Merveille, // Type du bâtiment
+                phase_jeu::AGE_I, // âge de la carte
+                {}, // Liste des ressources nécessaires
+                0, // Coût en argent
+                12, // Récompense en argent
+                0, // Points de victoire
+                {}, // Liste des ressources produites par le bâtiment
+                "", // Bâtiment chaîné (si applicable)
+                nullptr, // perk
+                true, // indique si la carte est rejouée
+                nullptr// feed
+        );
+
+        Merveille La_vie_appia = Merveille(
+                "La Vie Appia", // Nom du bâtiment
+                Types::Merveille, // Type du bâtiment
+                phase_jeu::AGE_I, // âge de la carte
+                {}, // Liste des ressources nécessaires
+                0, // Coût en argent
+                3, // Récompense en argent
+                3, // Points de victoire
+                {}, // Liste des ressources produites par le bâtiment
+                "", // Bâtiment chaîné (si applicable)
+                nullptr, // perk
+                true, // indique si la carte est rejouée
+                nullptr// feed
+        );
