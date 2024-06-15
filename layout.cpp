@@ -1,35 +1,9 @@
 #include "wonders.h"
 
 
-/*
-void Layout::displayLayout() const {
-    size_t rows = age.size() ;
-    size_t columns = age[0].size();
-    int s = rows ;
 
-    for(int i = rows - 1 ; i >= 0 ; i--){
-        std::cout << " | " ;
-        for(int j= rows - i ; j >= 0 ; j--){
-            if( age[i][j] != 0 && age[i][j] != 4) { std::cout << age[i][j] ; } else { std::cout << " " ;}
-            std::cout << " | " ;
-        }
-        std::cout << std::endl ;
-        std::cout << std::string(2 * s, ' ');
-
-        s--;
-    }
-}
- */
 void Layout::displayLayout() const {
-    /*
-     const std::vector<std::vector<int>> ageI { // AGE I
-            {2, 2, 0, 0, 0, 0},
-            {3, 3, 3, 0, 0, 0},
-            {2, 2, 2, 2, 0, 0},
-            {3, 3, 3, 3, 3, 0},
-            {1, 1, 1, 1, 1, 1},
-    };
-     * */
+   
 
     size_t rows = age.size() ;
     size_t columns = age[0].size();
